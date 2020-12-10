@@ -1,2 +1,23 @@
 header
-	.section
+	.section.head.active
+		a(href='#').head-logo
+			+img('Logo.svg')
+		button.head-burger
+			span
+		nav.head-menu
+			ul.head-list
+				li.head-item
+					a(href='#').item-link Каталог
+				li.head-item
+					a(href='#').item-link Новости
+				li.head-item
+					a(href='#').item-link Услуги
+				li.head-item
+					a(href='#').item-link Контакты
+				li.head-item
+					a(href='#').item-link О компании
+		a(href='#').head-login Корпоративный вход
+		.head-lang
+			a(href='#').lang-link.active Ru
+			span |
+			a(href='#').lang-link En

@@ -2,3 +2,154 @@ $unit: 'px'
 .section
 	+w($mobile#{$unit})
 	margin: auto
+
+.ui
+	&-row
+		padding: 10px 0 30px
+
+.button
+	+wh(200px,56px)
+	+dfc
+	+font(16px,$f_semi,$white)
+	text-transform: uppercase
+	background-color: $button-blue
+	border-radius: 40px
+	box-shadow: 0 4px 4px 0 rgba($black,.25)
+	transition: .35s ease
+	&[disabled]
+		opacity: .5
+		box-shadow: none
+	&:hover
+		background-color: $button-darkblue
+	&:active
+		box-shadow: none
+		
+.link
+	font-family: $f_bold
+	text-decoration: underline
+	transition: .35s ease
+	&[disabled]
+		color: $button-blue
+		opacity: .5
+	&:hover
+		text-decoration: none
+
+.title
+	+font(36px,$f_bold,$black)
+	text-transform: uppercase
+
+.form
+	&-title
+		font-size: 24px
+		line-height: 64px
+	&-block
+		max-width: 471px
+		padding: 7px 24px
+		background-color: $light-gray
+		border: 1px solid rgba($border-gray,.2)
+		margin-bottom: 20px
+	&-feedback
+		.block
+			&-title
+				color: $form-subtitle
+				line-height: 22px
+				letter-spacing: .25px
+			&-input
+				+w(100%)
+				font-size: 18px
+				line-height: 28px
+				&::placeholder
+					color: $form-placeholder
+			&-textarea
+				background-color: transparent
+				border: none
+	&-privacy
+		margin-bottom: 25px
+		line-height: 26px
+		strong
+			font-family: $f_bold
+
+
+.head
+	+wh(300px,43px)
+	overflow: hidden
+	padding: 10px
+	background-color: rgba($button-blue,.9)
+	border-radius: 4px
+	display: flex
+	flex-wrap: wrap
+	align-items: center
+	position: fixed
+	top: 10px
+	left: 0
+	right: 0
+	z-index: 1000
+	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.6)
+	transition: .35s ease
+	&.active
+		height: 260px
+	&,a
+		color: $white
+	&-burger
+		padding: 5px
+		margin-left: auto
+		&:before,&:after
+			content: ''
+		&:before,&:after,span
+			+wh(25px,2px)
+			border-radius: 1px
+			background-color: $white
+			display: block
+		span
+			margin: 5px 0
+	&-menu
+		flex: 0 0 100%
+		margin-top: 20px
+	&-list
+	&-item
+	&-link
+	&-login
+		flex: 0 0 100%
+	&-lang
+		.lang-link
+			&.active
+
+.slide
+	min-height: 450px
+	background-size: auto 100%
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	padding: 70px 20px 20px
+	&,&-title
+		color: $white
+	&-title
+		font-size: 24px
+		display: flex
+		flex-wrap: wrap
+		span
+			padding: 0 5px
+			background-color: rgba($gray,.8)
+			margin-bottom: 5px
+			&:last-child
+				margin-bottom: 0
+	&-list
+		display: flex
+		align-items: flex-start
+		flex-direction: column
+	&-item
+		padding: 3px
+		margin-bottom: 5px
+		background-color: rgba($gray,.8)
+		&:last-child
+			margin-bottom: 0
+		img
+			margin-right: 7px
+		span
+			font-family: $f_semi
+	&-1
+		background-position: right
+		background-image: url('img/bgc-1.jpg')
+
+
+

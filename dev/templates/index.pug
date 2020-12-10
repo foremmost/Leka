@@ -1,7 +1,32 @@
 extends template/main
 append vars
 	-
-		page_title= 'Главная'
+		page_title= 'Main'
 block content
 	main
-		.section
+		section.main-slider.section
+			.slide.slide-1
+				h2.slide-title.title
+					span Металлоизделия
+					span высокого
+					span качества
+				ul.slide-row.slide-list
+					li.slide-item
+						+img('huysik.svg')
+						span Складское оборудование
+					li.slide-item
+						+img('huysik.svg')
+						span Шкафы
+					li.slide-item
+						+img('huysik.svg')
+						span Ящики
+					li.slide-item
+						+img('huysik.svg')
+						span Выставочное оборудование
+					li.slide-item
+						+img('huysik.svg')
+						span Двери металлические
+					li.slide-item
+						+img('huysik.svg')
+						span Сервисное оборудование
+				a(href='#').button Подробнее

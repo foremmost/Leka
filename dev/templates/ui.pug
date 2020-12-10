@@ -7,12 +7,22 @@ block content
 		.section.ui-row
 			form.form-feedback
 				h2.form-title.title Форма связи
-				.form-row
-					span.row-title Имя | Организация
-					input(type='text' placeholder='Юрий Гагарин').row-input
-				.form-row
-					span.row-title Ваш E-mail:
-					input(type='text' placeholder='Uragagarin@gmail.com').row-input
-				.form-row
-					span.row-title Ваш номер телефона:
-					input(type='text' placeholder='Uragagarin@gmail.com').row-input
+				.form-block
+					span.block-title Имя | Организация
+					input(type='text' placeholder='Юрий Гагарин').block-input
+				.form-block
+					span.block-title Ваш E-mail:
+					input(type='text' placeholder='Uragagarin@gmail.com').block-input
+				.form-block
+					span.block-title Ваш номер телефона:
+					input(type='text' placeholder='+9 (999) 999-99-99').block-input
+				.form-block
+					span.block-title Комментарий
+					textarea(placeholder='Здравствуйте!').block-textarea.block-input
+				.form-privacy
+					span Нажимая кнопку "
+					strong Отправить
+					span ", Вы даете согласие на обработку персональных данных и соглашаетесь с&nbsp;
+					a(href='#').link Privacy Policy
+					span .
+				button(disabled).button Отправить

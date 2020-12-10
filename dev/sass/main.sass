@@ -2,7 +2,9 @@
 @import "../../../../core/mixins/mixins"
 @import "vars"
 $font_body: 14px
-//+font_inc($f_reg,'roboto-regular.ttf')
++font_inc($f_reg,'ProximaNova-Regular.woff2')
++font_inc($f_bold,'ProximaNova-Bold.woff2')
++font_inc($f_semi,'ProximaNova-Semibold.woff2')
 .set
 	+wh(100%)
 html,body
@@ -11,6 +13,7 @@ html,body
 body
 	+wh(100%)
 	+font($font_body,$f_reg,$black)
+	letter-spacing: .75px
 
 input,button
 	font-family: inherit
