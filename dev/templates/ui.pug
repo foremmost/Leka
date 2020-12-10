@@ -1,0 +1,18 @@
+extends template/main
+append vars
+	-
+		page_title= 'UiKit'
+block content
+	main
+		.section.ui-row
+			form.form-feedback
+				h2.form-title.title Форма связи
+				.form-row
+					span.row-title Имя | Организация
+					input(type='text' placeholder='Юрий Гагарин').row-input
+				.form-row
+					span.row-title Ваш E-mail:
+					input(type='text' placeholder='Uragagarin@gmail.com').row-input
+				.form-row
+					span.row-title Ваш номер телефона:
+					input(type='text' placeholder='Uragagarin@gmail.com').row-input
