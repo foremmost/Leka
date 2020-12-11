@@ -6,11 +6,77 @@ class Front extends _front{
 		const _ = this;
 		MainEventBus.add(_.componentName,'createOrderSuccess',_.createOrderSuccess.bind(_));
 		MainEventBus.add(_.componentName,'createOrderFail',_.createOrderFail.bind(_));
+		MainEventBus.add(_.componentName,'mainSliderSwap',_.mainSliderSwap.bind(_));
+		MainEventBus.add(_.componentName,'mainSliderSwap',_.mainSliderSwapReset.bind(_));
+		MainEventBus.add(_.componentName,'headBurgerClick',_.headBurgerClick.bind(_));
+		
+		_.mainSliderButtonsCreate();
+		_.mainSliderAutoSwap();
 	}
 	createOrderSuccess(orderData){
 		console.log(orderData);
 	}
 	createOrderFail(orderData){}
+	
+	headBurgerClick(){
+		const _ = this;
+		let head = document.querySelector('.head');
+		head.classList.toggle('active');
+	}
+	
+	mainSliderButtonsCreate(){
+		const _ = this;
+		let slider = document.querySelector('.main-slider');
+		if(slider) {
+			let slidesCount = slider.children.length;
+			let controlTpl = document.createElement('DIV');
+			controlTpl.setAttribute('style',`width:${(slidesCount * 44) - 28}px`);
+			controlTpl.className = 'slider-control';
+			for(let i = 0; i < slidesCount; i++){
+				let button = document.createElement('BUTTON');
+				button.setAttribute('data-click-action',`${_.componentName}:mainSliderSwap`);
+				button.setAttribute('data-number',i+1);
+				button.className = 'control-button';
+				if(i === 0) button.classList.add('active');
+				controlTpl.append(button);
+			}
+			slider.append(controlTpl);
+		}
+	}
+	mainSliderAutoSwap(){
+		const _ = this;
+		let slider = document.querySelector('.main-slider');
+		if(slider) {
+			_.mainSliderInterval = setInterval(()=>{
+				let activeBtn = document.querySelector('.main-slider .control-button.active');
+				let nextBtn = activeBtn.nextElementSibling;
+				if(!nextBtn) nextBtn = activeBtn.parentElement.firstElementChild;
+				_.mainSliderSwap({item:nextBtn});
+			},10000)
+		}
+	}
+	mainSliderSwapReset(){
+		const _ = this;
+		clearInterval(_.mainSliderInterval);
+		_.mainSliderAutoSwap();
+	}
+	mainSliderSwap(clickData){
+		let button = clickData.item;
+		let number = button.getAttribute('data-number');
+		
+		let buttons = document.querySelectorAll('.main-slider .control-button');
+		buttons.forEach((btn) => {
+			if(btn.classList.contains("active")) btn.classList.remove('active');
+		});
+		if(!button.classList.contains('active')) button.classList.add('active');
+		
+		let slides = document.querySelectorAll('.main-slider .slide');
+		slides.forEach((slide,index) => {
+			if(slide.classList.contains("active")) slide.classList.remove('active');
+			if(index === number - 1) slide.classList.add('active');
+		});
+		
+	}
 }
 new Front();
 

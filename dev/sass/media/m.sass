@@ -1,6 +1,7 @@
 $unit: 'px'
 .section
-	+w($mobile#{$unit})
+	+w(100%)
+	padding: 0 10px
 	margin: auto
 
 .ui
@@ -23,6 +24,9 @@ $unit: 'px'
 		background-color: $button-darkblue
 	&:active
 		box-shadow: none
+	&-transparent
+		background-color: rgba($button-blue,.6)
+		border: 2px solid $button-blue
 		
 .link
 	font-family: $f_bold
@@ -35,7 +39,7 @@ $unit: 'px'
 		text-decoration: none
 
 .title
-	+font(36px,$f_bold,$black)
+	+font(24px,$f_bold,$black)
 	text-transform: uppercase
 
 .form
@@ -44,25 +48,26 @@ $unit: 'px'
 		line-height: 64px
 	&-block
 		max-width: 471px
-		padding: 7px 24px
 		background-color: $light-gray
-		border: 1px solid rgba($border-gray,.2)
-		margin-bottom: 20px
+		padding: 7px 24px
 	&-feedback
-		.block
-			&-title
-				color: $form-subtitle
-				line-height: 22px
-				letter-spacing: .25px
-			&-input
-				+w(100%)
-				font-size: 18px
-				line-height: 28px
-				&::placeholder
-					color: $form-placeholder
-			&-textarea
-				background-color: transparent
-				border: none
+		.form-block
+			margin-bottom: 20px
+			border: 1px solid rgba($border-gray,.2)
+	.block
+		&-title
+			color: $form-subtitle
+			line-height: 22px
+			letter-spacing: .25px
+		&-input
+			+w(100%)
+			font-size: 18px
+			line-height: 28px
+			&::placeholder
+				color: $form-placeholder
+		&-textarea
+			background-color: transparent
+			border: none
 	&-privacy
 		margin-bottom: 25px
 		line-height: 26px
@@ -70,8 +75,15 @@ $unit: 'px'
 			font-family: $f_bold
 
 
+header
+	padding: 0 10px
+	position: fixed
+	top: 10px
+	left: 0
+	right: 0
+	z-index: 1000
 .head
-	+wh(300px,43px)
+	height: 43px
 	overflow: hidden
 	padding: 10px
 	background-color: rgba($button-blue,.9)
@@ -79,17 +91,22 @@ $unit: 'px'
 	display: flex
 	flex-wrap: wrap
 	align-items: center
-	position: fixed
-	top: 10px
-	left: 0
-	right: 0
-	z-index: 1000
-	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.6)
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6)
 	transition: .35s ease
 	&.active
-		height: 260px
+		height: 238px
+		.head-burger
+			span
+				opacity: 0
+				visibility: hidden
+			&:before
+				transform: rotate(45deg) translate(4px,5px)
+			&:after
+				transform: rotate(-45deg) translate(5px,-6px)
 	&,a
 		color: $white
+	&-logo
+		display: flex
 	&-burger
 		padding: 5px
 		margin-left: auto
@@ -100,56 +117,156 @@ $unit: 'px'
 			border-radius: 1px
 			background-color: $white
 			display: block
+			transition: .35s ease
 		span
 			margin: 5px 0
 	&-menu
 		flex: 0 0 100%
 		margin-top: 20px
-	&-list
 	&-item
-	&-link
+		margin-top: 5px
+		&.active
+			font-family: $f_bold
+		&:first-child
+			margin-top: 0
 	&-login
 		flex: 0 0 100%
+		margin-top: 20px
+		font-family: $f_bold
+		text-transform: uppercase
 	&-lang
+		margin-top: 20px
+		span
+			margin: 0 5px
 		.lang-link
+			text-transform: uppercase
 			&.active
+				font-family: $f_bold
+
+				
+.main-slider
+	position: relative
+	height: 100vh
+	.slider-control
+		padding: 2px 10px
+		border-radius: 12px
+		background-color: rgba($white,.2)
+	.control-button
+		&.active
+			border-color: rgba($white,.5)
+		&:after
+			background-color: $button-blue
+.slider
+	&-control
+		display: flex
+		align-items: center
+		justify-content: space-between
+		position: absolute
+		bottom: 20px
+		left: 0
+		right: 0
+		margin: 0 auto
+.control-button
+	+wh(16px)
+	+dfc
+	border-radius: 100%
+	border: 2px solid transparent
+	transition: .5s ease
+	&:last-child
+		margin-right: 0
+	&:after
+		+af
+		+wh(8px)
+		border-radius: 100%
 
 .slide
-	min-height: 450px
-	background-size: auto 100%
-	display: flex
-	flex-direction: column
-	justify-content: space-between
-	padding: 70px 20px 20px
+	position: absolute
+	left: 0
+	right: 0
+	top: 0
+	bottom: 0
+	opacity: 0
+	visibility: hidden
+	transition: .5s ease
+	&.active
+		visibility: visible
+		opacity: 1
+	&-inner
+		height: 100%
+		display: flex
+		flex-direction: column
+		justify-content: center
+		padding: 83px 10px 40px
 	&,&-title
 		color: $white
 	&-title
 		font-size: 24px
 		display: flex
-		flex-wrap: wrap
-		span
+		flex-direction: column
+		align-items: flex-start
+		margin-bottom: 30px
+		i
 			padding: 0 5px
 			background-color: rgba($gray,.8)
-			margin-bottom: 5px
-			&:last-child
-				margin-bottom: 0
+			display: inline-block
 	&-list
 		display: flex
 		align-items: flex-start
 		flex-direction: column
+	&-lists
+		margin-bottom: 30px
 	&-item
 		padding: 3px
-		margin-bottom: 5px
+		margin: 2.5px 0
 		background-color: rgba($gray,.8)
-		&:last-child
-			margin-bottom: 0
 		img
 			margin-right: 7px
 		span
 			font-family: $f_semi
-	&-1
-		background-position: right
-		background-image: url('img/bgc-1.jpg')
+	&-bgc
+		position: absolute
+		top: 0
+		bottom: 0
+		left: 0
+		right: 0
+		z-index: -1
+		img
+			+wh(100%)
+			object-fit: cover
+			object-position: right
+
+			
+.consult
+	padding: 25px 10px
+	background-color: $form-bgc
+	&-form
+		border: 4px solid $button-blue
+		background-color: $white
+	&-title
+		padding: 20px 20px 0
+		letter-spacing: 0
+	&-block
+		padding: 20px
+		.form-block
+			background-color: $form-block
+			box-shadow: 7px 11px 15px 0 rgba($black,.15)
+	&-button
+		padding: 20px
+		background-image: url(img/Squares.svg)
+		background-size: cover
+		background-repeat: no-repeat
 
 
-
+.about
+	padding: 20px 0
+	&-img
+		height: 127px
+		margin-left: 10px
+		margin-top: 10px
+		position: relative
+		border: 2px solid $gray
+		img
+			position: absolute
+			left: -10px
+			top: -10px
+			box-shadow: 2px 2px 20px 0 rgba($black,.4)

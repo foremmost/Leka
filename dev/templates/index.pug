@@ -4,29 +4,58 @@ append vars
 		page_title= 'Main'
 block content
 	main
-		section.main-slider.section
-			.slide.slide-1
-				h2.slide-title.title
-					span Металлоизделия
-					span высокого
-					span качества
-				ul.slide-row.slide-list
-					li.slide-item
-						+img('huysik.svg')
-						span Складское оборудование
-					li.slide-item
-						+img('huysik.svg')
-						span Шкафы
-					li.slide-item
-						+img('huysik.svg')
-						span Ящики
-					li.slide-item
-						+img('huysik.svg')
-						span Выставочное оборудование
-					li.slide-item
-						+img('huysik.svg')
-						span Двери металлические
-					li.slide-item
-						+img('huysik.svg')
-						span Сервисное оборудование
-				a(href='#').button Подробнее
+		section.main-slider
+			include sliders/main-slider
+		section.consult
+			form.consult-form.form
+				.consult-title
+					h2.title Получите бесплатную консультацию
+				.consult-block
+					.form-block
+						span.block-title Ваш номер телефона:
+						input(type='text' placeholder='+9 (999) 999-99-99').block-input
+				.consult-button
+					button.button.button-transparent Отправить
+		section.section
+			.about
+				h1.title Leka.kz
+				.about-row
+					.about-img
+						+img('about.jpg')
+					p.about-desc
+						|Производственно-монтажная компания&nbsp;
+						strong «ЛЕКА»
+						|&nbsp;существует на
+						| рынке вентиляционного оборудования РеспубликKи Казахстан
+						| с 1989 года. За это время мы освоили основы создания
+						| необходимого микроклимата и передовые технологии
+						| климатической отрасли при изготовлении систем вентиляции
+						| и кондиционирования воздуха.
+				ul.about-list
+					li.about-item
+						h3.item-title
+							.title-text
+								span Опыт
+								span 28 лет на рынке
+						p.item-text
+							| За четверть века мы абсолютно
+							| хорошо поняли свое предназначение
+							| — проектирование и производство.
+					li.about-item
+						h3.item-title
+							.title-text
+								span Штат
+								span 28 лет на рынке
+						p.item-text
+							| За четверть века мы абсолютно
+							| хорошо поняли свое предназначение
+							| — проектирование и производство.
+					li.about-item
+						h3.item-title
+							.title-text
+								span Производство
+								span 28 лет на рынке
+						p.item-text
+						| За четверть века мы абсолютно
+						| хорошо поняли свое предназначение
+						| — проектирование и производство.

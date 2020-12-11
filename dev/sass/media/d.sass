@@ -1,3 +1,26 @@
 $unit: 'px'
 .section
 	+w($desktop#{$unit})
+	
+.head
+	&-menu
+		margin-right: 126px
+	&-item a,.head-login,.head-lang a
+		color: rgba($white,.7)
+		transition: .35s ease
+		&:hover
+			color: $white
+	.head-lang a.active
+		color: $white
+
+.slide
+	&-title
+		span
+			margin-bottom: 10px
+	&-item
+		margin-right: 22px
+		padding: 0 3px
+		
+.consult
+	&-title
+		flex-basis: 489px

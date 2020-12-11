@@ -1,7 +1,53 @@
-$unit: 'px'
-.section
-	+w($tablet#{$unit})
-	
 .form
 	&-feedback
 		font-size: 16px
+		
+header
+	padding: 0 20px
+.head
+	padding: 17px 10px
+	justify-content: space-between
+	letter-spacing: 0
+	&,&.active
+		height: auto
+	&-burger
+		display: none
+	&-menu,&-login
+		flex-basis: auto
+	&-menu,&-login,&-lang,&-item
+		margin: 0
+	&-list
+		display: flex
+		align-items: center
+	&-item
+		margin-right: 10px
+		&:last-child
+			margin-right: 0
+	&-login
+		text-transform: inherit
+		font-family: $f_reg
+
+.main-slider
+	min-height: 450px
+	max-height: 600px
+.slide
+	&-title
+		font-size: 48px
+		margin-bottom: 30px
+		i
+			padding: 5px 10px
+	&-lists
+		margin-bottom: 30px
+	&-item
+		font-size: 16px
+		
+.consult
+	&-form
+		display: flex
+	&-title
+		padding: 0 0 0 20px
+		flex: 0 0 230px
+	&-block
+		padding: 0 20px
+	&-title,&-block,&-button
+		+dfc
