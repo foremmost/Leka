@@ -2,8 +2,6 @@
 	&-feedback
 		font-size: 16px
 		
-header
-	padding: 0 20px
 .head
 	padding: 17px 10px
 	justify-content: space-between
@@ -30,16 +28,18 @@ header
 .main-slider
 	min-height: 450px
 	max-height: 600px
-.slide
-	&-title
-		font-size: 48px
-		margin-bottom: 30px
-		i
-			padding: 5px 10px
-	&-lists
-		margin-bottom: 30px
-	&-item
-		font-size: 16px
+	.slide
+		&-title
+			font-size: 48px
+			margin-bottom: 30px
+			i
+				padding: 5px 10px
+		&-inner
+			padding: 63px 10px 40px
+		&-lists
+			margin-bottom: 30px
+		&-item
+			font-size: 16px
 		
 .consult
 	&-form
@@ -51,3 +51,40 @@ header
 		padding: 0 20px
 	&-title,&-block,&-button
 		+dfc
+		
+.about
+	&-row
+		display: flex
+		align-items: center
+		justify-content: space-between
+		padding: 0
+	&-img
+		flex: 0 0 48%
+		order: 2
+	&-desc
+		flex: 0 0 50%
+		margin: 0
+	&-list
+		padding-top: 20px
+		display: flex
+		align-items: flex-start
+		justify-content: space-between
+	&-item
+		flex: 0 0 32%
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+.foot
+	&-links
+		justify-content: center
+	&-socials,&-cart
+		flex-basis: auto
+		padding: 10px 10px 0
+		border-radius: 10px 10px 0 0

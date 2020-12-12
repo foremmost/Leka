@@ -1,4 +1,8 @@
 $unit: 'px'
+
+body
+	padding-bottom: 0
+
 .section
 	+w($desktop#{$unit})
 	
@@ -13,14 +17,76 @@ $unit: 'px'
 	.head-lang a.active
 		color: $white
 
-.slide
-	&-title
-		span
-			margin-bottom: 10px
-	&-item
-		margin-right: 22px
-		padding: 0 3px
+.main-slider
+	.slide
+		&-title
+			span
+				margin-bottom: 10px
+		&-item
+			margin-right: 22px
+			padding: 0 3px
 		
 .consult
 	&-title
 		flex-basis: 489px
+		
+.about
+	padding: 90px 0
+	&-img
+		flex-basis: 526px
+	p
+		line-height: 164%
+	&-list
+		padding-top: 70px
+	&-item
+		flex-basis: 352px
+		.item
+			&-title
+				padding-left: 22px
+				&:before
+					+w(4px)
+			&-text
+				padding-left: 10px
+				letter-spacing: 0
+				
+
+
+
+
+
+
+
+
+
+.foot
+	&-links
+		flex-direction: column
+		top: 0
+		left: inherit
+	&-socials
+		flex-direction: column
+		padding: 20px 16px 12px 19px
+		.socials-link
+			margin-right: 0
+			margin-bottom: 25px
+			&:last-child
+				margin-bottom: 0
+			&:hover
+				svg
+					path
+						fill: $button-blue
+	&-cart
+		padding: 34px 16px 26px 19px
+		.socials-link
+			&:hover
+				svg
+					circle
+						fill: $button-blue
+					path
+						stroke: $white
+	&-socials,&-cart
+		border-radius: 10px 0 0 10px
+		.socials-link
+			svg
+				path,circle
+					transition: .35s ease

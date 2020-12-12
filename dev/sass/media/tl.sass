@@ -1,6 +1,11 @@
 $unit: 'px'
+
+section
+	margin-bottom: 60px
+
 .section
 	+w($tablet-large#{$unit})
+	padding: 0
 	
 .title
 	font-size: 36px
@@ -28,27 +33,33 @@ header
 		span
 			font-size: 24px
 
-.section.main-slider
+.main-slider
 	+w(100%)
-	
-.slide
-	&-inner
-		padding: 100px 0 0
-	&-title
-		font-size: 64px
-	&-row
-		display: flex
-		align-items: center
-		justify-content: space-between
-	&-lists
-		order: 2
-		flex-basis: calc(100% - 280px)
-		margin: 0
+	.slide
+		&-inner
+			padding: 100px 0 0
+		&-title
+			font-size: 64px
+		&-row
+			display: flex
+			align-items: center
+			justify-content: space-between
+		&-lists
+			order: 2
+			flex-basis: calc(100% - 280px)
+			margin: 0
 		
 .consult
-	padding: 60px 0
 	&-title
 		margin-right: auto
 		padding: 25px 0 25px 34px
 	&-block
 		flex: 0 0 365px
+		
+.about
+	padding: 40px 0
+	font-size: 18px
+	&-row
+		padding-top: 16px
+	&-list
+		padding-top: 40px

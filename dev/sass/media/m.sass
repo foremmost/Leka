@@ -1,4 +1,11 @@
 $unit: 'px'
+
+body
+	background-color: $form-bgc
+	padding-bottom: 60px
+section
+	margin-bottom: 30px
+
 .section
 	+w(100%)
 	padding: 0 10px
@@ -145,19 +152,8 @@ header
 			&.active
 				font-family: $f_bold
 
-				
-.main-slider
-	position: relative
-	height: 100vh
-	.slider-control
-		padding: 2px 10px
-		border-radius: 12px
-		background-color: rgba($white,.2)
-	.control-button
-		&.active
-			border-color: rgba($white,.5)
-		&:after
-			background-color: $button-blue
+
+
 .slider
 	&-control
 		display: flex
@@ -181,66 +177,78 @@ header
 		+wh(8px)
 		border-radius: 100%
 
-.slide
-	position: absolute
-	left: 0
-	right: 0
-	top: 0
-	bottom: 0
-	opacity: 0
-	visibility: hidden
-	transition: .5s ease
-	&.active
-		visibility: visible
-		opacity: 1
-	&-inner
-		height: 100%
-		display: flex
-		flex-direction: column
-		justify-content: center
-		padding: 83px 10px 40px
-	&,&-title
-		color: $white
-	&-title
-		font-size: 24px
-		display: flex
-		flex-direction: column
-		align-items: flex-start
-		margin-bottom: 30px
-		i
-			padding: 0 5px
-			background-color: rgba($gray,.8)
-			display: inline-block
-	&-list
-		display: flex
-		align-items: flex-start
-		flex-direction: column
-	&-lists
-		margin-bottom: 30px
-	&-item
-		padding: 3px
-		margin: 2.5px 0
-		background-color: rgba($gray,.8)
-		img
-			margin-right: 7px
-		span
-			font-family: $f_semi
-	&-bgc
+		
+.main-slider
+	position: relative
+	height: calc(100vh - 60px)
+	box-shadow: 0 20px 30px 0 rgba($black,.2)
+	.slider-control
+		padding: 2px 10px
+		border-radius: 12px
+		background-color: rgba($white,.2)
+	.control-button
+		&.active
+			border-color: rgba($white,.5)
+		&:after
+			background-color: $button-blue
+	.slide
 		position: absolute
-		top: 0
-		bottom: 0
 		left: 0
 		right: 0
-		z-index: -1
-		img
-			+wh(100%)
-			object-fit: cover
-			object-position: right
+		top: 0
+		bottom: 0
+		opacity: 0
+		visibility: hidden
+		transition: .5s ease
+		&.active
+			visibility: visible
+			opacity: 1
+		&-inner
+			height: 100%
+			display: flex
+			flex-direction: column
+			justify-content: center
+			padding: 63px 10px 40px
+		&,&-title
+			color: $white
+		&-title
+			font-size: 24px
+			display: flex
+			flex-direction: column
+			align-items: flex-start
+			margin-bottom: 10px
+			i
+				padding: 0 5px
+				background-color: rgba($gray,.8)
+				display: inline-block
+		&-list
+			display: flex
+			align-items: flex-start
+			flex-direction: column
+		&-item
+			padding: 3px
+			margin: 2.5px 0
+			background-color: rgba($gray,.8)
+			img
+				margin-right: 7px
+			span
+				font-family: $f_semi
+		&-button
+			margin-top: 10px
+		&-bgc
+			position: absolute
+			top: 0
+			bottom: 0
+			left: 0
+			right: 0
+			z-index: -1
+			img
+				+wh(100%)
+				object-fit: cover
+				object-position: right
 
-			
+
 .consult
-	padding: 25px 10px
-	background-color: $form-bgc
 	&-form
 		border: 4px solid $button-blue
 		background-color: $white
@@ -261,14 +269,151 @@ header
 
 .about
 	padding: 20px 0
+	background-color: $block-bgc
+	&-row
+		padding-top: 4px
+	p
+		font-family: $o_reg
+		strong
+			font-family: $f_bold
+			color: $button-blue
 	&-img
-		height: 127px
-		margin-left: 10px
-		margin-top: 10px
-		position: relative
-		border: 2px solid $gray
 		img
+			display: block
+	&-desc
+		margin: 10px 0
+	&-item
+		margin-bottom: 10px
+		.item
+			&-title
+				position: relative
+				padding-left: 10px
+				margin-bottom: 10px
+				span
+					display: block
+					letter-spacing: 0
+				&:before
+					+af
+					+wh(3px,100%)
+					background-color: $button-blue
+					position: absolute
+					left: 0
+		&:last-child
+			margin-bottom: 0
+
+
+.retailers
+	padding: 20px 10px
+	background-color: $block-bgc
+	.multiple-slider
+		margin-top: 15px
+	.slide
+		+wh(300px,372px)
+		display: flex
+		flex-direction: column
+		align-items: center
+		background-color: $slide-bgc
+		border-radius: 10px
+		overflow: hidden
+		position: relative
+		line-height: 1.2
+		&:before,&:after
+			+af
+			background-color: $white
 			position: absolute
-			left: -10px
-			top: -10px
-			box-shadow: 2px 2px 20px 0 rgba($black,.4)
+			border: 1px solid rgba($gray,.3)
+		&:before
+			+wh(calc(100% - 2px),calc(100% - 76px))
+			border-radius: 10px
+			border-bottom-right-radius: 0
+		&:after
+			+wh(218px,76px)
+			bottom: 0
+			right: 0
+			border-top: none
+			border-bottom-right-radius: 10px
+			border-bottom-left-radius: 10px
+		&-inner
+			+wh(100%)
+			padding: 20px 27px
+			position: absolute
+			z-index: 100
+		&-photo
+			display: flex
+			justify-content: space-around
+			margin-bottom: 5px
+		&-title
+			font-family: $f_bold
+			font-size: 24px
+			text-transform: capitalize
+			margin-bottom: 3px
+		&-code
+			color: $gray
+			line-height: 1.8
+		&-icon
+			+wh(79px,74px)
+			+dfc
+			position: absolute
+			bottom: 0
+			left: 0
+			img
+				display: block
+				position: relative
+				z-index: 10
+			&:before,span
+				position: absolute
+			&:before
+				+af
+				+wh(100%)
+				top: -10px
+				right: -10px
+				background-color: $white
+			span
+				+wh(calc(100% + 1px))
+				border-top-right-radius: 10px
+				background-color: $slide-bgc
+				&:after
+					+af
+					+wh(calc(100% - 10px))
+					position: absolute
+					bottom: 10px
+					left: 10px
+					border-top-right-radius: 10px
+					border-top: 1px solid rgba($gray,.3)
+					border-right: 1px solid rgba($gray,.3)
+		&-prices
+			margin-top: 38px
+			text-align: right
+			.old-price
+				color: $gray
+				text-decoration: line-through
+				margin-bottom: 4px
+			.current-price
+				font-family: $f_bold
+				font-size: 24px
+				color: $price-blue
+
+
+.foot
+	&-links
+		display: flex
+		align-items: center
+		position: fixed
+		bottom: 0
+		left: 0
+		right: 0
+		z-index: 100
+	&-socials
+		background-color: rgba($gray,.8)
+		flex: 0 0 80%
+		.socials-link
+			margin-right: 10px
+			display: block
+			&:last-child
+				margin-right: 0
+	&-cart
+		flex: 0 0 20%
+		background-color: rgba($button-lightblue,.8)
+	&-socials,&-cart
+		+dfc
+		padding: 10px 0 0

@@ -7,26 +7,19 @@ block content
 		section.main-slider
 			include sliders/main-slider
 		section.consult
-			form.consult-form.form
-				.consult-title
-					h2.title Получите бесплатную консультацию
-				.consult-block
-					.form-block
-						span.block-title Ваш номер телефона:
-						input(type='text' placeholder='+9 (999) 999-99-99').block-input
-				.consult-button
-					button.button.button-transparent Отправить
-		section.section
-			.about
+			.section
+				include parts/consult.pug
+		section.about
+			.section
 				h1.title Leka.kz
 				.about-row
 					.about-img
-						+img('about.jpg')
+						+img('about.png')
 					p.about-desc
 						|Производственно-монтажная компания&nbsp;
 						strong «ЛЕКА»
 						|&nbsp;существует на
-						| рынке вентиляционного оборудования РеспубликKи Казахстан
+						| рынке вентиляционного оборудования Республики Казахстан
 						| с 1989 года. За это время мы освоили основы создания
 						| необходимого микроклимата и передовые технологии
 						| климатической отрасли при изготовлении систем вентиляции
@@ -35,7 +28,7 @@ block content
 					li.about-item
 						h3.item-title
 							.title-text
-								span Опыт
+								span.title Опыт
 								span 28 лет на рынке
 						p.item-text
 							| За четверть века мы абсолютно
@@ -44,7 +37,7 @@ block content
 					li.about-item
 						h3.item-title
 							.title-text
-								span Штат
+								span.title Штат
 								span 28 лет на рынке
 						p.item-text
 							| За четверть века мы абсолютно
@@ -53,9 +46,27 @@ block content
 					li.about-item
 						h3.item-title
 							.title-text
-								span Производство
+								span.title Производство
 								span 28 лет на рынке
 						p.item-text
-						| За четверть века мы абсолютно
-						| хорошо поняли свое предназначение
-						| — проектирование и производство.
+							| За четверть века мы абсолютно
+							| хорошо поняли свое предназначение
+							| — проектирование и производство.
+		section.retailers
+			.section
+				h2.title Розничные предложения
+			.multiple-slider
+				a(href='#').slide
+					.slide-inner
+						.slide-photo
+							+img('dveri.png')
+						h4.slide-title Противопожарные входные двери
+						span.slide-code DR-84389-94
+						.slide-icon
+							+img('fire-shield.svg')
+							span
+						.slide-prices
+							.old-price 999999 ₸
+							.current-price 664499 ₸
+
+			.section
