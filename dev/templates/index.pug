@@ -4,12 +4,9 @@ append vars
 		page_title= 'Main'
 block content
 	main
-		section.main-slider
-			include sliders/main-slider
-		section.consult
-			.section
-				include parts/consult.pug
-		section.about
+		include sliders/main-slider
+		include parts/consult.pug
+		section.about.main-block
 			.section
 				h1.title Leka.kz
 				.about-row
@@ -52,21 +49,121 @@ block content
 							| За четверть века мы абсолютно
 							| хорошо поняли свое предназначение
 							| — проектирование и производство.
-		section.retailers
+		section.retailers.main-block
 			.section
 				h2.title Розничные предложения
 			.multiple-slider
-				a(href='#').slide
-					.slide-inner
-						.slide-photo
-							+img('dveri.png')
-						h4.slide-title Противопожарные входные двери
-						span.slide-code DR-84389-94
-						.slide-icon
-							+img('fire-shield.svg')
-							span
-						.slide-prices
-							.old-price 999999 ₸
-							.current-price 664499 ₸
-
+				include sliders/multiple-slide
+				include sliders/multiple-slide
+				include sliders/multiple-slide
+				include sliders/multiple-slide
+				include sliders/multiple-slide
+				include sliders/multiple-slide
+				include sliders/multiple-slide
 			.section
+				include parts/pagination
+		section.corp.main-block
+			.section
+				.corp-info
+					h2.title Корпоративный вход
+					span.corp-link WWW.LEKA.kz/corplogin
+					h3.corp-subtitle Масштабное сотрудничество
+					p.corp-desc Для крупных клиентов нашей компании мы предусмотрели специализированный вход на сайт. Для перехода в соответствующую версию просмотра и связи, вам необходимо кликнуть на пункт меню "Корпоративный вход". Далее войти или зарегистрироваться, чтобы портал отразил для вас исключительно оптовые предложения и всю промышленную мощь компании
+						strong &nbsp;«ЛЕКА».
+					ul.corp-list
+						li.corp-item
+							h5.plus-title
+								+img('Users.svg')
+								span Личный кабинет
+							p.plus-desc Удобный личный кабинет для хранения истории заказов, рассчета сметы и отслеживания производства.
+						li.corp-item
+							h5.plus-title
+								+img('ChatText.svg')
+								span Поддержка
+							p.plus-desc Предлагаем плановое и аварийное обслуживание. Наш инженер аккуратно демонтирует оборудование и лично отвезет его в сервисный центр. По окончании ремонта мы заново установим и запустим систему вентиляции.
+						li.corp-item
+							h5.plus-title
+								+img('PlusMinus.svg')
+								span Калькулятор
+							p.plus-desc Многофункциональность онлайн сервиса является несомненным достоинством сайта. Онлайн калькулятор позволяет производить расчеты не выходя из офиса.
+				.corp-img
+					h3.img-title
+						span Корпоративный вход
+					ul.img-pluses
+						li.img-plus
+							a(href='#').plus-title
+								svg(width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg")
+									path(d="M1.25 1.625L5.625 6L1.25 10.375" stroke="#2F3035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+								span Новости
+							p.plus-desc Описание в двух-трех словах
+						li.img-plus
+							a(href='#').plus-title
+								svg(width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg")
+									path(d="M1.25 1.625L5.625 6L1.25 10.375" stroke="#2F3035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+								span Новости
+							p.plus-desc Описание в двух-трех словах
+						li.img-plus
+							a(href='#').plus-title
+								svg(width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg")
+									path(d="M1.25 1.625L5.625 6L1.25 10.375" stroke="#2F3035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+								span Услуги
+							p.plus-desc Описание в двух-трех словах
+						li.img-plus
+							a(href='#').plus-title
+								svg(width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg")
+									path(d="M1.25 1.625L5.625 6L1.25 10.375" stroke="#2F3035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+								span Контакты
+							p.plus-desc Описание в двух-трех словах
+						li.img-plus
+							a(href='#').plus-title
+								svg(width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg")
+									path(d="M1.25 1.625L5.625 6L1.25 10.375" stroke="#2F3035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+								span О компании
+							p.plus-desc Описание в двух-трех словах
+						li.img-plus
+							a(href='#').plus-title
+								svg(width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg")
+									path(d="M1.25 1.625L5.625 6L1.25 10.375" stroke="#2F3035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+								span Корпоративный вход
+							p.plus-desc Описание в двух-трех словах
+					+img('iPhone.png')
+		include parts/consult.pug
+		section.services.main-block
+			.section
+				h2.title Услуги
+			.multiple-slider
+				a(href='#').slide
+					.slide-img
+						+img('services-slide-1.jpg')
+					h5.slide-title
+						span Лазерная резка
+				a(href='#').slide
+					.slide-img
+						+img('services-slide-2.jpg')
+					h5.slide-title
+						span Вальцовка металла
+				a(href='#').slide
+					.slide-img
+						+img('services-slide-1.jpg')
+					h5.slide-title
+						span Лазерная резка
+				a(href='#').slide
+					.slide-img
+						+img('services-slide-2.jpg')
+					h5.slide-title
+						span Вальцовка металла
+				a(href='#').slide
+					.slide-img
+						+img('services-slide-1.jpg')
+					h5.slide-title
+						span Лазерная резка
+				a(href='#').slide
+					.slide-img
+						+img('services-slide-2.jpg')
+					h5.slide-title
+						span Вальцовка металла
+			.section
+				include parts/pagination
+
+
+

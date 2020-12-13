@@ -1,9 +1,17 @@
-
+%df-ml
+	display: flex
+%dfa-ml
+	@extend %df-ml
+	align-items: center
+%dfi-ml
+	@extend %dfa-ml
+	justify-content: space-between
+%dfc-ml
+	@extend %dfa-ml
+	justify-content: center
 .main-slider
 	min-height: 400px
 	.slide
-		&-inner
-			padding: 63px 20px 40px
 		&-title
 			margin-bottom: 10px
 		&-list

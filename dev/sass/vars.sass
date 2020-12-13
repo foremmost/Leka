@@ -1,18 +1,25 @@
 ///*--==[ Ширины]==--*/
-//$unit : '%'
+%df
+	display: flex
+%dfa
+	@extend %df
+	align-items: center
+%dfi
+	@extend %dfa
+	justify-content: space-between
+%dfc
+	@extend %dfa
+	justify-content: center
 
+// --==[ Макросы ]==--
 
 // 320
-$mobile: 320
-// 460
-$mobile-large: 460
-// 768
-$tablet: 748
-// 1004
-$tablet-large: 1004
-// 1170
-$desktop: 1170
-// 1440
+
+$mobile: var(--mobile-width)
+$mobile-large: var(--mobile-large-width)
+$tablet: var(--tablet-width)
+$tablet-large: var(--tablet-large-width)
+$desktop: var(--desktop-width)
 //$desktop-large: 1440
 
 
@@ -21,32 +28,35 @@ $col: 0
 $gap: 0
 
 
-// --==[ Названия шрифтов]==--
-//+font_inc($f_reg,'path')
-$f_reg: 'ProximaNova-Regular'
-$o_reg: 'Open-Sans'
-$f_bold: 'ProximaNova-Bold'
-$f_semi: 'ProximaNova-Semibold'
+
+$f_reg: var(--freg)
+$f_bold: var(--fbold)
+$f_semi: var(--fsemi)
+$o_reg: var(--oreg)
 
 
-///*--==[ Цвета ]==--*/
-$black: #18191F
-$white: #fff
-$light-gray: #F2F7FF
-$gray: #383838
+$black: var(--black)
+$white: var(--white)
+$light-gray: var(--light-gray)
+$gray: var(--gray)
 
-$form-subtitle: #6E7191
-$form-placeholder: #DADADA
-$form-block: #F0F0F0
-$form-bgc: #D1D1D1
+$form-subtitle: var(--form-subtitle)
+$form-placeholder: var(--form-placeholder)
+$form-block: var(--form-block)
+$form-bgc: var(--form-bgc)
 
-$button-blue: #1480FF
-$button-darkblue: #1170DE
-$button-lightblue: #2B81E7
-$price-blue: #225C75
+$button-blue: var(--button-blue)
+$button-darkblue: var(--button-darkblue)
+$button-lightblue: var(--button-lightblue)
+$price-blue: var(--price-blue)
 
-$slide-bgc: #ECEDEF
+$slide-bgc: var(--slide-bgc)
 
-$border-gray: #18181A
+$arrow: var(--arrow)
+$arrow-hover: var(--arrow-hover)
+$border-gray: var(--border-gray)
 
-$block-bgc: #FBFDFF
+$block-bgc: var(--block-bgc)
+//
+$transition: var(--transition)
+

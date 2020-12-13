@@ -1,21 +1,30 @@
-$unit: 'px'
-
+%df-d
+	display: flex
+%dfa-d
+	@extend %df-d
+	align-items: center
+%dfi-d
+	@extend %dfa-d
+	justify-content: space-between
+%dfc-d
+	@extend %dfa-d
+	justify-content: center
 body
 	padding-bottom: 0
 
 .section
-	+w($desktop#{$unit})
+	+w($desktop)
 	
 .head
 	&-menu
 		margin-right: 126px
 	&-item a,.head-login,.head-lang a
 		color: rgba($white,.7)
-		transition: .35s ease
+		transition: $transition
 		&:hover
-			color: $white
+			color: RGB($white)
 	.head-lang a.active
-		color: $white
+		color: RGB($white)
 
 .main-slider
 	.slide
@@ -30,6 +39,10 @@ body
 	&-title
 		flex-basis: 489px
 		
+
+.main-block
+	padding: 80px 0
+	
 .about
 	padding: 90px 0
 	&-img
@@ -49,15 +62,40 @@ body
 				padding-left: 10px
 				letter-spacing: 0
 				
+.multiple-slider
+	+w(100%)
+	overflow: visible
+
+.corp
+	.section
+		align-items: flex-end
+	&-link,&-subtitle,&-desc,&-item
+		margin-top: 30px
+	&-info
+		+w(640px)
+	&-desc
+		font-size: 18px
+	&-link
+		font-size: 16px
+	&-subtitle
+		font-size: 36px
+	&-list
+		margin-top: 60px
+	&-item
+		.plus
+			&-title
+				font-size: 24px
+				margin-bottom: 15px
+			&-desc
+				font-size: 18px
+				line-height: 24px
 
 
-
-
-
-
-
-
-
+.services
+	.slide
+		+w(330px)
+		flex: 0 0 330px
+		box-shadow: 7px 11px 30px 0 rgba(0, 0, 0, 0.3)
 .foot
 	&-links
 		flex-direction: column
@@ -74,19 +112,19 @@ body
 			&:hover
 				svg
 					path
-						fill: $button-blue
+						fill: RGB($button-blue)
 	&-cart
 		padding: 34px 16px 26px 19px
 		.socials-link
 			&:hover
 				svg
 					circle
-						fill: $button-blue
+						fill: RGB($button-blue)
 					path
-						stroke: $white
+						stroke: RGB($white)
 	&-socials,&-cart
 		border-radius: 10px 0 0 10px
 		.socials-link
 			svg
 				path,circle
-					transition: .35s ease
+					transition: $transition

@@ -1,11 +1,11 @@
 @import "../../../../core/mixins/reset"
 @import "../../../../core/mixins/mixins"
 @import "vars"
-$font_body: 14px
-+font_inc($o_reg,'Open-Sans.ttf')
-+font_inc($f_reg,'ProximaNova-Regular.woff2')
-+font_inc($f_bold,'ProximaNova-Bold.woff2')
-+font_inc($f_semi,'ProximaNova-Semibold.woff2')
+$font_body: var(--fontsize-body)
++font_inc('Open-Sans','Open-Sans.ttf')
++font_inc('ProximaNova-Regular','ProximaNova-Regular.woff2')
++font_inc('ProximaNova-Bold','ProximaNova-Bold.woff2')
++font_inc('ProximaNova-Semibold','ProximaNova-Semibold.woff2')
 .set
 	+wh(100%)
 html,body
@@ -13,7 +13,7 @@ html,body
 	overflow-x: hidden
 body
 	+wh(100%)
-	+font($font_body,$f_reg,$black)
+	+font($font_body,$f_reg,RGB($black))
 	letter-spacing: .75px
 
 input,button
@@ -27,13 +27,56 @@ input
 $unit: 'px'
 
 @import "media/m"
-+mq($mobile-large#{$unit})
++mq(460px)
 	@import "media/ml"
-+mq($tablet#{$unit})
++mq(740px)
 	@import "media/t"
-+mq($tablet-large#{$unit})
++mq(1004px)
 	@import "media/tl"
-+mq($desktop#{$unit})
++mq(1170px)
 	@import "media/d"
 //+mq($desktop-large#{$unit})
 	@import "media/dl"
+	
+html
+	///*--==[ Прозрачность]==--*/
+	
+	///*--==[ Цвета ]==--*/
+	--mobile-width: calc(100% - 20px)
+	--mobile-large-width: 460px
+	--tablet-width: 748px
+	--tablet-large-width: 984px
+	--desktop-width: 1170px
+	//
+	--black: 24,25,31
+	--white: 255,255,255
+	--light-gray: 242,247,255
+	--gray: 56,56,56
+	
+	--form-subtitle: 110,113,145
+	--form-placeholder: 218,218,218
+	--form-block: 240,240,240
+	--form-bgc: 209,209,209
+	
+	--button-blue: 20,128,255
+	--button-darkblue: 17,112,222
+	--button-lightblue: 43,129,231
+	--price-blue: 34,92,117
+	
+	--slide-bgc: 236,237,239
+	
+	--arrow: 189,189,189
+	--arrow-hover: 11,11,11
+	--border-gray: 24,24,26
+	
+	--block-bgc: 251,253,255
+	// --==[ Размеры ]==--
+	--fontsize-body: 14px
+	// --==[ Названия шрифтов]==--
+	--freg: 'ProximaNova-Regular'
+	--fbold: 'ProximaNova-Bold'
+	--fsemi: 'ProximaNova-Semibold'
+	--oreg: 'Open-Sans'
+	
+	
+	--transition: .35s ease

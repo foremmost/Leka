@@ -1,10 +1,20 @@
-$unit: 'px'
+%df-tl
+	display: flex
+%dfa-tl
+	@extend %df-tl
+	align-items: center
+%dfi-tl
+	@extend %dfa-tl
+	justify-content: space-between
+%dfc-tl
+	@extend %dfa-tl
+	justify-content: center
 
 section
 	margin-bottom: 60px
 
 .section
-	+w($tablet-large#{$unit})
+	+w($tablet-large)
 	padding: 0
 	
 .title
@@ -28,8 +38,7 @@ header
 	&-lang
 		padding: 11.5px 17px
 		box-shadow: inset 4px 0 20px 0 rgba($black,.4)
-		display: flex
-		align-items: center
+		@extend %dfa-tl
 		span
 			font-size: 24px
 
@@ -41,9 +50,7 @@ header
 		&-title
 			font-size: 64px
 		&-row
-			display: flex
-			align-items: center
-			justify-content: space-between
+			@extend %dfi-tl
 		&-lists
 			order: 2
 			flex-basis: calc(100% - 280px)
@@ -56,10 +63,34 @@ header
 	&-block
 		flex: 0 0 365px
 		
-.about
+.main-block
 	padding: 40px 0
+	
+.about
 	font-size: 18px
 	&-row
 		padding-top: 16px
 	&-list
 		padding-top: 40px
+		
+		
+.multiple-slider
+	+w(960px)
+	margin-top: 33px
+	margin-bottom: 75px
+		
+.corp
+	&-info
+		+w(calc(100% - 446px))
+	&-img
+		+w(376px)
+		.img
+			&-title
+				left: 130px
+			&-plus
+				letter-spacing: 0
+				padding-left:  42px
+		.plus-title
+			font-size: 16px
+			svg
+				left: -20px

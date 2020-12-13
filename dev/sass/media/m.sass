@@ -1,14 +1,12 @@
-$unit: 'px'
 
 body
-	background-color: $form-bgc
+	background-color: RGB($form-bgc)
 	padding-bottom: 60px
 section
 	margin-bottom: 30px
 
 .section
-	+w(100%)
-	padding: 0 10px
+	+w(var(--mobile-width))
 	margin: auto
 
 .ui
@@ -18,37 +16,37 @@ section
 .button
 	+wh(200px,56px)
 	+dfc
-	+font(16px,$f_semi,$white)
+	+font(16px,$f_semi,RGB($white))
 	text-transform: uppercase
-	background-color: $button-blue
+	background-color: RGB($button-blue)
 	border-radius: 40px
 	box-shadow: 0 4px 4px 0 rgba($black,.25)
-	transition: .35s ease
+	transition: $transition
 	&[disabled]
 		opacity: .5
 		box-shadow: none
 	&:hover
-		background-color: $button-darkblue
+		background-color: RGB($button-darkblue)
 	&:active
 		box-shadow: none
 	&-transparent
 		background-color: rgba($button-blue,.6)
-		border: 2px solid $button-blue
+		border: 2px solid RGB($button-blue)
 		&:hover
 			background-color: rgba($button-darkblue,.6)
 		
 .link
 	font-family: $f_bold
 	text-decoration: underline
-	transition: .35s ease
+	transition: $transition
 	&[disabled]
-		color: $button-blue
+		color: RGB($button-blue)
 		opacity: .5
 	&:hover
 		text-decoration: none
 
 .title
-	+font(24px,$f_bold,$black)
+	+font(24px,$f_bold)
 	text-transform: uppercase
 
 .form
@@ -57,7 +55,7 @@ section
 		line-height: 64px
 	&-block
 		max-width: 471px
-		background-color: $light-gray
+		background-color: RGB($light-gray)
 		padding: 7px 24px
 	&-feedback
 		.form-block
@@ -65,7 +63,7 @@ section
 			border: 1px solid rgba($border-gray,.2)
 	.block
 		&-title
-			color: $form-subtitle
+			color: RGB($form-subtitle)
 			line-height: 22px
 			letter-spacing: .25px
 		&-input
@@ -73,7 +71,7 @@ section
 			font-size: 18px
 			line-height: 28px
 			&::placeholder
-				color: $form-placeholder
+				color: RGB($form-placeholder)
 		&-textarea
 			background-color: transparent
 			border: none
@@ -85,7 +83,6 @@ section
 
 
 header
-	padding: 0 10px
 	position: fixed
 	top: 10px
 	left: 0
@@ -97,11 +94,10 @@ header
 	padding: 10px
 	background-color: rgba($button-blue,.9)
 	border-radius: 4px
-	display: flex
+	@extend %dfa
 	flex-wrap: wrap
-	align-items: center
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6)
-	transition: .35s ease
+	transition: $transition
 	&.active
 		height: 238px
 		.head-burger
@@ -113,9 +109,9 @@ header
 			&:after
 				transform: rotate(-45deg) translate(5px,-6px)
 	&,a
-		color: $white
+		color: RGB($white)
 	&-logo
-		display: flex
+		@extend %df
 	&-burger
 		padding: 5px
 		margin-left: auto
@@ -124,9 +120,9 @@ header
 		&:before,&:after,span
 			+wh(25px,2px)
 			border-radius: 1px
-			background-color: $white
+			background-color: RGB($white)
 			display: block
-			transition: .35s ease
+			transition: $transition
 		span
 			margin: 5px 0
 	&-menu
@@ -156,9 +152,7 @@ header
 
 .slider
 	&-control
-		display: flex
-		align-items: center
-		justify-content: space-between
+		@extend %dfi
 		position: absolute
 		bottom: 20px
 		left: 0
@@ -190,7 +184,7 @@ header
 		&.active
 			border-color: rgba($white,.5)
 		&:after
-			background-color: $button-blue
+			background-color: RGB($button-blue)
 	.slide
 		position: absolute
 		left: 0
@@ -205,15 +199,15 @@ header
 			opacity: 1
 		&-inner
 			height: 100%
-			display: flex
+			@extend %df
 			flex-direction: column
 			justify-content: center
-			padding: 63px 10px 40px
+			padding: 63px 0 40px
 		&,&-title
-			color: $white
+			color: RGB($white)
 		&-title
 			font-size: 24px
-			display: flex
+			@extend %df
 			flex-direction: column
 			align-items: flex-start
 			margin-bottom: 10px
@@ -222,7 +216,7 @@ header
 				background-color: rgba($gray,.8)
 				display: inline-block
 		&-list
-			display: flex
+			@extend %df
 			align-items: flex-start
 			flex-direction: column
 		&-item
@@ -250,15 +244,15 @@ header
 
 .consult
 	&-form
-		border: 4px solid $button-blue
-		background-color: $white
+		border: 4px solid RGB($button-blue)
+		background-color: RGB($white)
 	&-title
 		padding: 20px 20px 0
 		letter-spacing: 0
 	&-block
 		padding: 20px
 		.form-block
-			background-color: $form-block
+			background-color: RGB($form-block)
 			box-shadow: 7px 11px 15px 0 rgba($black,.15)
 	&-button
 		padding: 20px
@@ -267,16 +261,18 @@ header
 		background-repeat: no-repeat
 
 
-.about
+.main-block
 	padding: 20px 0
-	background-color: $block-bgc
+	background-color: RGB($block-bgc)
+	
+.about
 	&-row
 		padding-top: 4px
 	p
 		font-family: $o_reg
 		strong
 			font-family: $f_bold
-			color: $button-blue
+			color: RGB($button-blue)
 	&-img
 		img
 			display: block
@@ -295,7 +291,7 @@ header
 				&:before
 					+af
 					+wh(3px,100%)
-					background-color: $button-blue
+					background-color: RGB($button-blue)
 					position: absolute
 					left: 0
 		&:last-child
@@ -303,23 +299,22 @@ header
 
 
 .retailers
-	padding: 20px 10px
-	background-color: $block-bgc
-	.multiple-slider
-		margin-top: 15px
 	.slide
 		+wh(300px,372px)
-		display: flex
+		flex: 0 0 300px
+		margin-right: 30px
+		@extend %dfa
 		flex-direction: column
-		align-items: center
-		background-color: $slide-bgc
+		background-color: RGB($slide-bgc)
 		border-radius: 10px
 		overflow: hidden
 		position: relative
 		line-height: 1.2
+		&:last-child
+			margin-right: 0
 		&:before,&:after
 			+af
-			background-color: $white
+			background-color: RGB($white)
 			position: absolute
 			border: 1px solid rgba($gray,.3)
 		&:before
@@ -339,16 +334,15 @@ header
 			position: absolute
 			z-index: 100
 		&-photo
-			display: flex
+			@extend %df
 			justify-content: space-around
 			margin-bottom: 5px
 		&-title
-			font-family: $f_bold
-			font-size: 24px
+			+font(24px,$f_bold)
 			text-transform: capitalize
 			margin-bottom: 3px
 		&-code
-			color: $gray
+			color: RGB($gray)
 			line-height: 1.8
 		&-icon
 			+wh(79px,74px)
@@ -367,11 +361,11 @@ header
 				+wh(100%)
 				top: -10px
 				right: -10px
-				background-color: $white
+				background-color: RGB($white)
 			span
 				+wh(calc(100% + 1px))
 				border-top-right-radius: 10px
-				background-color: $slide-bgc
+				background-color: RGB($slide-bgc)
 				&:after
 					+af
 					+wh(calc(100% - 10px))
@@ -385,19 +379,160 @@ header
 			margin-top: 38px
 			text-align: right
 			.old-price
-				color: $gray
+				color: RGB($gray)
 				text-decoration: line-through
 				margin-bottom: 4px
 			.current-price
-				font-family: $f_bold
-				font-size: 24px
-				color: $price-blue
+				+font(24px,$f_bold,RGB($price-blue))
+.multiple-slider
+	+w(300px)
+	margin: 15px auto
+	overflow: hidden
+	@extend %df
+
+
+.pagination
+	+w(300px)
+	+dfc
+	margin: 0 auto
+	.button
+		&-arrow
+			margin-right: auto
+			svg
+				path
+					transition: $transition
+					stroke: RGB($arrow)
+			&:last-child
+				margin: 0 0 0 auto
+			&:hover
+				svg
+					path
+						stroke: RGB($arrow-hover)
+		&-number
+			+wh(26px)
+			+dfc
+			border-radius: 2px
+			transition: $transition
+			&.active
+				background-color: RGB($button-blue)
+				color: RGB($white)
+				box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25)
+				&:hover
+					background-color: RGB($button-blue)
+			&:hover
+				color: RGB($white)
+				background-color: rgba($button-blue,.5)
+
+
+.corp
+	&-link,&-subtitle,&-desc,&-item,&-list
+		margin-top: 15px
+	&-link
+		font-family: $f_bold
+		color: RGB($form-subtitle)
+		text-transform: uppercase
+		display: block
+	&-subtitle
+		+font(24px,$f_bold,RGB($button-blue))
+	&-desc,&-item .plus-desc
+		font-family: $o_reg
+		color: rgba($gray,.7)
+	&-desc
+		strong
+			font-weight: 900
+	&-item
+		padding-left: 60px
+		&:first-child
+			margin-top: 0
+		.plus-title
+			+font(18px,$f_bold)
+			position: relative
+			span
+				@extend %dfa
+				height: 42px
+			img
+				position: absolute
+				left: -60px
+	&-img
+		display: none
+
+
+.services
+	background: linear-gradient(114.44deg, rgba(20, 128, 255, 0.7) 0%, rgba(31, 87, 154, 0.7) 100%)
+	.title
+		color: RGB($white)
+	.slide
+		+w(300px)
+		flex: 0 0 300px
+		margin-right: 30px
+		position: relative
+		&-img
+			border: 4px solid #568BCA
+			overflow: hidden
+			img
+				display: block
+			&:before
+				+af
+				+wh(40px,2px)
+				background-color: RGB($white)
+				position: absolute
+				top: 19px
+				left: 30px
+		&-title
+			+font(18px,$f_bold,RGB($white))
+			position: absolute
+			z-index: 10
+			bottom: 41px
+			left: 54px
+			@extend %dfc
+			&:before,&:after
+				+af
+				+wh(calc(100% + 40px),calc(100% + 12px))
+				position: absolute
+			&:before
+				background-color: RGB($gray)
+				z-index: 5
+			&:after
+				box-sizing: border-box
+				border: 2px solid rgba($white,.6)
+				bottom: -12px
+				right: -26px
+			span
+				position: relative
+				z-index: 10
+	.pagination
+		&,a,button
+			color: RGB($white)
+		.button
+			&-arrow
+				&:hover
+					svg
+						path
+							stroke: RGB($white)
+			&-number
+				&.active
+					background-color: RGB($white)
+					color: RGB($button-blue )
+					box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25)
+					&:hover
+						background-color: RGB($white)
+				&:hover
+					color: RGB($button-blue)
+					background-color: rgba($white,.5)
+
+
+
+
+
+
+
+
+
 
 
 .foot
 	&-links
-		display: flex
-		align-items: center
+		@extend %dfa
 		position: fixed
 		bottom: 0
 		left: 0
@@ -415,5 +550,5 @@ header
 		flex: 0 0 20%
 		background-color: rgba($button-lightblue,.8)
 	&-socials,&-cart
-		+dfc
+		@extend %dfc
 		padding: 10px 0 0
