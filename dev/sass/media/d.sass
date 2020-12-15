@@ -66,6 +66,8 @@ body
 	+w(100%)
 	overflow: visible
 
+.item-title
+	font-size: 24px
 .corp
 	.section
 		align-items: flex-end
@@ -84,7 +86,6 @@ body
 	&-item
 		.plus
 			&-title
-				font-size: 24px
 				margin-bottom: 15px
 			&-desc
 				font-size: 18px
@@ -93,10 +94,59 @@ body
 
 .services
 	.slide
-		+w(330px)
-		flex: 0 0 330px
+		+w(338px)
+		flex: 0 0 338px
 		box-shadow: 7px 11px 30px 0 rgba(0, 0, 0, 0.3)
+
+
+.why
+	&-item
+		flex-basis: 352px
+		margin-top: 60px
+		letter-spacing: 0
+		.item
+			&-desc
+				margin-top: 25px
+				font-size: 18px
+				line-height: 24px
+			
+				
+.news
+	.slide
+		flex-basis: 327px
+		box-shadow: 6px 6px 25px 0 rgba($black,.1)
+
+.projects
+	&-list
+		+w(1135px)
+		justify-content: space-between
+		margin: 50px 0 0
+	&-item
+		margin: 15px 0
+		
+		
 .foot
+	background-size: auto
+	padding-top: 95px
+	padding-bottom: 195px
+	&-title
+		span
+			transition: $transition
+			&:first-child
+				font-size: 72px
+			&:last-child
+				font-size: 24px
+		&:hover
+			span
+				opacity: .5
+	&-nav
+		&-link
+			margin-top: 20px
+	&-form
+		&-subtitle
+			margin-bottom: 35px
+	&-priv
+		padding: 33px 0 30px
 	&-links
 		flex-direction: column
 		top: 0

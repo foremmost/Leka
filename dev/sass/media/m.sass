@@ -1,7 +1,7 @@
-
+input[type='checkbox']
+	display: none
 body
 	background-color: RGB($form-bgc)
-	padding-bottom: 60px
 section
 	margin-bottom: 30px
 
@@ -154,7 +154,6 @@ header
 	&-control
 		@extend %dfi
 		position: absolute
-		bottom: 20px
 		left: 0
 		right: 0
 		margin: 0 auto
@@ -180,11 +179,14 @@ header
 		padding: 2px 10px
 		border-radius: 12px
 		background-color: rgba($white,.2)
+		bottom: 20px
 	.control-button
 		&.active
 			border-color: rgba($white,.5)
 		&:after
 			background-color: RGB($button-blue)
+		&:hover
+			border-color: rgba($white,.5  )
 	.slide
 		position: absolute
 		left: 0
@@ -268,6 +270,7 @@ header
 .about
 	&-row
 		padding-top: 4px
+		margin-bottom: 20px
 	p
 		font-family: $o_reg
 		strong
@@ -277,9 +280,9 @@ header
 		img
 			display: block
 	&-desc
-		margin: 10px 0
+		margin: 10px 0 0
 	&-item
-		margin-bottom: 10px
+		margin-bottom: 20px
 		.item
 			&-title
 				position: relative
@@ -424,6 +427,12 @@ header
 				background-color: rgba($button-blue,.5)
 
 
+.item-title
+	+font(18px,$f_bold)
+	position: relative
+	img
+		position: absolute
+	
 .corp
 	&-link,&-subtitle,&-desc,&-item,&-list
 		margin-top: 15px
@@ -445,20 +454,19 @@ header
 		&:first-child
 			margin-top: 0
 		.plus-title
-			+font(18px,$f_bold)
-			position: relative
 			span
 				@extend %dfa
 				height: 42px
 			img
-				position: absolute
 				left: -60px
 	&-img
 		display: none
 
 
 .services
+	position: relative
 	background: linear-gradient(114.44deg, rgba(20, 128, 255, 0.7) 0%, rgba(31, 87, 154, 0.7) 100%)
+	overflow: hidden
 	.title
 		color: RGB($white)
 	.slide
@@ -500,6 +508,9 @@ header
 			span
 				position: relative
 				z-index: 10
+	.multiple-slider,.title,.pagination
+		position: relative
+		z-index: 10
 	.pagination
 		&,a,button
 			color: RGB($white)
@@ -519,18 +530,278 @@ header
 				&:hover
 					color: RGB($button-blue)
 					background-color: rgba($white,.5)
+	&>img
+		position: absolute
+		top: 0
+		right: 0
 
 
+.why
+	&-item
+		margin-top: 15px
+		.item
+			&-title
+				@extend %dfa
+				padding-left: 56px
+				color: RGB($button-blue)
+				img
+					left: 0
+			&-desc
+				font-family: $o_reg
+				margin-top: 15px
+				
+.news
+	.slide
+		flex: 0 0 300px
+		border-radius: 10px
+		overflow: hidden
+		text-transform: uppercase
+		color: rgba($gray,.7)
+		border: 1px solid rgba($gray,.3)
+		box-sizing: border-box
+		margin-right: 30px
+		&-img
+			+wh(100%,178px)
+			display: block
+			overflow: hidden
+		&-info
+			padding: 15px 20px 10px
+			border-bottom-left-radius: 10px
+			border-bottom-right-radius: 10px
+		&-title
+			+font(24px,$f_bold,RGB($button-blue))
+			margin-top: 10px
+		&-row
+			@extend %dfi
+			margin-top: 48px
+		&-link
+			font-family: $f_semi
+			color: RGB($button-blue)
 
+			
+.projects
+	&-list
+		@extend %dfa
+		flex-wrap: wrap
+		justify-content: center
+		padding: 10px 0 0
+	&-item
+		+wh(262px)
+		overflow: hidden
+		position: relative
+		margin: 10px
+		box-shadow: 7px 11px 20px rgba(0, 0, 0, 0.15)
+		&:hover
+			.item
+				&-info
+					height: 100%
+					background-color: rgba($button-blue,.8)
+				&-date,&-link
+					opacity: 1
+					visibility: visible
+		.item
+			&-info
+				@extend %dfc
+				+wh(100%,29px)
+				flex-direction: column
+				position: absolute
+				bottom: 0
+				text-transform: uppercase
+				transition: $transition
+				&,a
+						color: RGB($white)
+			&-title
+				span:first-child
+					+font(24px,$f_bold)
+			&-date,&-link
+				transition:  $transition
+				opacity: 0
+				visibility: hidden
+			&-date
+				+font(14px,$f_reg)
+				display: block
+			&-link
+				+font(14px,$f_semi)
+				position: absolute
+				bottom: 20px
+				&:after
+					+af
+					+wh(calc(100% - 15px),2px)
+					position: absolute
+					bottom: -3px
+					transition: $transition
+				&:hover
+					&:after
+						background-color: RGB($white)
+			&-bgc
+				img
+					display: block
+		
+.partners
+	.slider
+		@extend %df
+		position: relative
+		&-control
+			+w(182px)
+			bottom: 0
+	.control
+		&-button
+			&:after
+				background-color: RGB($gray)
+			&.active
+				border-color: RGB($button-blue)
+			&:hover
+				border-color: rgba($button-blue,.5  )
+	.slide
+		flex: 0 0 100%
+		padding: 30px 0
+		letter-spacing: 0
+		&-info
+			padding-top: 15px
+		&-title
+			@extend %dfa
+			span
+				+font(24px,$f_bold)
+			&:before
+				+af
+				+wh(4px,24px)
+				border-radius: 2px
+				background-color: RGB($button-blue)
+				margin-right: 10px
+		&-desc
+			+font(18px,$o_reg)
+			margin-top: 15px
 
-
-
-
-
-
-
-
+			
+.map
+	margin-bottom: 0
+	iframe
+		+wh(100%,calc(100vh - 113px))
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 .foot
+	background-color: RGB($foot-bgc)
+	padding: 40px 0 210px 0
+	position: relative
+	&,a
+		color: RGB($white)
+	&-cont
+		padding-right: 20px
+	&-title
+		span
+			display: block
+			text-transform: uppercase
+			&:first-child
+				+font(36px,$f_bold)
+			&:last-child
+				color: rgba($form-placeholder,.8)
+	&-col
+		margin-top: 20px
+		&-button
+			@extend %dfi
+			font-size: 24px
+			span:last-child
+				@extend %dfc
+				+wh(10px)
+				position: relative
+				&:after,&:before
+					+af
+					transition: $transition
+					background-color: RGB($white)
+					position: absolute
+				&:before
+					+wh(10px,2px)
+				&:after
+					+wh(2px,10px)
+	&-subtitle
+		+font(18px,$f_bold,RGB($button-blue))
+		text-transform: uppercase
+	&-nav
+		@extend %df
+		height: 0
+		flex: 0 0 100%
+		flex-direction: column
+		overflow: hidden
+		&-link
+			margin-top: 5px
+			transition: $transition
+			&:hover
+				color: RGB($button-blue)
+	&-form
+		@extend %dfi
+		flex-wrap: wrap
+		margin-top: 20px
+		&:after
+			+af
+			+wh(100%,1px)
+			margin-top: 15px
+			background-color: rgba($white,.1)
+		&-subtitle
+			font-size: 18px
+			margin-bottom: 15px
+		&-input
+			font-size: 15px
+			color: RGB($white)
+			&::placeholder
+				+font(15px,$f_bold)
+		&-button
+			path
+				stroke: RGB($white)
+				transition: $transition
+			&:hover
+				path
+					stroke: rgba($white,.5)
+	&-priv
+		position: absolute
+		bottom: 80px
+		left: 0
+		right: 0
+		margin: 0 auto
+		.priv
+			&-first
+				+w(200px)
+				display: block
+				strong
+					font-weight: 900
+					margin: 0 5px
+			&-link
+				margin: 15px 0
+				display: block
+				font-family: $f_bold
+				position: relative
+				&:after
+					+af
+					+wh(100%,2px)
+					position: absolute
+					bottom: -2px
+					transition: $transition
+				&:hover
+					&:after
+						background-color: RGB($white)
+			&-dev
+				@extend %dfa
+				span
+					font-family: $r_reg
+				a
+					transition: $transition
+					&:hover
+						transform: scale(1.05)
+				img
+					display: block
 	&-links
 		@extend %dfa
 		position: fixed
@@ -552,3 +823,12 @@ header
 	&-socials,&-cart
 		@extend %dfc
 		padding: 10px 0 0
+
+#foot-nav:checked ~ .foot-col .foot-navigation,
+#foot-prod:checked ~ .foot-col .foot-products
+	height: 105px
+	margin-top: 15px
+	
+#foot-nav:checked ~ .foot-col .foot-nav-button span:last-child:after,
+#foot-prod:checked ~ .foot-col .foot-prod-button span:last-child:after
+	height: 0

@@ -6,6 +6,9 @@
 %dfi-t
 	@extend %dfa-t
 	justify-content: space-between
+%dfwi-t
+	@extend %df-t
+	justify-content: space-between
 %dfc-t
 	@extend %dfa-t
 	justify-content: center
@@ -144,10 +147,82 @@
 				color: rgba($gray,.7)
 
 
+.why
+	&-list
+		@extend %dfwi-t
+		flex-wrap: wrap
+	&-item
+		flex: 0 0 48%
+
+
+.projects
+
+.partners
+	.slide
+		@extend %dfi-t
+		padding: 50px 0
+		&-logo,&-info
+		&-info
+			padding-left: 30px
+			padding-top: 0
+
+
+.map
+	iframe
+		height: calc(100vh - 125px)
+		
 .foot
+	background-image: url('img/footer.svg')
+	background-repeat: no-repeat
+	background-size: contain
+	background-position: left top
+	padding-bottom: 180px
+	&-cont
+		@extend %dfwi-t
+		padding: 0
+	&-title
+		flex: 0 0 147px
+		@extend %dfc-t
+		flex-direction: column
+	&-col
+		flex: 0 0 110px
+		&-button
+			span
+				&:last-child
+					display: none
+	&-col,&-form
+		margin-top: 0
+	&-nav
+		height: auto
+		overflow: visible
+		&-link
+			margin-top: 10px
+	&-form
+		flex: 0 0 240px
+		height: 100%
+	&-priv
+		background-color: RGB($black)
+		bottom: 0
+		padding: 20px 0 80px
+		.section
+			@extend %dfi-t
+		.priv
+			&-first
+				flex: 0 0 200px
+				text-transform: uppercase
+			&-dev
+				a
+					margin-left: 10px
+	
+	
 	&-links
 		justify-content: center
 	&-socials,&-cart
 		flex-basis: auto
 		padding: 10px 10px 0
 		border-radius: 10px 10px 0 0
+
+#foot-nav:checked ~ .foot-col .foot-navigation,
+#foot-prod:checked ~ .foot-col .foot-products
+	margin-top: 0
+	height: auto
