@@ -1,0 +1,72 @@
+extends template/main
+append vars
+	-
+		page_title= 'Карточка товара'
+block content
+	main.product-page
+		.section
+			include parts/aside
+			.main
+				form.search-row
+					button.search-button
+						+img('Search-icon.svg')
+					input(type='text' placeholder='Поиск').search-input
+				.product-card
+					.bread-crumps
+						a(href='#') Шумоглушители
+						a(href='#') Пластины шумоглушащие П, ПО
+					h1.title Пластины шумоглушашие П, ПО
+					span.subtitle pl-2403-23v-43
+					.row.product-control
+						.count-select
+							input(type='hidden' value=1).count-input
+							button.count-head 1
+								+img('border-arrow-right.svg')
+							.count-body
+								button 1
+								button 2
+								button 3
+								button 4
+								button 5
+								button 6
+						button.cart-add В корзину
+						a(href='#').cart-link Перейти в корзину
+						button.question-button Задать вопрос
+					.product-slider
+					.product-desc
+						.row.desc-switch-row
+							button.desc-switch.active характеристики
+							button.desc-switch описание
+						.row
+							.desc-col
+								.desc-col-unit
+									h3.desc-title.title Пластины шумоглушашие П, ПО
+										em (без обтекателя)
+									.desc-table
+										table
+											thead
+												tr
+													th
+														.table-head Обозначение
+															em (размеры, мм)
+													th
+														.table-head B
+													th
+														.table-head H
+													th
+														.table-head L
+													th
+														.table-head Масса
+															em (кг)
+											tbody
+												tr
+													td
+														.table-desc П 1-1
+													td
+														.table-desc 100
+													td
+														.table-desc 500
+													td
+														.table-desc 750
+													td
+														.table-desc 500

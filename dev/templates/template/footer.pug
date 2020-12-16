@@ -1,12 +1,10 @@
 footer.foot
 	.section.foot-cont
-		input(type='checkbox')#foot-nav
-		input(type='checkbox')#foot-prod
 		a(href='#').foot-title
 			span Leka.kz
 			span since 1989
-		.foot-col
-			label(for='foot-nav').foot-col-button.foot-nav-button
+		.foot-col.foot-nav-col
+			button(data-click-action='front:asideShow').foot-col-button
 				span.foot-subtitle Навигация
 				span
 			nav.foot-nav.foot-navigation
@@ -15,8 +13,8 @@ footer.foot
 				a(href='#').foot-nav-link Услуги
 				a(href='#').foot-nav-link Контакты
 				a(href='#').foot-nav-link О компании
-		.foot-col
-			label(for='foot-prod').foot-col-button.foot-prod-button
+		.foot-col.foot-prod-col
+			button(data-click-action='front:asideShow').foot-col-button
 				span.foot-subtitle Продукты
 				span
 			nav.foot-nav.foot-products

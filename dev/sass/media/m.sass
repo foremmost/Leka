@@ -4,6 +4,8 @@ body
 	background-color: RGB($form-bgc)
 section
 	margin-bottom: 30px
+main
+	min-height: calc(100vh - 508px)
 
 .section
 	+w(var(--mobile-width))
@@ -149,6 +151,91 @@ header
 				font-family: $f_bold
 
 
+aside
+	+w(100%)
+	padding-bottom: 20px
+.left-menu
+	.menu
+		&-hidden
+			transition: $transition
+			height: 0
+			overflow: hidden
+		&-title
+			@extend %dfi
+			+w(100%)
+			padding-right: 2px
+			img
+				+w(10px)
+				transition: $transition
+				transform: rotate(90deg)
+			&.active
+				img
+					transform: rotate(-90deg)
+		&-row
+			@extend %dfi
+		&-subtitle
+			margin-top: 20px
+			&-left
+				font-family: $f_bold
+			&-right
+				color: RGB($button-blue)
+		&-item
+			margin-top: 15px
+			height: 16px
+			overflow: hidden
+			transition: $transition
+			&.active
+				.menu
+					&-button
+						font-weight: 900
+						img
+							transform: rotate(-90deg)
+		&-button
+			+w(100%)
+			padding-right: 2px
+			&,img
+				transition: $transition
+			img
+				transform: rotate(90deg)
+			&:hover
+				font-weight: 900
+		&-sublist
+			padding-left: 19px
+		&-subitem
+			padding-top: 6px
+		&-link
+			position: relative
+			&,&:before
+				transition: $transition
+			&:before
+				+af
+				+wh(2px,100%)
+				position: absolute
+				left: -10px
+			&:hover,&.active
+				font-weight: 900
+				&:before
+					background-color: RGB($button-blue)
+
+
+.bread-crumps
+	margin-bottom: 15px
+	&,a
+		@extend %dfa
+		flex-wrap: wrap
+	a
+		color: rgba(black,.5)
+		margin-right: 10px
+		&:after
+			+af
+			+wh(5px)
+			margin-left: 10px
+			border-right: 1px solid rgba(black,.5)
+			border-top: 1px solid rgba(black,.5)
+			transform: rotate(45deg)
+		&:last-child
+			&:after
+				content: none
 
 .slider
 	&-control
@@ -679,20 +766,174 @@ header
 		+wh(100%,calc(100vh - 113px))
 		
 		
+.product
+	&-page
+		padding-top: 70px
+
+.search
+	&-row
+		@extend %dfi
+		padding: 14px 24px
+		border-radius: 24px
+		background-color: RGB($block-bgc)
+		box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.1)
+		margin-bottom: 20px
+	&-button
+		img
+			display: block
+	&-input
+		+w(calc(100% - 50px))
+		padding: 10px 0
+		font-size: 18px
+
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+.product
+	&-card
+		border-radius: 24px
+		padding: 44px 0 0
+		background-color: RGB($block-bgc)
+		box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.1)
+		overflow: hidden
+		&>.title
+			margin-bottom: 5px
+			text-transform: inherit
+		.subtitle
+			color: rgba(black,.5)
+			text-transform: uppercase
+		&>.row,.bread-crumps,.title,.subtitle
+			padding: 0 24px
+		.row
+			@extend %df
+			flex-wrap: wrap
+		.cart
+			&-add
+				flex-grow: 0
+				flex-shrink: 0
+				flex-basis: calc(100% - 46.75px)
+				margin-left: -1px
+				color: RGB($white)
+				background-color: RGB($button-blue)
+				border-top-right-radius: 15px
+				border-bottom-right-radius: 15px
+			&-link
+				border: 1px solid RGB($button-blue)
+				margin: 10px 0
+				text-align: center
+		.cart-add,.cart-link,.question-button
+			padding: 6px 29px
+		.cart-link,.question-button
+			flex: 0 0 100%
+			border-radius: 15px
+		.question-button
+			background-color: RGB($button-blue)
+			color: RGB($white)
+	&-control
+		margin-top: 15px
+	&-desc
+		margin-top: 15px
+		padding: 15px 24px 44px
+		box-shadow: 7px 11px 40px rgba(0, 0, 0, 0.2)
+		background-color: RGB($white)
+		.desc
+			&-col
+				+w(100%)
+				flex: 0 0 100%
+			&-switch
+				text-align: left
+				&:after
+					+af
+					+wh(100%,1px)
+					margin-top: 5px
+					background-color: RGB($form-block)
+				&:last-child
+					margin-left: 15px
+				&.active
+					&:after
+						background-color: RGB($button-blue)
+				&-row
+					margin-bottom: 15px
+			&-title
+				font-size: 18px
+				padding-left: 0
+				em
+					font-family: $f_reg
+					text-transform: lowercase
+					margin-left: 5px
+			&-table
+				max-width: 100%
+				padding-bottom: 10px
+				display: inline-block
+				margin-top: 15px
+				overflow: auto
+				table
+					border-collapse: collapse
+				td,th
+					border: 1px solid RGB($form-placeholder)
+					text-align: right
+					&:first-child
+						text-align: left
+		.table
+			&-head,&-desc
+				padding: 15px
+
+
+.count
+	&-select
+		position: relative
+		&.active
+			.count-head
+				border-bottom-left-radius: 0
+			.count-body
+				height: 158px
+				border-color: RGB($button-blue)
+				background-color: RGB($white)
+	&-head
+		@extend %dfa
+		transition: $transition
+		padding: 6px 13px
+		border: 1px solid RGB($button-blue)
+		border-top-left-radius: 15px
+		border-bottom-left-radius: 15px
+		img
+			display: block
+			transform: rotate(90deg)
+			margin-left: 9px
+	&-body
+		height: 0
+		overflow: hidden
+		position: absolute
+		top: 29px
+		left: 0
+		right: 0
+		transition: $transition
+		border-bottom-left-radius: 15px
+		border: 1px solid transparent
+		button
+			+w(100%)
+			padding: 5px 0
+			display: block
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 .foot
 	background-color: RGB($foot-bgc)
 	padding: 40px 0 210px 0
@@ -711,8 +952,12 @@ header
 				color: rgba($form-placeholder,.8)
 	&-col
 		margin-top: 20px
+		height: 22px
+		overflow: hidden
+		transition: $transition
 		&-button
 			@extend %dfi
+			+w(100%)
 			font-size: 24px
 			span:last-child
 				@extend %dfc
@@ -727,17 +972,20 @@ header
 					+wh(10px,2px)
 				&:after
 					+wh(2px,10px)
+		&.active
+			.foot-col-button
+				span:last-child
+					&:after
+						transform: rotate(90deg)
 	&-subtitle
 		+font(18px,$f_bold,RGB($button-blue))
 		text-transform: uppercase
 	&-nav
 		@extend %df
-		height: 0
 		flex: 0 0 100%
 		flex-direction: column
-		overflow: hidden
 		&-link
-			margin-top: 5px
+			margin-top: 15px
 			transition: $transition
 			&:hover
 				color: RGB($button-blue)
@@ -823,12 +1071,3 @@ header
 	&-socials,&-cart
 		@extend %dfc
 		padding: 10px 0 0
-
-#foot-nav:checked ~ .foot-col .foot-navigation,
-#foot-prod:checked ~ .foot-col .foot-products
-	height: 105px
-	margin-top: 15px
-	
-#foot-nav:checked ~ .foot-col .foot-nav-button span:last-child:after,
-#foot-prod:checked ~ .foot-col .foot-prod-button span:last-child:after
-	height: 0

@@ -12,6 +12,12 @@
 %dfc-t
 	@extend %dfa-t
 	justify-content: center
+	
+main
+	min-height: calc(100vh - 388px)
+aside
+	+w(246px)
+	
 .section
 	+w(var(--tablet-width))
 	
@@ -40,6 +46,17 @@
 	&-login
 		text-transform: inherit
 		font-family: $f_reg
+		
+.left-menu
+	.menu
+		&-subtitle
+			margin-top: 27px
+		&-item
+			&.active
+				.menu
+					&-sublist
+						max-height: 188px
+		
 .main-slider
 	min-height: 450px
 	max-height: 600px
@@ -171,6 +188,12 @@
 	iframe
 		height: calc(100vh - 125px)
 		
+		
+.product
+	&-page
+		padding-top: 90px
+
+
 .foot
 	background-image: url('img/footer.svg')
 	background-repeat: no-repeat
@@ -185,11 +208,15 @@
 		@extend %dfc-t
 		flex-direction: column
 	&-col
-		flex: 0 0 110px
+		height: auto
 		&-button
 			span
 				&:last-child
 					display: none
+	&-nav-col
+		flex: 0 0 113px
+	&-prod-col
+		flex: 0 0 140px
 	&-col,&-form
 		margin-top: 0
 	&-nav
@@ -221,8 +248,3 @@
 		flex-basis: auto
 		padding: 10px 10px 0
 		border-radius: 10px 10px 0 0
-
-#foot-nav:checked ~ .foot-col .foot-navigation,
-#foot-prod:checked ~ .foot-col .foot-products
-	margin-top: 0
-	height: auto
