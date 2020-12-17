@@ -10,7 +10,7 @@ class Front extends _front{
 		MainEventBus.add(_.componentName,'mainSliderSwap',_.mainSliderSwapReset.bind(_));
 		MainEventBus.add(_.componentName,'headBurgerClick',_.headBurgerClick.bind(_));
 		MainEventBus.add(_.componentName,'asideShow',_.asideShow.bind(_));
-		MainEventBus.add(_.componentName,'showCatalog',_.showCatalog.bind(_));
+		MainEventBus.add(_.componentName,'showItem',_.showItem.bind(_));
 		
 		_.mainSliderButtonsCreate();
 		_.mainSliderAutoSwap();
@@ -96,30 +96,16 @@ class Front extends _front{
 		}
 	}
 	
-	showCatalog(clickData){
+	showItem(clickData){
+		const _ = this;
+		let event = clickData.event;
+		event.preventDefault();
 		let btn = clickData.item;
-		if(btn.hasAttribute('disable')) return;
-		btn.setAttribute('disable',true);
-		let catalog = document.querySelector('.menu-hidden');
-		let pointOne = catalog.firstElementChild;
-		let pointTwo = catalog.lastElementChild;
-		let height = pointOne.offsetHeight + pointTwo.offsetHeight + 35;
-		if(!catalog.hasAttribute('style')) {
-			catalog.setAttribute('style',`height:${height}px`);
-			btn.classList.add('active');
-			setTimeout(function() {
-				catalog.setAttribute('style','height:auto')
-				btn.removeAttribute('disable');
-			},400);
-		}
-		else {
-			catalog.setAttribute('style',`height:${height}px`);
-			setTimeout(function() {
-				catalog.removeAttribute('style');
-				btn.classList.remove('active');
-				btn.removeAttribute('disable');
-			},20)
-		}
+		let targetCls = btn.getAttribute('data-target');
+		let target = document.querySelector(`.${targetCls}`);
+		target.classList.toggle('active');
+		if(target.classList.contains('active')) btn.classList.add('active');
+		else btn.classList.remove('active')
 	}
 }
 new Front();

@@ -18,6 +18,9 @@ main
 aside
 	+w(246px)
 	
+.left-menu
+	padding: 100px 10px 80px
+	border-right: 1px solid RGB($form-bgc)
 .section
 	+w(var(--tablet-width))
 	
@@ -189,9 +192,23 @@ aside
 		height: calc(100vh - 125px)
 		
 		
+.search
+	&-row
+		bottom: 0
 .product
 	&-page
-		padding-top: 90px
+		.cart
+			&-add,&-link
+				flex-basis: auto
+			&-add
+				border-top-right-radius: 0
+				border-bottom-right-radius: 0
+			&-link
+				margin: 0 16px 0 8px
+				border-top-left-radius: 0
+				border-bottom-left-radius: 0
+		.question-button
+			flex-basis: auto
 
 
 .foot
@@ -228,9 +245,9 @@ aside
 		flex: 0 0 240px
 		height: 100%
 	&-priv
+		padding: 33px 0 27px
 		background-color: RGB($black)
 		bottom: 0
-		padding: 20px 0 80px
 		.section
 			@extend %dfi-t
 		.priv
@@ -242,9 +259,25 @@ aside
 					margin-left: 10px
 	
 	
+.right
 	&-links
+		+w(0)
+		flex-direction: column
 		justify-content: center
-	&-socials,&-cart
+		align-items: flex-end
+		top: 0
+		left: inherit
+	&-half
+		flex-direction: column
 		flex-basis: auto
 		padding: 10px 10px 0
-		border-radius: 10px 10px 0 0
+		border-radius: 10px 0 0 10px
+		.link
+			margin-right: 0
+			margin-bottom: 5px
+			&:last-child
+				margin-bottom: 0
+	&-cut
+		.right
+			&-half
+				flex-basis: auto

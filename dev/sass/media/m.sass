@@ -1,4 +1,4 @@
-input[type='checkbox']
+input[type='checkbox'],input[type='radio']
 	display: none
 body
 	background-color: RGB($form-bgc)
@@ -155,11 +155,21 @@ aside
 	+w(100%)
 	padding-bottom: 20px
 .left-menu
+	transform: translateX(-100%)
+	padding: 70px 10px 140px
+	background-color: RGB($white)
+	box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5)
+	overflow: auto
+	position: fixed
+	top: 0
+	bottom: 0
+	left: 0
+	right: 0
+	z-index: 101
+	transition: $transition
+	&.active
+		transform: translateX(0)
 	.menu
-		&-hidden
-			transition: $transition
-			height: 0
-			overflow: hidden
 		&-title
 			@extend %dfi
 			+w(100%)
@@ -187,7 +197,7 @@ aside
 			&.active
 				.menu
 					&-button
-						font-weight: 900
+						font-family: $f_bold
 						img
 							transform: rotate(-90deg)
 		&-button
@@ -198,7 +208,7 @@ aside
 			img
 				transform: rotate(90deg)
 			&:hover
-				font-weight: 900
+				font-family: $f_bold
 		&-sublist
 			padding-left: 19px
 		&-subitem
@@ -213,7 +223,7 @@ aside
 				position: absolute
 				left: -10px
 			&:hover,&.active
-				font-weight: 900
+				font-family: $f_bold
 				&:before
 					background-color: RGB($button-blue)
 
@@ -765,19 +775,25 @@ aside
 	iframe
 		+wh(100%,calc(100vh - 113px))
 		
-		
-.product
-	&-page
-		padding-top: 70px
 
 .search
 	&-row
 		@extend %dfi
 		padding: 14px 24px
-		border-radius: 24px
 		background-color: RGB($block-bgc)
-		box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.1)
-		margin-bottom: 20px
+		border-top: 1px solid RGB($form-bgc)
+		border-bottom: 1px solid RGB($form-bgc)
+		box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5)
+		transform: translateX(-100%)
+		overflow: hidden
+		position: fixed
+		bottom: 60px
+		left: 0
+		right: 0
+		z-index: 101
+		transition: $transition
+		&.active
+			transform: translateX(0)
 	&-button
 		img
 			display: block
@@ -788,6 +804,10 @@ aside
 
 		
 .product
+	&-page
+		padding-top: 70px
+	&-section
+		margin-bottom: 20px
 	&-card
 		border-radius: 24px
 		padding: 44px 0 0
@@ -804,7 +824,6 @@ aside
 			padding: 0 24px
 		.row
 			@extend %df
-			flex-wrap: wrap
 		.cart
 			&-add
 				flex-grow: 0
@@ -829,29 +848,36 @@ aside
 			color: RGB($white)
 	&-control
 		margin-top: 15px
+		flex-wrap: wrap
 	&-desc
 		margin-top: 15px
-		padding: 15px 24px 44px
+		padding: 15px 0 44px
 		box-shadow: 7px 11px 40px rgba(0, 0, 0, 0.2)
 		background-color: RGB($white)
 		.desc
 			&-col
 				+w(100%)
 				flex: 0 0 100%
+				height: 0
+				padding: 0 24px
+				transition: $transition
+				&-cont
+					overflow: hidden
+					align-items: flex-start
+				&-unit
+					padding-top: 15px
 			&-switch
 				text-align: left
+				&-row
+					padding: 0 24px
 				&:after
 					+af
 					+wh(100%,1px)
 					margin-top: 5px
 					background-color: RGB($form-block)
+					transition: $transition
 				&:last-child
 					margin-left: 15px
-				&.active
-					&:after
-						background-color: RGB($button-blue)
-				&-row
-					margin-bottom: 15px
 			&-title
 				font-size: 18px
 				padding-left: 0
@@ -872,8 +898,13 @@ aside
 					text-align: right
 					&:first-child
 						text-align: left
+					em
+						margin-left: 5px
+			&-text
+				margin-top: 10px
 		.table
 			&-head,&-desc
+				+w(100%)
 				padding: 15px
 
 
@@ -1050,24 +1081,59 @@ aside
 						transform: scale(1.05)
 				img
 					display: block
+
+.right
 	&-links
 		@extend %dfa
 		position: fixed
 		bottom: 0
 		left: 0
 		right: 0
-		z-index: 100
-	&-socials
-		background-color: rgba($gray,.8)
-		flex: 0 0 80%
-		.socials-link
+		z-index: 102
+		.link
 			margin-right: 10px
 			display: block
 			&:last-child
 				margin-right: 0
-	&-cart
+			&.active
+				circle, g path
+					fill: RGB($button-blue)
+				&>svg>path
+					fill: RGB($white)
+					stroke: transparent
+	&-top
+		background-color: rgba($gray,.8)
+		flex: 0 0 80%
+	&-bottom
 		flex: 0 0 20%
 		background-color: rgba($button-lightblue,.8)
-	&-socials,&-cart
+	&-top,&-bottom
 		@extend %dfc
 		padding: 10px 0 0
+	&-cut
+		.right
+			&-top
+				flex: 0 0 67%
+			&-bottom
+				flex: 0 0 33%
+				
+				
+#prod-col-1:checked ~ .desc
+	&-col-cont .desc-col
+		transform: translateX(0)
+		&:first-child
+			height: auto
+	&-switch-row .desc-switch
+		&:first-child
+			&:after
+				background-color: RGB($button-blue)
+	
+#prod-col-2:checked ~ .desc
+	&-col-cont .desc-col
+		transform: translateX(-100%)
+		&:nth-child(2)
+			height: auto
+	&-switch-row .desc-switch
+		&:last-child
+			&:after
+				background-color: RGB($button-blue)

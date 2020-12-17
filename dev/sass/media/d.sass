@@ -152,36 +152,29 @@ main
 	&-form
 		&-subtitle
 			margin-bottom: 35px
-	&-priv
-		padding: 33px 0 27px
-	&-links
-		flex-direction: column
-		top: 0
-		left: inherit
-	&-socials
-		flex-direction: column
+	
+		
+		
+.right
+	&-half
 		padding: 20px 16px 12px 19px
-		.socials-link
-			margin-right: 0
+		.link
+			svg
+				path,circle
+					transition: $transition
+	&-top
+		.link
 			margin-bottom: 25px
-			&:last-child
-				margin-bottom: 0
-			&:hover
+		&:hover
 				svg
 					path
 						fill: RGB($button-blue)
-	&-cart
+	&-bottom
 		padding: 34px 16px 26px 19px
-		.socials-link
+		.link
 			&:hover
 				svg
 					circle
 						fill: RGB($button-blue)
 					path
 						stroke: RGB($white)
-	&-socials,&-cart
-		border-radius: 10px 0 0 10px
-		.socials-link
-			svg
-				path,circle
-					transition: $transition

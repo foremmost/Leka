@@ -4,7 +4,7 @@ append vars
 		page_title= 'Карточка товара'
 block content
 	main.product-page
-		.section
+		section.section.product-section
 			include parts/aside
 			.main
 				form.search-row
@@ -34,10 +34,12 @@ block content
 						button.question-button Задать вопрос
 					.product-slider
 					.product-desc
+						input(type='radio' name='product-col' checked)#prod-col-1
+						input(type='radio' name='product-col')#prod-col-2
 						.row.desc-switch-row
-							button.desc-switch.active характеристики
-							button.desc-switch описание
-						.row
+							label(for='prod-col-1').desc-switch.active характеристики
+							label(for='prod-col-2').desc-switch описание
+						.row.desc-col-cont
 							.desc-col
 								.desc-col-unit
 									h3.desc-title.title Пластины шумоглушашие П, ПО
@@ -70,3 +72,100 @@ block content
 														.table-desc 750
 													td
 														.table-desc 500
+												tr
+													td
+														.table-desc П 1-2
+													td
+														.table-desc 100
+													td
+														.table-desc 500
+													td
+														.table-desc 1000
+													td
+														.table-desc 1000
+												tr
+													td
+														.table-desc П 1-3
+													td
+														.table-desc 100
+													td
+														.table-desc 1000
+													td
+														.table-desc 1000
+													td
+														.table-desc 1000
+								.desc-col-unit
+									h3.desc-title.title Характеристики
+										em (с обтекателем)
+									.desc-table
+										table
+											thead
+												tr
+													th
+														.table-head Обозначение
+															em (размеры, мм)
+													th
+														.table-head B
+													th
+														.table-head H
+													th
+														.table-head L
+													th
+														.table-head Масса
+															em (кг)
+											tbody
+												tr
+													td
+														.table-desc П 1-1
+													td
+														.table-desc 100
+													td
+														.table-desc 500
+													td
+														.table-desc 750
+													td
+														.table-desc 500
+												tr
+													td
+														.table-desc П 1-2
+													td
+														.table-desc 100
+													td
+														.table-desc 500
+													td
+														.table-desc 1000
+													td
+														.table-desc 1000
+												tr
+													td
+														.table-desc П 1-3
+													td
+														.table-desc 100
+													td
+														.table-desc 1000
+													td
+														.table-desc 1000
+													td
+														.table-desc 1000
+							.desc-col
+								.desc-col-unit
+									h3.desc-title.title Описание
+									p.desc-text Шумоглушители предназначены для снижения аэродинамического шума, создаваемого вентиляторами, кондиционерами, воздухорегулирующими устройствами, а также шума, возникающего в элементах воздуховодов и распространяющегося по ним. Для снижения аэродинамического шума в воздушном потоке применяют шумоглушители.
+									p.desc-text Основной источник шума в системах вентиляции, кондиционирования и воздушного отопления - вентилятор. Причем, преобладающим является аэродинамический шум, имеющий широколосный спектр. Корпуса глушителей изготавливаются из оцинкованный стали. В качестве звукопоглащения для приточных и вытяжных систем применяются материалы различных фирм изготовителей. Для защиты материала от выдувания потоком воздуха используется перфарированный оцинкованный лист либо стальная сетка.
+									p.desc-text Для уменьшения аэродинамического сопротивления и уровня звуковой мощности шума, создаваемого при проходении воздуха через шумоглушитель, со стороны входа воздуха устанавливается обтекатель.
+		section.retailers.main-block
+			.section
+				h2.title Розничные предложения
+			.multiple-slider
+				include sliders/multiple-slide
+				include sliders/multiple-slide
+				include sliders/multiple-slide
+				include sliders/multiple-slide
+				include sliders/multiple-slide
+				include sliders/multiple-slide
+				include sliders/multiple-slide
+			.section
+				include parts/pagination
+		include parts/consult.pug
+		include parts/map.pug
+		include parts/bottom-menu
