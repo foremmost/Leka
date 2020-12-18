@@ -1,4 +1,5 @@
 import { MainEventBus } from "/workspace/front/libs/MainEventBus.lib.js";
+import { Modaler } from "/workspace/front/libs/Modaler.lib.js";
 import { _front } from "/workspace/front/_front.js";
 class Front extends _front{
 	constructor(){
@@ -11,6 +12,9 @@ class Front extends _front{
 		MainEventBus.add(_.componentName,'headBurgerClick',_.headBurgerClick.bind(_));
 		MainEventBus.add(_.componentName,'asideShow',_.asideShow.bind(_));
 		MainEventBus.add(_.componentName,'showItem',_.showItem.bind(_));
+		MainEventBus.add(_.componentName,'countShow',_.countShow.bind(_));
+		MainEventBus.add(_.componentName,'countChoose',_.countChoose.bind(_));
+		MainEventBus.add(_.componentName,'showFeedback',_.showFeedback.bind(_));
 		
 		_.mainSliderButtonsCreate();
 		_.mainSliderAutoSwap();
@@ -106,6 +110,30 @@ class Front extends _front{
 		target.classList.toggle('active');
 		if(target.classList.contains('active')) btn.classList.add('active');
 		else btn.classList.remove('active')
+	}
+	
+	countShow(){
+		let select = document.querySelector('.count-select');
+		select.classList.toggle('active')
+	}
+	countChoose(clickData){
+		const _ = this;
+		let btn = clickData.item;
+		let input = document.querySelector('.count-input');
+		let head = input.nextElementSibling.firstElementChild;
+		input.value = btn.textContent;
+		head.textContent = btn.textContent;
+		_.countShow();
+	}
+	
+	showFeedback(){
+		const _ = this;
+		Modaler.showModal({
+			'content' : '.form-feedback',
+			'contBgc' : '#E2F0FF',
+			'border-radius' : '4px',
+			'box-shadow' : '7px 11px 20px rgba(0, 0, 0, 0.16)'
+		})
 	}
 }
 new Front();

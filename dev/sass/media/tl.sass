@@ -47,7 +47,7 @@ header
 	position: static
 	transform: translateX(0)
 	flex: 0 0 300px
-	padding: 0 50px 0 0
+	padding: 0 50px 0 20px
 	box-shadow: none
 	background: none
 	border: none
@@ -151,12 +151,45 @@ header
 		padding-top: 160px
 		.section
 			@extend %df-tl
-			align-items: flex-start
 		.main
 			+w(calc(100% - 300px))
 			flex-shrink: 0
 			flex-grow: 0
 			flex-basis: calc(100% - 300px)
+		.cart-link,.cart-add,.question-button
+			transition: $transition
+		.cart-add,.question-button
+			border: 1px solid RGB($button-blue)
+			&:hover
+				color: RGB($black)
+				background-color: RGB($white)
+		.cart
+			&-link
+				&:hover
+					color: RGB($white)
+					background-color: RGB($button-blue)
+		.question-button
+			&:hover
+				background-color: RGB($white)
+				color: RGB($black)
+	&-desc
+		padding-top: 21px
+		.desc
+			&-title
+				font-size: 24px
+			&-col
+				&-unit
+					padding: 17px
+					margin-top: 38px
+					border-radius: 8px
+					box-shadow: 0 2px 4px rgba(0, 0, 0, 0.24)
+					&:last-child
+						margin-bottom: 20px
+			&-table
+				margin-top: 30px
+		.table
+			&-head,&-desc
+				min-width: 129px
 
 .right
 	&-cut
@@ -165,6 +198,17 @@ header
 				display: none
 			&-bottom
 
+			
+.form
+	&-feedback
+		@extend %dfa-tl
+		+w(920px)
+.feedback
+	&-right
+		margin-left: 20px
+		flex: 0 0 473px
+		.title
+			font-size: 24px
 
 .foot
 	&-priv

@@ -1,11 +1,14 @@
 input[type='checkbox'],input[type='radio']
 	display: none
 body
-	background-color: RGB($form-bgc)
+	background-color: rgba($form-bgc,.5)
 section
 	margin-bottom: 30px
 main
 	min-height: calc(100vh - 508px)
+label
+	&:hover
+		cursor: pointer
 
 .section
 	+w(var(--mobile-width))
@@ -51,38 +54,6 @@ main
 	+font(24px,$f_bold)
 	text-transform: uppercase
 
-.form
-	&-title
-		font-size: 24px
-		line-height: 64px
-	&-block
-		max-width: 471px
-		background-color: RGB($light-gray)
-		padding: 7px 24px
-	&-feedback
-		.form-block
-			margin-bottom: 20px
-			border: 1px solid rgba($border-gray,.2)
-	.block
-		&-title
-			color: RGB($form-subtitle)
-			line-height: 22px
-			letter-spacing: .25px
-		&-input
-			+w(100%)
-			font-size: 18px
-			line-height: 28px
-			&::placeholder
-				color: RGB($form-placeholder)
-		&-textarea
-			background-color: transparent
-			border: none
-	&-privacy
-		margin-bottom: 25px
-		line-height: 26px
-		strong
-			font-family: $f_bold
-
 
 header
 	position: fixed
@@ -91,7 +62,7 @@ header
 	right: 0
 	z-index: 1000
 .head
-	height: 43px
+	height: 45px
 	overflow: hidden
 	padding: 10px
 	background-color: rgba($button-blue,.9)
@@ -806,8 +777,6 @@ aside
 .product
 	&-page
 		padding-top: 70px
-	&-section
-		margin-bottom: 20px
 	&-card
 		border-radius: 24px
 		padding: 44px 0 0
@@ -828,7 +797,7 @@ aside
 			&-add
 				flex-grow: 0
 				flex-shrink: 0
-				flex-basis: calc(100% - 46.75px)
+				flex-basis: calc(100% - 49.75px)
 				margin-left: -1px
 				color: RGB($white)
 				background-color: RGB($button-blue)
@@ -851,7 +820,7 @@ aside
 		flex-wrap: wrap
 	&-desc
 		margin-top: 15px
-		padding: 15px 0 44px
+		padding: 15px 0 24px
 		box-shadow: 7px 11px 40px rgba(0, 0, 0, 0.2)
 		background-color: RGB($white)
 		.desc
@@ -914,10 +883,16 @@ aside
 		&.active
 			.count-head
 				border-bottom-left-radius: 0
+				img
+					transform: rotate(-90deg)
 			.count-body
 				height: 158px
 				border-color: RGB($button-blue)
 				background-color: RGB($white)
+				z-index: 10
+				button
+					&:hover
+						background-color: RGB($form-bgc)
 	&-head
 		@extend %dfa
 		transition: $transition
@@ -925,10 +900,14 @@ aside
 		border: 1px solid RGB($button-blue)
 		border-top-left-radius: 15px
 		border-bottom-left-radius: 15px
+		span
+			+w(8px)
 		img
 			display: block
 			transform: rotate(90deg)
 			margin-left: 9px
+			opacity: .5
+			transition: $transition
 	&-body
 		height: 0
 		overflow: hidden
@@ -944,27 +923,63 @@ aside
 			padding: 5px 0
 			display: block
 
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+
+.question
+	display: none
+.form
+	&-title
+		font-size: 24px
+	&-block
+		max-width: 471px
+		background-color: RGB($light-gray)
+		padding: 7px 24px
+	&-feedback
+		max-height: 90vh
+		padding: 20px 10px
+		margin: 0 auto
+		border-radius: 4px
+		overflow: auto
+		background-color: RGB($form-feedback)
+		.title
+			padding: 0
+		.form-block
+			margin-top: 20px
+			border: 1px solid rgba($border-gray,.2)
+	.block
+		&-title
+			color: RGB($form-subtitle)
+			line-height: 22px
+			letter-spacing: .25px
+		&-input
+			+w(100%)
+			font-size: 18px
+			line-height: 28px
+			&::placeholder
+				color: RGB($form-placeholder)
+		&-textarea
+			background-color: transparent
+			border: none
+	&-privacy
+		margin-top: 20px
+		margin-bottom: 25px
+		line-height: 26px
+		strong
+			font-family: $f_bold
+.feedback
+	&-half
+		padding: 10px 0
+	&-left
+		.title
+			margin: 10px 0 5px
+			text-transform: inherit
+		span
+			&:last-child
+				text-transform: uppercase
+	&-right
+		.title
+			font-size: 18px
+
+
 .foot
 	background-color: RGB($foot-bgc)
 	padding: 40px 0 210px 0
@@ -1083,6 +1098,7 @@ aside
 					display: block
 
 .right
+	margin-bottom: 0
 	&-links
 		@extend %dfa
 		position: fixed
