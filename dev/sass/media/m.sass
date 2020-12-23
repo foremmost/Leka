@@ -875,7 +875,28 @@ aside
 			&-head,&-desc
 				+w(100%)
 				padding: 15px
-
+	&-slider
+		+dfc
+		padding-top: 20px
+		flex-direction: column
+		position: relative
+		.slider
+			&-arrow
+				position: absolute
+				display: none
+			&-dots
+				@extend %dfi
+				+w(300px)
+				order: 1
+				.dot
+					+w(77px)
+			&-body
+				overflow: hidden
+				@extend %df
+				img
+					transform: translateX(-100%)
+					transition: $transition
+						
 
 .count
 	&-select
