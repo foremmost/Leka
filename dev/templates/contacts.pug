@@ -1,0 +1,40 @@
+extends template/main
+append vars
+	-
+		page_title= 'Контакты'
+block content
+	main.contacts
+		section.contacts-section
+			.section
+				.contacts-row
+					.contacts-left
+						h1.contacts-title Наши контакты
+						span.contacts-subtitle По вопросам сотрудничества и предложений заполните краткую форму, и мы свяжемся с вами.
+						.contacts-address
+							+img('building.svg')
+							span Казахстан, Караганда, Охотская 1/3
+						.contacts-phone
+							+img('mobile.svg')
+							span Телефон: +7 (775) 441-55-59
+					.contacts-right
+						form.form-feedback.form
+							h2.form-title.title Форма связи
+							.form-block
+								span.block-title Имя | Организация
+								input(type='text' placeholder='Юрий Гагарин').block-input
+							.form-block
+								span.block-title Ваш E-mail:
+								input(type='text' placeholder='Uragagarin@gmail.com').block-input
+							.form-block
+								span.block-title Ваш номер телефона:
+								input(type='text' placeholder='+9 (999) 999-99-99').block-input
+							.form-block
+								span.block-title Комментарий
+								textarea(placeholder='Здравствуйте!').block-textarea.block-input
+							.form-privacy
+								span Нажимая кнопку "
+								strong Отправить
+								span ", Вы даете согласие на обработку персональных данных и соглашаетесь с&nbsp;
+								a(href='#').link Privacy Policy
+								span .
+							button(disabled).button Отправить

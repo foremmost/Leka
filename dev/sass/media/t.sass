@@ -24,7 +24,6 @@ aside
 .section
 	+w(var(--tablet-width))
 	
-		
 .head
 	padding: 17px 10px
 	justify-content: space-between
@@ -100,7 +99,6 @@ aside
 	&-item
 		flex: 0 0 32%
 		
-		
 .multiple-slider
 	+w(630px)
 .pagination
@@ -163,16 +161,12 @@ aside
 				font-family: $o_reg
 				color: rgba($gray,.7)
 
-
 .why
 	&-list
 		@extend %dfwi-t
 		flex-wrap: wrap
 	&-item
 		flex: 0 0 48%
-
-
-.projects
 
 .partners
 	.slide
@@ -183,11 +177,9 @@ aside
 			padding-left: 30px
 			padding-top: 0
 
-
 .map
 	iframe
 		height: calc(100vh - 125px)
-		
 		
 .search
 	&-row
@@ -219,7 +211,6 @@ aside
 				&-next
 					right: -30px
 			
-			
 .form
 	&-feedback
 		+w(493px)
@@ -227,6 +218,7 @@ aside
 
 .news
 	&-sort
+		padding-top: 114px
 		.sort
 			&-unit
 				justify-content: flex-start
@@ -257,7 +249,6 @@ aside
 				right: inherit
 				left: 10px
 	
-	
 .article
 	.section
 		padding-right: 80px
@@ -267,6 +258,23 @@ aside
 		img
 			+w(100%)
 
+.contacts
+	&-section
+		padding-top: 114px
+	&-row
+		@extend %df-t
+	&-left,&-right
+		flex: 0 0 48%
+	.form-feedback
+		+w(100%)
+		padding-top: 37px
+	&-subtitle
+		margin-bottom: 137px
+		line-height: 22px
+
+.ab
+	&-desc
+		right: 50px
 .foot
 	background-image: url('img/footer.svg')
 	background-repeat: no-repeat

@@ -10,14 +10,14 @@ label
 	&:hover
 		cursor: pointer
 
+.dn
+	display: none
 .section
 	+w(var(--mobile-width))
 	margin: auto
-
 .ui
 	&-row
 		padding: 10px 0 30px
-
 .button
 	+wh(200px,56px)
 	+dfc
@@ -39,7 +39,6 @@ label
 		border: 2px solid RGB($button-blue)
 		&:hover
 			background-color: rgba($button-darkblue,.6)
-		
 .link
 	font-family: $f_bold
 	text-decoration: underline
@@ -49,12 +48,9 @@ label
 		opacity: .5
 	&:hover
 		text-decoration: none
-
 .title
 	+font(24px,$f_bold)
 	text-transform: uppercase
-
-
 header
 	position: fixed
 	top: 10px
@@ -123,8 +119,6 @@ header
 			text-transform: uppercase
 			&.active
 				font-family: $f_bold
-
-
 aside
 	+w(100%)
 	padding-bottom: 20px
@@ -200,8 +194,6 @@ aside
 				font-family: $f_bold
 				&:before
 					background-color: RGB($button-blue)
-
-
 .bread-crumps
 	margin-bottom: 15px
 	&,a
@@ -220,7 +212,6 @@ aside
 		&:last-child
 			&:after
 				content: none
-
 .slider
 	&-control
 		@extend %dfi
@@ -240,8 +231,6 @@ aside
 		+af
 		+wh(8px)
 		border-radius: 100%
-
-		
 .main-slider
 	position: relative
 	height: calc(100vh - 60px)
@@ -313,8 +302,6 @@ aside
 				+wh(100%)
 				object-fit: cover
 				object-position: right
-
-
 .consult
 	&-form
 		border: 4px solid RGB($button-blue)
@@ -332,12 +319,9 @@ aside
 		background-image: url(img/Squares.svg)
 		background-size: cover
 		background-repeat: no-repeat
-
-
 .main-block
 	padding: 20px 0
 	background-color: RGB($block-bgc)
-	
 .about
 	&-row
 		padding-top: 4px
@@ -370,8 +354,6 @@ aside
 					left: 0
 		&:last-child
 			margin-bottom: 0
-
-
 .retailers
 	.slide
 		+wh(300px,372px)
@@ -463,8 +445,6 @@ aside
 	margin: 15px auto
 	overflow: hidden
 	@extend %df
-
-
 .pagination
 	+w(300px)
 	+dfc
@@ -496,14 +476,11 @@ aside
 			&:hover
 				color: RGB($white)
 				background-color: rgba($button-blue,.5)
-
-
 .item-title
 	+font(18px,$f_bold)
 	position: relative
 	img
 		position: absolute
-	
 .corp
 	&-link,&-subtitle,&-desc,&-item,&-list
 		margin-top: 15px
@@ -532,8 +509,6 @@ aside
 				left: -60px
 	&-img
 		display: none
-
-
 .services
 	position: relative
 	background: linear-gradient(114.44deg, rgba(20, 128, 255, 0.7) 0%, rgba(31, 87, 154, 0.7) 100%)
@@ -605,8 +580,6 @@ aside
 		position: absolute
 		top: 0
 		right: 0
-
-
 .why
 	&-item
 		margin-top: 15px
@@ -620,7 +593,6 @@ aside
 			&-desc
 				font-family: $o_reg
 				margin-top: 15px
-				
 .news
 	.slide
 		flex: 0 0 300px
@@ -648,8 +620,6 @@ aside
 		&-link
 			font-family: $f_semi
 			color: RGB($button-blue)
-
-			
 .projects
 	&-list
 		@extend %dfa
@@ -707,7 +677,6 @@ aside
 			&-bgc
 				img
 					display: block
-		
 .partners
 	.slider
 		@extend %df
@@ -742,14 +711,10 @@ aside
 		&-desc
 			+font(18px,$o_reg)
 			margin-top: 15px
-
-			
 .map
 	margin-bottom: 0
 	iframe
 		+wh(100%,calc(100vh - 113px))
-		
-
 .search
 	&-row
 		@extend %dfi
@@ -775,8 +740,6 @@ aside
 		+w(calc(100% - 50px))
 		padding: 10px 0
 		font-size: 18px
-
-		
 .product
 	&-page
 		padding-top: 70px
@@ -902,8 +865,6 @@ aside
 					flex: 0 0 100%
 					transition: $transition
 					text-align: center
-						
-
 .count
 	&-select
 		position: relative
@@ -949,10 +910,6 @@ aside
 			+w(100%)
 			padding: 5px 0
 			display: block
-
-
-.question
-	display: none
 .form
 	&-title
 		font-size: 24px
@@ -999,14 +956,13 @@ aside
 		.title
 			margin: 10px 0 5px
 			text-transform: inherit
+			line-height: 1
 		span
 			&:last-child
 				text-transform: uppercase
 	&-right
 		.title
 			font-size: 18px
-
-
 .news
 	&-sort
 		background-color: RGB($block-bgc)
@@ -1089,8 +1045,6 @@ aside
 				span
 					margin-right: 5px
 					font-size: 12px
-
-
 .article
 	padding-top: 90px
 	padding-bottom: 30px
@@ -1098,7 +1052,7 @@ aside
 	section
 		margin-bottom: 0
 	&-back
-		@extend %dfa
+		@extend %difa
 		font-family: $f_bold
 		text-transform: uppercase
 		svg
@@ -1118,8 +1072,6 @@ aside
 		*
 			font-size: 12px
 			margin-right: 5px
-	&-date
-	&-time
 	&-type
 		font-family: $f_bold
 		text-transform: uppercase
@@ -1139,8 +1091,121 @@ aside
 		margin-bottom: 20px
 		strong
 			font-family: $f_bold
-
-
+.share
+	+w(375px)
+	max-width: 100%
+	background-color: RGB($light-gray)
+	&-row
+		@extend %dfi
+		padding: 25px 15px
+		&:first-child
+			position: relative
+			&:after
+				+af
+				+wh(100%,1px)
+				background-color: RGB($arrow)
+				position: absolute
+				bottom: 0
+				left: 0
+				right: 0
+		&:last-child
+			padding-top: 0
+			padding-bottom: 40px
+	&-title
+		font-size: 18px
+	&-close
+		svg
+			transition: .35s ease
+		&:hover
+			svg
+				transform: rotate(180deg)
+	&-link
+		transition: $transition
+		&:hover
+			transform: scale(1.15)
+	&-copy
+		@extend %dfi
+		+w(100%)
+		padding: 13px 15px
+		border-radius: 9px
+		background-color: RGB($white)
+		font-size: 18px
+		transition: $transition
+		path
+			transition: $transition
+		&:hover
+			color: RGB($white)
+			background-color: RGB($button-blue)
+			path
+				stroke: RGB($white)
+				&:first-child,&:nth-child(3)
+					fill: RGB($button-blue)
+#location
+	opacity: 0
+	margin-bottom: -17px
+	display: block
+.contacts
+	&-section
+		padding-top: 90px
+		background-color: RGB($white)
+	&-row
+	&-left
+		padding: 0 10px
+	&-title
+		margin-bottom: 10px
+		font-size: 24px
+		font-family: $f_bold
+		text-transform: uppercase
+	&-subtitle
+		margin-bottom: 30px
+		display: block
+		font-family: $o_reg
+	&-address,&-phone
+		@extend %dfa
+		img
+			display: block
+			margin-right: 10px
+	&-address
+		margin-bottom: 10px
+		font-family: $f_bold
+	&-phone
+		margin-bottom: 30px
+	&-right
+		.form-feedback
+			background-color: transparent
+.ab
+	&-banner
+		.section
+			position: relative
+	&-photo
+		@extend %dfc
+		height: 370px
+		img
+			height: 100%
+			min-width: 100%
+			display: block
+			max-width: inherit
+			object-fit: cover
+	&-desc
+		+w(280px)
+		padding: 20px
+		background-color: RGB($white)
+		box-shadow: 7px 11px 15px rgba($black, 0.15)
+		position: absolute
+		bottom: -20px
+		right: 0
+		.desc
+			&-name
+				font-family: $f_bold
+				color: RGB($arrow)
+				text-transform: uppercase
+			&-title
+				margin: 15px 0
+				font-size: 24px
+				font-family: $f_bold
+				color: RGB($button-blue)
+			&-text
+				font-family: $o_reg
 .foot
 	background-color: RGB($foot-bgc)
 	padding: 40px 0 210px 0
@@ -1257,7 +1322,6 @@ aside
 						transform: scale(1.05)
 				img
 					display: block
-
 .right
 	margin-bottom: 0
 	&-links
@@ -1293,8 +1357,6 @@ aside
 				flex: 0 0 67%
 			&-bottom
 				flex: 0 0 33%
-				
-				
 #prod-col-1:checked ~ .desc
 	&-col-cont .desc-col
 		transform: translateX(0)
@@ -1304,7 +1366,6 @@ aside
 		&:first-child
 			&:after
 				background-color: RGB($button-blue)
-	
 #prod-col-2:checked ~ .desc
 	&-col-cont .desc-col
 		transform: translateX(-100%)

@@ -20,6 +20,8 @@ class Front extends _front{
 		MainEventBus.add(_.componentName,'countChoose',_.countChoose.bind(_));
 		
 		MainEventBus.add(_.componentName,'showFeedback',_.showFeedback.bind(_));
+		MainEventBus.add(_.componentName,'showShare',_.showShare.bind(_));
+		MainEventBus.add(_.componentName,'shareCopy',_.shareCopy.bind(_));
 		
 	}
 	createOrderSuccess(orderData){
@@ -130,13 +132,31 @@ class Front extends _front{
 	}
 	
 	showFeedback(){
-		const _ = this;
 		Modaler.showModal({
 			'content' : '.form-feedback',
 			'contBgc' : '#E2F0FF',
 			'border-radius' : '4px',
 			'box-shadow' : '7px 11px 20px rgba(0, 0, 0, 0.16)'
 		})
+	}
+	showShare(){
+		Modaler.showModal({
+			'content' : '.share',
+			'closeBtn' : false
+ 		})
+	}
+	shareCopy(clickData){
+		const _ = this;
+		let event = clickData.event;
+		event.preventDefault();
+		let path = location.href;
+		let sp = document.getElementById('location');
+		sp.textContent = path;
+		let range = new Range();
+		range.selectNodeContents(sp);
+		document.getSelection().removeAllRanges();
+		document.getSelection().addRange(range);
+		document.execCommand('copy');
 	}
 	
 	articlesLengthCheck(){
