@@ -1,7 +1,7 @@
 input[type='checkbox'],input[type='radio']
 	display: none
 body
-	background-color: rgba($form-bgc,.5)
+	background-color: rgba($form-bgc,.3)
 section
 	margin-bottom: 30px
 main
@@ -103,10 +103,13 @@ header
 		margin-top: 20px
 	&-item
 		margin-top: 5px
-		&.active
-			font-family: $f_bold
 		&:first-child
 			margin-top: 0
+		.item
+			&-link
+				&.active
+					font-family: $f_bold
+					color: RGB($white)
 	&-login
 		flex: 0 0 100%
 		margin-top: 20px
@@ -891,11 +894,14 @@ aside
 				.dot
 					+w(77px)
 			&-body
+				@extend %dfa
+				+w(100%)
+				margin-bottom: 20px
 				overflow: hidden
-				@extend %df
-				img
-					transform: translateX(-100%)
+				.slide
+					flex: 0 0 100%
 					transition: $transition
+					text-align: center
 						
 
 .count
@@ -999,6 +1005,140 @@ aside
 	&-right
 		.title
 			font-size: 18px
+
+
+.news
+	&-sort
+		background-color: RGB($block-bgc)
+		padding-top: 90px
+		padding-bottom: 30px
+		margin-bottom: 0
+		.sort
+			&-unit
+				@extend %dfi
+				position: relative
+				margin-bottom: 10px
+				&:last-child
+					margin-bottom: 5px
+				&:after
+					+af
+					+wh(100%,1px)
+					background-color: rgba($gray,.1)
+					position: absolute
+					bottom: -3px
+			&-link
+				font-family: $f_bold
+				position: relative
+				transition: $transition
+				&:after
+					+af
+					+wh(100%,1px)
+					position: absolute
+					bottom: -3px
+				&.active
+					color: RGB($button-blue)
+					&:after
+						background-color: RGB($button-blue)
+	&-carts
+		background-color: RGB($block-bgc)
+		padding-bottom: 60px
+		.cart
+			&-item
+				margin-bottom: 30px
+				background-color: RGB($white)
+				box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1)
+		.item
+			&-left
+				position: relative
+			&-photo
+				img
+					+w(100%)
+					display: block
+			&-type
+				padding: 5px 20px
+				position: absolute
+				top: 20px
+				left: 20px
+				z-index: 1
+				background-color: rgba($gray,.8)
+				font-family: $f_semi
+				color: RGB($white)
+				text-transform: uppercase
+			&-right
+				padding: 15px 10px 30px
+				position: relative
+		.desc
+			&-date
+				font-size: 12px
+				margin-bottom: 5px
+			&-title
+				margin-bottom: 20px
+				display: inline-block
+				font-size: 18px
+				font-family: $f_bold
+				text-transform: uppercase
+			&-text
+				opacity: .7
+				display: none
+			&-views
+				@extend %dfa
+				opacity: .7
+				position: absolute
+				bottom: 2px
+				right: 10px
+				span
+					margin-right: 5px
+					font-size: 12px
+
+
+.article
+	padding-top: 90px
+	padding-bottom: 30px
+	background-color: RGB($white)
+	section
+		margin-bottom: 0
+	&-back
+		@extend %dfa
+		font-family: $f_bold
+		text-transform: uppercase
+		svg
+			transform: rotate(180deg) scale(1.2)
+			margin-right: 5px
+	&-block
+		position: relative
+		margin-bottom: 20px
+		&:after
+			+af
+			+wh(100%,1px)
+			background-color: RGB($form-block)
+			margin-top: 10px
+	.row
+		@extend %dfa
+		margin: 10px 0
+		*
+			font-size: 12px
+			margin-right: 5px
+	&-date
+	&-time
+	&-type
+		font-family: $f_bold
+		text-transform: uppercase
+		letter-spacing: 0
+		text-decoration: underline
+	&-title
+		font-size: 18px
+		font-family: $f_bold
+		text-transform: uppercase
+	&-share
+		position: absolute
+		right: 0
+		top: 0
+	&-photo
+		margin-bottom: 20px
+	&-text
+		margin-bottom: 20px
+		strong
+			font-family: $f_bold
 
 
 .foot

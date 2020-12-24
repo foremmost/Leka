@@ -7,17 +7,20 @@ class Front extends _front{
 		const _ = this;
 		MainEventBus.add(_.componentName,'createOrderSuccess',_.createOrderSuccess.bind(_));
 		MainEventBus.add(_.componentName,'createOrderFail',_.createOrderFail.bind(_));
+		
 		MainEventBus.add(_.componentName,'mainSliderSwap',_.mainSliderSwap.bind(_));
 		MainEventBus.add(_.componentName,'mainSliderSwap',_.mainSliderSwapReset.bind(_));
+		
 		MainEventBus.add(_.componentName,'headBurgerClick',_.headBurgerClick.bind(_));
+		
 		MainEventBus.add(_.componentName,'asideShow',_.asideShow.bind(_));
 		MainEventBus.add(_.componentName,'showItem',_.showItem.bind(_));
+		
 		MainEventBus.add(_.componentName,'countShow',_.countShow.bind(_));
 		MainEventBus.add(_.componentName,'countChoose',_.countChoose.bind(_));
+		
 		MainEventBus.add(_.componentName,'showFeedback',_.showFeedback.bind(_));
 		
-		_.mainSliderButtonsCreate();
-		_.mainSliderAutoSwap();
 	}
 	createOrderSuccess(orderData){
 		console.log(orderData);
@@ -134,6 +137,49 @@ class Front extends _front{
 			'border-radius' : '4px',
 			'box-shadow' : '7px 11px 20px rgba(0, 0, 0, 0.16)'
 		})
+	}
+	
+	articlesLengthCheck(){
+		const _ = this;
+		let articles = document.querySelectorAll('.news .desc-text');
+		if(articles.length) {
+			articles.forEach(function(article) {
+				if(window.innerWidth < 768) {
+					if(article.textContent.length > 130) article.textContent = article.textContent.substr(0,130) + '...';
+				}
+				else {
+					if(article.textContent.length > 230) article.textContent = article.textContent.substr(0,230) + '...';
+				}
+				article.setAttribute('style','display:block;')
+			});
+		}
+	}
+	
+	currentPageCheck(){
+		const _ = this;
+		let headLinks = document.querySelectorAll('.head .item-link');
+		let pageName = location.href;
+		headLinks.forEach(function(link) {
+			let linkWay = link.getAttribute("data-path");
+			if(linkWay.length) {
+				if(linkWay.indexOf(' ')){
+					linkWay = linkWay.split(' ');
+					for(let i = 0; i < linkWay.length; i++){
+						if(pageName.indexOf(linkWay[i]) > -1) link.classList.add('active')
+					}
+				} else {
+					if(pageName.indexOf(linkWay) > -1) link.classList.add('active')
+				}
+			}
+		})
+	}
+	
+	init(){
+		const _ = this;
+		_.currentPageCheck();
+		_.mainSliderButtonsCreate();
+		_.mainSliderAutoSwap();
+		_.articlesLengthCheck();
 	}
 }
 new Front();

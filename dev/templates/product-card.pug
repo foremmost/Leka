@@ -35,7 +35,7 @@ block content
 							a(href='#').cart-link Перейти в корзину
 							button(data-click-action='Front:showFeedback').question-button Задать вопрос
 						.product-slider
-							button.slider-prev-button.slider-arrow
+							button.slider-arrow-prev.slider-arrow
 								svg(width="11" height="20" viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg")
 									path(d="M2.1952 10.1109L10.5165 1.7896C10.8041 1.50189 10.8041 1.03542 10.5165 0.747706C10.2287 0.460075 9.76229 0.460075 9.47457 0.747706L0.632349 9.58993C0.344718 9.87765 0.344718 10.3441 0.632349 10.6318L9.47457 19.4741C9.7673 19.7568 10.2338 19.7486 10.5165 19.4559C10.7922 19.1704 10.7922 18.7177 10.5165 18.4322L2.1952 10.1109Z" fill="#404040")
 							.slider-dots
@@ -46,10 +46,13 @@ block content
 								button.dot
 									+img('product.jpg')
 							.slider-body
-								+img('product.jpg')
-								+img('product.jpg')
-								+img('product.jpg')
-							button.slider-next-button.slider-arrow
+								.slide
+									+img('product.jpg')
+								.slide
+									+img('product.jpg')
+								.slide
+									+img('product.jpg')
+							button.slider-arrow-next.slider-arrow
 								svg(width="11" height="20" viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg")
 									path(d="M8.8048 10.102L0.483532 18.4233C0.195858 18.711 0.195858 19.1775 0.483532 19.4652C0.771293 19.7528 1.23771 19.7528 1.52543 19.4652L10.3677 10.623C10.6553 10.3352 10.6553 9.86878 10.3677 9.58106L1.52543 0.738838C1.2327 0.456129 0.766241 0.464247 0.483532 0.756973C0.207774 1.04253 0.207774 1.49522 0.483532 1.78074L8.8048 10.102Z" fill="#404040")
 						.product-desc

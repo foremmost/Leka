@@ -206,13 +206,66 @@ aside
 				border-bottom-left-radius: 0
 		.question-button
 			flex-basis: auto
+	&-slider
+		+w(500px)
+		margin: 0 auto 20px
+		.slider
+			&-arrow
+				display: block
+				padding: 10px
+				bottom: 20px
+				&-prev
+					left: -30px
+				&-next
+					right: -30px
 			
 			
 .form
 	&-feedback
 		+w(493px)
 		font-size: 16px
-.feedback
+
+.news
+	&-sort
+		.sort
+			&-unit
+				justify-content: flex-start
+			&-link
+				margin: 0 10px
+				&.active
+					margin: 0 45px
+				&:first-child
+					margin: 0 10px 0 0
+					&.active
+						margin: 0 45px 0 0
+				&:last-child
+					margin: 0 0 0 10px
+					&.active
+						margin: 0 0 0 45px
+	&-carts
+		.cart
+			&-item
+				@extend %df-t
+				box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1)
+		.item
+			&-left
+				flex: 0 0 362px
+			&-right
+				padding: 15px 60px 30px 10px
+		.desc
+			&-views
+				right: inherit
+				left: 10px
+	
+	
+.article
+	.section
+		padding-right: 80px
+	&-block
+		margin-bottom: 40px
+	&-photo
+		img
+			+w(100%)
 
 .foot
 	background-image: url('img/footer.svg')

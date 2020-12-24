@@ -12,7 +12,7 @@
 body
 	padding-bottom: 0
 main
-	min-height: calc(100vh - 508px)
+	min-height: calc(100vh - 568px)
 
 .section
 	+w($desktop)
@@ -20,13 +20,19 @@ main
 .head
 	&-menu
 		margin-right: 126px
-	&-item a,.head-login,.head-lang a
+	&-logo
+		transition: $transition
+		&:hover
+			transform: scale(1.05)
+	&-item .item-link,& .head-login,.lang-link
 		color: rgba($white,.7)
 		transition: $transition
 		&:hover
 			color: RGB($white)
-	.head-lang a.active
-		color: RGB($white)
+	&-lang
+		.lang-link
+			&.active
+				color: RGB($white)
 
 .main-slider
 	.slide
@@ -135,28 +141,99 @@ main
 .product
 	&-page
 		padding-top: 154px
-
+	
+		
 		
 .form
 	&-feedback
 		+w(1160px)
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+.news
+	&-sort
+		padding-top: 153px
+		.sort
+			&-unit
+				&:after
+					bottom: -7px
+			&-link
+				font-size: 18px
+				transition: $transition
+				&:after
+					bottom: -7px
+				&:hover
+					color: RGB($button-blue)
+	&-carts
+		padding-bottom: 90px
+		.cart
+			&-item
+				margin-bottom: 40px
+		.item
+			&-right
+				padding: 20px 45px 50px 15px
+		.desc
+			&-date
+				font-size: 14px
+			&-title
+				margin-bottom: 30px
+				font-size: 24px
+				transition: $transition
+				&:after
+					+af
+					+wh(100%,1px)
+					background-color: RGB($black)
+					transition: $transition
+				&:hover
+					color: RGB($button-blue)
+					&:after
+						background-color: RGB($button-blue)
+			&-text
+				font-size: 18px
+				line-height: 28px
+			&-views
+				bottom: 20px
+				right: 32px
+				left: inherit
+
+
+.article
+	padding-top: 153px
+	padding-bottom: 60px
+	.section
+		padding: 0
+	&-back
+		font-size: 18px
+		&,path
+			transition: $transition
+		&:hover
+			color: RGB($button-blue)
+			path
+				stroke: RGB($button-blue)
+	&-block
+		&:after
+			margin-top: 20px
+	.row
+		*
+			font-size: 14px
+	&-type
+		transition: $transition
+		&:hover
+			color: RGB($button-blue)
+	&-title
+		font-size: 24px
+	&-share
+		top: 22px
+		path
+			transition: $transition
+		&:hover
+			path
+				stroke: RGB($button-blue)
+	&-photo
+		margin-bottom: 30px
+	&-text
+		margin-bottom: 30px
+		line-height: 1.8
+
 
 .foot
 	background-size: auto
@@ -174,8 +251,9 @@ main
 				opacity: .5
 	&-nav
 		&-link
-			margin-top: 20px
+			margin-top: 24px
 	&-form
+		flex-basis: 289px
 		&-subtitle
 			margin-bottom: 35px
 	
