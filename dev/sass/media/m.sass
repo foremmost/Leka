@@ -1175,6 +1175,7 @@ aside
 			background-color: transparent
 .ab
 	&-banner
+		margin-bottom: 60px
 		.section
 			position: relative
 	&-photo
@@ -1206,6 +1207,141 @@ aside
 				color: RGB($button-blue)
 			&-text
 				font-family: $o_reg
+	&-map
+		padding: 0 0 30px
+		margin-bottom: 0
+		background-color: RGB($white)
+		.title
+			padding-top: 30px
+		.map
+			&-row
+				@extend %dfi
+				flex-direction: column
+			&-left
+				order: 1
+			&-desc
+				font-family: $o_reg
+				line-height: 1.4
+				letter-spacing: 0
+			&-right
+				+w(100%)
+			&-photo
+				margin: 15px auto
+				position: relative
+				img
+					+w(100%)
+			&-dot
+				position: absolute
+				button
+					padding: 3px
+					border: 3px solid RGB($button-blue)
+					background-color: RGB($white)
+					opacity: .5
+					&,&:after
+						border-radius: 100%
+					&:after
+						+af
+						+wh(5px)
+						background-color: RGB($button-blue)
+				span
+					opacity: 0
+					visibility: hidden
+					padding: 5px 15px
+					white-space: pre
+					border-radius: 14px
+					top: -35px
+					left: -17px
+					&,&:before,&:after
+						position: absolute
+						background-color: RGB($white)
+					&,&:after
+						box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25)
+					&:before,&:after
+						+af
+						+wh(10px)
+						border-radius: 2px
+						transform: rotate(45deg)
+						bottom: -4px
+						left: 20px
+				&.active
+					button
+						opacity: 1
+					span
+						opacity: 1
+						visibility: visible
+			&-Karagandy
+				top: 29%
+				right: 30%
+			&-Moscow
+				top: 24%
+				right: 41%
+			&-Pekin
+				top: 36%
+				right: 20%
+			&-Sidney
+				bottom: 17%
+				right: 10%
+				span
+					left: -50px
+					&:after,&:before
+						right: 20px
+						left: initial
+			&-Dubai
+				bottom: 50%
+				left: 62%
+			&-Seattle
+				left: 13%
+				top: 31%
+			&-Rio
+				bottom: 24%
+				left: 35%
+			&-London
+				top: 27%
+				right: 52%
+	&-comment
+		padding-bottom: 60px
+		position: relative
+		background-color: RGB($white)
+		.comment
+			&-slider
+				@extend %dfa
+				+w(300px)
+				padding: 10px 0 35px
+				margin: 0 auto
+				overflow: hidden
+			&-slide
+				flex: 0 0 280px
+				padding: 20px
+				margin: 0 10px
+				border-radius: 24px
+				box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1)
+			&-row
+				@extend %dfa
+			&-photo
+				+wh(50px)
+				margin-right: 20px
+				border-radius: 100%
+				overflow: hidden
+				img
+					+wh(100%)
+					object-fit: cover
+			&-title
+				margin-bottom: 6px
+				font-family: $f_bold
+				font-size: 18px
+			&-text
+				margin-top: 10px
+		.slider-control
+			+w(182px)
+			bottom: 44px
+		.control-button
+			&:after
+				background-color: RGB($gray)
+			&.active
+				border-color: RGB($button-blue)
+	&-sert
+		.sert
+			&-rowaaaфц
 .foot
 	background-color: RGB($foot-bgc)
 	padding: 40px 0 210px 0

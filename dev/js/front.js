@@ -22,6 +22,7 @@ class Front extends _front{
 		MainEventBus.add(_.componentName,'showFeedback',_.showFeedback.bind(_));
 		MainEventBus.add(_.componentName,'showShare',_.showShare.bind(_));
 		MainEventBus.add(_.componentName,'shareCopy',_.shareCopy.bind(_));
+		MainEventBus.add(_.componentName,'showCity',_.showCity.bind(_));
 		
 	}
 	createOrderSuccess(orderData){
@@ -192,6 +193,15 @@ class Front extends _front{
 				}
 			}
 		})
+	}
+	
+	showCity(clickData){
+		let cities = document.querySelectorAll('.map-dot');
+		cities.forEach(function(el) {
+			if(el.classList.contains('active')) el.classList.remove('active');
+		});
+		let curCity = clickData.item.parentElement;
+		curCity.classList.add('active')
 	}
 	
 	init(){

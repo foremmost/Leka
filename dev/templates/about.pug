@@ -13,8 +13,85 @@ block content
 					h1.desc-title ТОО
 						q ЛЕКА
 					p.desc-text Производственно-монтажная компания «ЛЕКА» существует на рынке вентиляционного оборудования Республики Казахстан с 1989 года. За это время мы освоили основы создания необходимого микроклимата и передовые технологии климатической отрасли при изготовлении систем вентиляции и кондиционирования воздуха.
-
-
-
+		section.ab-map
+			.section
+				h2.title Регионы сотрудничества
+				.map-row
+					p.map-left.map-desc На сегодняшний день компания «ЛЕКА» является одной из ведущих строительно-монтажных компаний отечественного производства. Мы регулярно расширяем сферы своей деятельности, а так же ассортимент производимой продукции. Нашими партнерами являются лидирующие строительные компании - Bi-group, СК «Базис», ТОО «Kazindustrial Group», ТОО «Absolute Kazakhstan-C», ТОО «АСТАНА-ТУКС» и многие другие, стремительно набирающие карьерный рост и авторитет в своей отрасли, компании Республики Казахстан.
+					.map-right
+						.map-photo
+							+img('map.svg')
+							.map-dot.map-Karagandy.active
+								button(data-click-action='Front:showCity')
+								span Караганда
+							.map-dot.map-Moscow
+								button(data-click-action='Front:showCity')
+								span Москва
+							.map-dot.map-Pekin
+								button(data-click-action='Front:showCity')
+								span Пекин
+							.map-dot.map-Sidney
+								button(data-click-action='Front:showCity')
+								span Сидней
+							.map-dot.map-Dubai
+								button(data-click-action='Front:showCity')
+								span Дубай
+							.map-dot.map-Seattle
+								button(data-click-action='Front:showCity')
+								span Сиэтл
+							.map-dot.map-Rio
+								button(data-click-action='Front:showCity')
+								span Рио-де-Жанейро
+							.map-dot.map-London
+								button(data-click-action='Front:showCity')
+								span Лондон
+				h2.title Специалисты
+				p.map-desc.map-row Многолетний опыт «ЛЕКА» позволил обучить и сплотить высококлассных специалистов, творческий подход и гибкость мышления которых, является источником уверенности в правильном выборе нашей компании для решения ваших бизнес-задач.
+		section.ab-comment
+			.section
+				.comment-slider
+					.comment-slide
+						.comment-row
+							.comment-photo
+								+img('Angela-Merkel-2012.jpg')
+							div
+								h5.comment-title Ангела Меркель
+								span.comment-position Канцлер Германии
+						p.comment-text А́нгела Дороте́я Ме́ркель (нем. Angela Dorothea Merkel, урождённая Каснер (нем. Kasner); род. 17 июля 1954, Гамбург, ФРГ) — немецкий деятель.
+					.comment-slide
+						.comment-row
+							.comment-photo
+								+img('stark.jpg')
+							div
+								h5.comment-title Энтони Старк
+								span.comment-position Железный человек
+						p.comment-text Энтони Эдвард «Тони» Старк (англ. Anthony Edward "Tony" Stark) — персонаж, изданий Marvel Comics и их адаптаций, созданный писателем Стэном Ли в марте 1963 года.
+					.comment-slide
+						.comment-row
+							.comment-photo
+								+img('ggg.jpg')
+							div
+								h5.comment-title Геннадий Головкин
+								span.comment-position Чемпион мира по боксу
+						p.comment-text Генна́дий Генна́дьевич Голо́вкин (род. 8 апреля 1982, Караганда, Казахская ССР, СССР) — казахстанский боксёр-профессионал, выступающий в средней весовой категории.
+				.slider-control
+					button.control-button.active
+					button.control-button
+					button.control-button
+					button.control-button
+					button.control-button
+					button.control-button
+		section.ab-sert
+			.section
+				h2.title Сертификаты
+				.sert-row
+					button.sert-img
+						+img('sert-1.jpg')
+					button.sert-img
+						+img('sert-2.jpg')
+					button.sert-img
+						+img('sert-3.jpg')
+		include parts/consult
+		include parts/map
 
 

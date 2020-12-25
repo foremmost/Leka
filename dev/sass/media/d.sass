@@ -248,12 +248,32 @@ inner .form
 			font-size: 24px
 
 .ab
-	&-banner
-		margin-bottom: 90px
 	&-photo
 		height: 670px
 	&-desc
 		right: 120px
+	&-map
+		.title
+			padding-top: 70px
+		.section
+			+w(1135px)
+	&-comment
+		padding-bottom: 90px
+		.comment
+			&-slider
+				+w(1170px)
+			&-slide
+				flex-basis: 360px
+				box-shadow: 5px 5px 15px rgba($black,.1)
+		.slider-control
+			bottom: 74px
+		.control-button
+			transition: $transition
+			&:hover
+				border-color: RGB($gray)
+			&.active
+				&:hover
+					border-color: RGB($button-blue)
 .foot
 	background-size: auto
 	padding-top: 95px

@@ -273,8 +273,34 @@ aside
 		line-height: 22px
 
 .ab
+	&-banner
+		margin-bottom: 60px
 	&-desc
 		right: 50px
+	&-map
+		padding-bottom: 50px
+		.title
+			padding-top: 50px
+		.map
+			&-row
+				margin-top: 10px
+				flex-direction: row
+			&-left
+				flex: 0 0 45%
+				order: inherit
+			&-right
+				flex: 0 0 50%
+			&-photo
+				margin: 0
+	&-comment
+		.comment
+			&-slider
+				+w(740px)
+			&-slide
+				flex-basis: 350px
+			&-text
+				line-height: 20px
+
 .foot
 	background-image: url('img/footer.svg')
 	background-repeat: no-repeat
