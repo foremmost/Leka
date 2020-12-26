@@ -253,15 +253,14 @@ inner .form
 	&-desc
 		right: 120px
 	&-map
-		.title
-			padding-top: 70px
 		.section
 			+w(1135px)
-	&-comment
-		padding-bottom: 90px
+			&:first-child
+				margin-bottom: 80px
 		.comment
 			&-slider
 				+w(1170px)
+				padding-top: 50px
 			&-slide
 				flex-basis: 360px
 				box-shadow: 5px 5px 15px rgba($black,.1)
@@ -274,6 +273,29 @@ inner .form
 			&.active
 				&:hover
 					border-color: RGB($button-blue)
+	&-sert
+		.title
+			margin-bottom: 70px
+			line-height: 64px
+		.sert
+			&-img
+				transition: $transition
+				&:hover
+					transform: scale(1.05)
+	&-doc
+		.title
+			margin-bottom: 70px
+			line-height: 64px
+		.doc
+			&-list
+				height: auto
+				overflow: visible
+			&-item
+				flex: 0 0 calc((100% - 120px) / 4)
+				a
+					transition: $transition
+					&:hover
+						background-color: RGB($light-gray)
 .foot
 	background-size: auto
 	padding-top: 95px

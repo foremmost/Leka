@@ -13,7 +13,7 @@ block content
 					h1.desc-title ТОО
 						q ЛЕКА
 					p.desc-text Производственно-монтажная компания «ЛЕКА» существует на рынке вентиляционного оборудования Республики Казахстан с 1989 года. За это время мы освоили основы создания необходимого микроклимата и передовые технологии климатической отрасли при изготовлении систем вентиляции и кондиционирования воздуха.
-		section.ab-map
+		section.ab-map.main-block
 			.section
 				h2.title Регионы сотрудничества
 				.map-row
@@ -45,10 +45,9 @@ block content
 							.map-dot.map-London
 								button(data-click-action='Front:showCity')
 								span Лондон
+			.section
 				h2.title Специалисты
 				p.map-desc.map-row Многолетний опыт «ЛЕКА» позволил обучить и сплотить высококлассных специалистов, творческий подход и гибкость мышления которых, является источником уверенности в правильном выборе нашей компании для решения ваших бизнес-задач.
-		section.ab-comment
-			.section
 				.comment-slider
 					.comment-slide
 						.comment-row
@@ -73,7 +72,7 @@ block content
 							div
 								h5.comment-title Геннадий Головкин
 								span.comment-position Чемпион мира по боксу
-						p.comment-text Генна́дий Генна́дьевич Голо́вкин (род. 8 апреля 1982, Караганда, Казахская ССР, СССР) — казахстанский боксёр-профессионал, выступающий в средней весовой категории.
+						p.comment-text Генна́дий Генна́дьевич Голо́вкин — казахстанский боксёр-профессионал, выступающий в средней весовой категории.
 				.slider-control
 					button.control-button.active
 					button.control-button
@@ -81,16 +80,85 @@ block content
 					button.control-button
 					button.control-button
 					button.control-button
-		section.ab-sert
+		section.ab-sert.main-block
 			.section
 				h2.title Сертификаты
 				.sert-row
-					button.sert-img
-						+img('sert-1.jpg')
-					button.sert-img
-						+img('sert-2.jpg')
-					button.sert-img
-						+img('sert-3.jpg')
+					button(data-click-action='Front:showSertificate').sert-img
+						+img('sert-1.jpg')(style='width: 100%')
+					button(data-click-action='Front:showSertificate').sert-img
+						+img('sert-2.jpg')(style='width: 100%')
+					button(data-click-action='Front:showSertificate').sert-img
+						+img('sert-3.jpg')(style='width: 100%')
+		section.ab-doc.main-block
+			.section
+				h2.title Документация
+				.doc-slider
+					button.prev.arrow
+						+img('border-arrow-right.svg')
+					ul.doc-list
+						li.doc-item.active
+							a(href='#')
+								span.doc-title Letex
+								span.doc-text Сертификат подтверждающий официальное диллерство
+								span.doc-link  (4.80 МБ.pdf)
+						-for(let i = 0; i < 11; i++)
+							li.doc-item
+								a(href='#')
+									span.doc-title Letex
+									span.doc-text Сертификат подтверждающий официальное диллерство
+									span.doc-link (4.80 МБ.pdf)
+					button.next.arrow
+						+img('border-arrow-right.svg')
+		section.ab-vac.main-block
+			.section
+				h2.title Карьера
+				p.vac-subtitle ТОО «ЛЕКА» ищет талантливых и увлеченных своим делом людей для работы в корпоративных интересах. Приглашаем вас ознакомиться с многочисленными возможностями и преимуществами работы в организации.
+				.vac-hidden
+					button.hidden-head
+						span Вакансии
+						+img('border-arrow-right.svg')
+					ul.vac-list
+						-for(let i = 0; i < 5; i++)
+							li.vac-item
+								span.vac-place В штат
+								.vac-position
+									div
+									span Маркетолог
+								.vac-require
+									span.require-title Стаж работы:
+									span.require-value 8 лет
+				form.vac-form.form-feedback
+					span.form-details *для получения возможности провести собеседование, пожалуйста, заполните краткую форму ниже.
+					.form-block
+						span.block-title Ф.И.О.
+						input(type='text' placeholder='Юрий Гагарин').block-input
+					.form-block
+						span.block-title Ваш E-mail:
+						input(type='text' placeholder='Uragagarin@gmail.com').block-input
+					.form-block
+						span.block-title Ваш номер телефона:
+						input(type='text' placeholder='+9 (999) 999-99-99').block-input
+					.form-block.vac-select
+						span.block-title Вакансия:
+						button(type='button').select-head
+						.select-body
+							-for(let i = 0; i < 6; i++)
+								button.select-option Менеджер
+						input(type='hidden' placeholder='')#vacancy
+					.form-block
+						span.block-title Резюме
+						input(type='file' placeholder='Вы можете прикрепить своё резюме здесь!').block-textarea.block-input
+						.vac-file
+					.form-privacy
+						span Нажимая кнопку "
+						strong Отправить
+						span ", Вы даете согласие на обработку персональных данных и соглашаетесь с&nbsp;
+						a(href='#').link Privacy Policy
+						span .
+					button(disabled).button Отправить
+
+
 		include parts/consult
 		include parts/map
 

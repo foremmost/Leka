@@ -23,6 +23,7 @@ class Front extends _front{
 		MainEventBus.add(_.componentName,'showShare',_.showShare.bind(_));
 		MainEventBus.add(_.componentName,'shareCopy',_.shareCopy.bind(_));
 		MainEventBus.add(_.componentName,'showCity',_.showCity.bind(_));
+		MainEventBus.add(_.componentName,'showSertificate',_.showSertificate.bind(_));
 		
 	}
 	createOrderSuccess(orderData){
@@ -202,6 +203,23 @@ class Front extends _front{
 		});
 		let curCity = clickData.item.parentElement;
 		curCity.classList.add('active')
+	}
+	
+	showSertificate(clickData){
+		const _ = this;
+		let sert = clickData.item.firstElementChild;
+		Modaler.showModal({
+			'content' : sert,
+			'append' : false,
+			'responsive' : {
+				768: {
+					'width' : '600px'
+				},
+				1200 : {
+					'width' : '50vw'
+				}
+			}
+		})
 	}
 	
 	init(){

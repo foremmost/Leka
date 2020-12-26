@@ -382,7 +382,10 @@ class _Modaler extends Lib{
             inner = modalInner.querySelector('inner');
 
         if (modalParams['type'] === 'object') {
-            inner.append(modalParams['content']);}
+        	let cont = modalParams['content'];
+        	if(modalParams.append === false) cont = cont.cloneNode(true);
+            inner.append(cont);
+        }
 
         else if (modalParams['type'] === 'html') {
             let innerParent = document.querySelector(`${modalParams['content']}`).parentElement;

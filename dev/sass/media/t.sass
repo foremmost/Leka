@@ -278,9 +278,6 @@ aside
 	&-desc
 		right: 50px
 	&-map
-		padding-bottom: 50px
-		.title
-			padding-top: 50px
 		.map
 			&-row
 				margin-top: 10px
@@ -292,14 +289,43 @@ aside
 				flex: 0 0 50%
 			&-photo
 				margin: 0
-	&-comment
 		.comment
 			&-slider
 				+w(740px)
+				padding-top: 20px
 			&-slide
 				flex-basis: 350px
 			&-text
 				line-height: 20px
+	&-sert
+		.title
+			margin-bottom: 50px
+		.sert
+			&-img
+				flex-basis: calc((100% - 48px) / 3)
+				box-shadow: 7px 11px 15px rgba(0, 0, 0, 0.15)
+	&-doc
+		padding: 70px 0
+		.title
+			margin-bottom: 50px
+		.arrow
+			display: none
+		.doc
+			&-list
+				@extend %dfa-t
+				flex-wrap: wrap
+				flex-basis: 100%
+				height: 550px
+				padding: 20px 0 0
+				overflow: auto
+			&-item
+				flex: 0 0 calc((100% - 90px) / 3)
+				margin: 0 30px 30px 0
+				position: static
+				opacity: 1
+				visibility: visible
+			&-title
+				font-size: 24px
 
 .foot
 	background-image: url('img/footer.svg')
