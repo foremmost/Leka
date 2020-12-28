@@ -2,17 +2,13 @@ input[type='checkbox'],input[type='radio']
 	display: none
 input[type='file']
 	opacity: 0
-	&:hover
-		cursor: pointer
+	cursor: pointer
 body
 	background-color: rgba($form-bgc,.3)
 section
 	margin-bottom: 30px
 main
 	min-height: calc(100vh - 508px)
-label
-	&:hover
-		cursor: pointer
 
 .dn
 	display: none
@@ -1426,42 +1422,60 @@ aside
 						img
 							transform: rotate(90deg)
 			&-list
-				@extend %dfa
+				display: none
+			&-form
+				padding: 20px 0
+				background-color: transparent
+			&-file
+				height: 28px
+				margin-top: -28px
+				line-height: 28px
+				font-size: 18px
+				opacity: .3
+		.form
+			&-details
+				font-family:  $o_reg
+				letter-spacing: 0
+		.block
+			&-title
+				line-height: 22px
+				letter-spacing: .25px
+				color: RGB($form-subtitle)
+			&-input
+				+w(100%)
+				line-height: 28px
+				font-size: 18px
+				&::placeholder
+					opacity: .3
+			&-file
+				position: relative
+				z-index: 1
+			&-select
+				&.active
+					.select
+						&-head
+							img
+								transform: rotate(-90deg)
+		.select
+			&-head,&-body
+				font-size: 18px
+				line-height: 22px
+			&-head,&-body button
+				height: 28px
+				text-align: left
+			&-head
+				+w(100%)
+				span
+					padding-right: 20px
+				img
+					transform: rotate(90deg)
+					transition: $transition
+			&-body
+				@extend %dfwi
+				flex-direction: column
 				height: 0
 				overflow: hidden
-				flex-wrap: wrap
 				transition: $transition
-				&.active
-					.vac-position
-						&:before,&:after
-							background-color: RGB($button-blue)
-			&-item
-				flex: 0 0 50%
-				margin-top: 10px
-				padding-left: 10px
-			&-place
-				color: RGB($form-subtitle)
-				text-transform: uppercase
-			&-position
-				@extend %dfa
-				div
-					@extend %dfc
-					+wh(10px)
-					margin-right: 5px
-					transition: $transition
-					&:after,&:before
-						+af
-						+wh(10px,1px)
-						position: absolute
-					&:after
-						transform: rotate(90deg)
-				span
-					font-size: 20px
-			&-require
-				.require
-					&-title
-						color: RGB($arrow)
-					&-value
 .foot
 	background-color: RGB($foot-bgc)
 	padding: 40px 0 210px 0

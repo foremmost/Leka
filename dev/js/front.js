@@ -24,6 +24,7 @@ class Front extends _front{
 		MainEventBus.add(_.componentName,'shareCopy',_.shareCopy.bind(_));
 		MainEventBus.add(_.componentName,'showCity',_.showCity.bind(_));
 		MainEventBus.add(_.componentName,'showSertificate',_.showSertificate.bind(_));
+		MainEventBus.add(_.componentName,'vacancyShow',_.vacancyShow.bind(_));
 		
 	}
 	createOrderSuccess(orderData){
@@ -220,6 +221,26 @@ class Front extends _front{
 				}
 			}
 		})
+	}
+	
+	vacancyShow(clickData){
+		const _ = this;
+		let btn = clickData['item'];
+		let cls = btn.getAttribute('data-cls');
+		let main = document.querySelector(`.${cls}`);
+		main.classList.toggle('active');
+		let body = main.querySelector('.select-body');
+		if(main.classList.contains('active')){
+			let height = body.children.length * 28;
+			body.setAttribute('style',`height:${height}px`)
+		} else {
+			let
+				head = main.querySelector('.select-head'),
+				input = main.querySelector('input');
+			head.firstElementChild.textContent = btn.textContent;
+			input.value = btn.textContent;
+			body.removeAttribute('style')
+		}
 	}
 	
 	init(){

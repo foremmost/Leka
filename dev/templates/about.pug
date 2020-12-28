@@ -114,20 +114,16 @@ block content
 			.section
 				h2.title Карьера
 				p.vac-subtitle ТОО «ЛЕКА» ищет талантливых и увлеченных своим делом людей для работы в корпоративных интересах. Приглашаем вас ознакомиться с многочисленными возможностями и преимуществами работы в организации.
-				.vac-hidden
-					button.hidden-head
-						span Вакансии
-						+img('border-arrow-right.svg')
-					ul.vac-list
-						-for(let i = 0; i < 5; i++)
-							li.vac-item
-								span.vac-place В штат
-								.vac-position
-									div
-									span Маркетолог
-								.vac-require
-									span.require-title Стаж работы:
-									span.require-value 8 лет
+				ul.vac-list
+					-for(let i = 0; i < 5; i++)
+						li.vac-item
+							span.vac-place В штат
+							.vac-position
+								div
+								span Маркетолог
+							.vac-require
+								span.require-title Стаж работы:
+								span.require-value 8 лет
 				form.vac-form.form-feedback
 					span.form-details *для получения возможности провести собеседование, пожалуйста, заполните краткую форму ниже.
 					.form-block
@@ -139,17 +135,21 @@ block content
 					.form-block
 						span.block-title Ваш номер телефона:
 						input(type='text' placeholder='+9 (999) 999-99-99').block-input
-					.form-block.vac-select
+					.form-block.block-select.vacancy
+						input(type='hidden' placeholder='' value='Менеджер')#vacancy
 						span.block-title Вакансия:
-						button(type='button').select-head
+						button(type='button' data-cls='vacancy' data-click-action='Front:vacancyShow').select-head
+							span Менеджер
+							+img('border-arrow-right.svg')
 						.select-body
-							-for(let i = 0; i < 6; i++)
-								button.select-option Менеджер
-						input(type='hidden' placeholder='')#vacancy
+							button(data-cls='vacancy' data-click-action='Front:vacancyShow').select-option Менеджер
+							button(data-cls='vacancy' data-click-action='Front:vacancyShow').select-option Инженер
+							button(data-cls='vacancy' data-click-action='Front:vacancyShow').select-option Логист
+							button(data-cls='vacancy' data-click-action='Front:vacancyShow').select-option Бухгалтер
 					.form-block
 						span.block-title Резюме
-						input(type='file' placeholder='Вы можете прикрепить своё резюме здесь!').block-textarea.block-input
-						.vac-file
+						input(type='file' placeholder='Вы можете прикрепить своё резюме здесь!').block-file.block-input
+						.vac-file Выберите файл
 					.form-privacy
 						span Нажимая кнопку "
 						strong Отправить
