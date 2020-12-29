@@ -1,6 +1,6 @@
 input[type='checkbox'],input[type='radio']
 	display: none
-input[type='file']
+.block-file
 	opacity: 0
 	cursor: pointer
 body
@@ -9,7 +9,6 @@ section
 	margin-bottom: 30px
 main
 	min-height: calc(100vh - 508px)
-
 .dn
 	display: none
 .section
@@ -477,7 +476,6 @@ aside
 				color: RGB($white)
 				background-color: rgba($button-blue,.5)
 .item-title
-	+font(18px,$f_bold)
 	position: relative
 	img
 		position: absolute
@@ -502,9 +500,8 @@ aside
 		&:first-child
 			margin-top: 0
 		.plus-title
-			span
-				@extend %dfa
-				height: 42px
+			@extend %dfa
+			height: 42px
 			img
 				left: -60px
 	&-img
@@ -620,6 +617,90 @@ aside
 		&-link
 			font-family: $f_semi
 			color: RGB($button-blue)
+	&-sort
+		background-color: RGB($block-bgc)
+		padding-bottom: 30px
+		margin-bottom: 0
+		.sort
+			&-unit
+				@extend %dfi
+				position: relative
+				margin-bottom: 10px
+				&:last-child
+					margin-bottom: 5px
+				&:after
+					+af
+					+wh(100%,1px)
+					background-color: rgba($gray,.1)
+					position: absolute
+					bottom: -3px
+			&-link
+				font-family: $f_bold
+				position: relative
+				transition: $transition
+				&:after
+					+af
+					+wh(100%,1px)
+					position: absolute
+					bottom: -3px
+				&.active
+					color: RGB($button-blue)
+					&:after
+						background-color: RGB($button-blue)
+	&-carts
+		background-color: RGB($block-bgc)
+		padding-bottom: 60px
+		.cart
+			&-item
+				margin-bottom: 30px
+				background-color: RGB($white)
+				box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1)
+		.item
+			&-left
+				position: relative
+			&-photo
+				img
+					+w(100%)
+					display: block
+			&-type
+				padding: 5px 20px
+				position: absolute
+				top: 20px
+				left: 20px
+				z-index: 1
+				background-color: rgba($gray,.8)
+				font-family: $f_semi
+				color: RGB($white)
+				text-transform: uppercase
+			&-right
+				padding: 15px 10px 30px
+				position: relative
+		.desc
+			&-date
+				font-size: 12px
+				margin-bottom: 5px
+			&-title
+				margin-bottom: 20px
+				display: inline-block
+				font-size: 18px
+				font-family: $f_bold
+				text-transform: uppercase
+			&-text
+				opacity: .7
+				display: none
+			&-views
+				@extend %dfa
+				opacity: .7
+				position: absolute
+				bottom: 2px
+				right: 10px
+				span
+					margin-right: 5px
+					font-size: 12px
+	&-count
+		@extend %dfa
+		&-span
+			margin-left: 10px
 .projects
 	&-list
 		@extend %dfa
@@ -741,8 +822,6 @@ aside
 		padding: 10px 0
 		font-size: 18px
 .product
-	&-page
-		padding-top: 70px
 	&-card
 		border-radius: 24px
 		padding: 44px 0 0
@@ -963,90 +1042,7 @@ aside
 	&-right
 		.title
 			font-size: 18px
-.news
-	&-sort
-		background-color: RGB($block-bgc)
-		padding-top: 90px
-		padding-bottom: 30px
-		margin-bottom: 0
-		.sort
-			&-unit
-				@extend %dfi
-				position: relative
-				margin-bottom: 10px
-				&:last-child
-					margin-bottom: 5px
-				&:after
-					+af
-					+wh(100%,1px)
-					background-color: rgba($gray,.1)
-					position: absolute
-					bottom: -3px
-			&-link
-				font-family: $f_bold
-				position: relative
-				transition: $transition
-				&:after
-					+af
-					+wh(100%,1px)
-					position: absolute
-					bottom: -3px
-				&.active
-					color: RGB($button-blue)
-					&:after
-						background-color: RGB($button-blue)
-	&-carts
-		background-color: RGB($block-bgc)
-		padding-bottom: 60px
-		.cart
-			&-item
-				margin-bottom: 30px
-				background-color: RGB($white)
-				box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1)
-		.item
-			&-left
-				position: relative
-			&-photo
-				img
-					+w(100%)
-					display: block
-			&-type
-				padding: 5px 20px
-				position: absolute
-				top: 20px
-				left: 20px
-				z-index: 1
-				background-color: rgba($gray,.8)
-				font-family: $f_semi
-				color: RGB($white)
-				text-transform: uppercase
-			&-right
-				padding: 15px 10px 30px
-				position: relative
-		.desc
-			&-date
-				font-size: 12px
-				margin-bottom: 5px
-			&-title
-				margin-bottom: 20px
-				display: inline-block
-				font-size: 18px
-				font-family: $f_bold
-				text-transform: uppercase
-			&-text
-				opacity: .7
-				display: none
-			&-views
-				@extend %dfa
-				opacity: .7
-				position: absolute
-				bottom: 2px
-				right: 10px
-				span
-					margin-right: 5px
-					font-size: 12px
 .article
-	padding-top: 90px
 	padding-bottom: 30px
 	background-color: RGB($block-bgc)
 	section
@@ -1146,7 +1142,6 @@ aside
 	display: block
 .contacts
 	&-section
-		padding-top: 90px
 		background-color: RGB($block-bgc)
 	&-row
 	&-left
@@ -1404,8 +1399,9 @@ aside
 			margin-bottom: 10px
 		.vac
 			&-subtitle
-				font-family: $o_reg
 				margin-bottom: 15px
+				font-family: $o_reg
+				letter-spacing: 0
 			&-hidden
 				margin-bottom: 20px
 				.hidden
@@ -1476,6 +1472,89 @@ aside
 				height: 0
 				overflow: hidden
 				transition: $transition
+.login
+	@extend %dfc
+	+wh(100%,100vh)
+	margin-bottom: 0
+	background: linear-gradient(135deg,rgba($button-blue,.7),rgba(#1F579A,.7))
+	&-title
+		+font(18px,$f_bold)
+	&-subtitle
+		+font(18px,$f_bold,RGB($white))
+		text-transform: uppercase
+		position: absolute
+		top: -20px
+		left: 0
+	&-form
+		+w(300px)
+		+bdrs(0 10px 10px 10px)
+		padding: 20px
+		background-color: rgba($white,.8)
+		box-shadow: 6px 6px 25px rgba($black,.1)
+		position: relative
+		.form
+			&-block
+				@extend %dfa
+				+w(100%)
+				max-width: 325px
+				margin-top: 20px
+				padding: 7px 15px
+				background-color: RGB($form-block)
+				border: 1px solid transparent
+				position: relative
+				transition: $transition
+				svg
+					margin-right: 15px
+				&.active
+					background-color: RGB($white)
+					border-color: RGB($button-blue)
+		.block
+			&-title
+				letter-spacing: .25px
+				line-height: 22px
+				color: RGB($form-subtitle)
+			&-input
+				+w(100%)
+				display: block
+				font-size: 18px
+				line-height: 28px
+		.clear
+			@extend %dfc
+			+wh(20px)
+			position: absolute
+			right: 20px
+			top: 23px
+			transition: $transition
+			&:before,&:after
+				+af
+				+wh(17px,1px)
+				background-color: RGB($arrow)
+				position: absolute
+			&:before
+				transform: rotate(45deg)
+			&:after
+				transform: rotate(-45deg)
+			&:hover
+				transform: rotate(90deg)
+		.button
+			+w(100%)
+			max-width: 325px
+			margin-top: 20px
+.first-block
+	padding-top: 98px
+.privacy
+	.title
+		margin-bottom: 10px
+	&-text
+		+font(14px,$o_reg)
+		line-height: 26px
+.cabinet
+	&-labels
+		@extend %df
+		flex-direction: column
+		.labels
+			&-unit
+				font-size: 18px
 .foot
 	background-color: RGB($foot-bgc)
 	padding: 40px 0 210px 0

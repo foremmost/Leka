@@ -198,6 +198,9 @@ aside
 				border-bottom-left-radius: 0
 		.question-button
 			flex-basis: auto
+	&-card
+		.title
+			margin-bottom: 0
 	&-slider
 		+w(500px)
 		margin: 0 auto 20px
@@ -218,7 +221,6 @@ aside
 
 .news
 	&-sort
-		padding-top: 114px
 		.sort
 			&-unit
 				justify-content: flex-start
@@ -259,8 +261,6 @@ aside
 			+w(100%)
 
 .contacts
-	&-section
-		padding-top: 114px
 	&-row
 		@extend %df-t
 	&-left,&-right
@@ -375,6 +375,29 @@ aside
 		.form
 			&-details
 				font-size: 18px
+.login
+	&-title
+		font-size: 24px
+	&-subtitle
+		font-size: 36px
+		top: -35px
+		left: -1.5px
+	&-form
+		+w(auto)
+		padding: 80px 108px
+		.form
+			&-block
+				padding: 7px 24px
+				margin-top: 30px
+				svg
+					margin-right: 24px
+		.block
+			&-title
+			&-input
+		.button
+			margin-top: 30px
+.first-block
+	padding-top: 114px
 .foot
 	background-image: url('img/footer.svg')
 	background-repeat: no-repeat

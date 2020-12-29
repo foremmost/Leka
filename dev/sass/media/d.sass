@@ -62,6 +62,7 @@ main
 		.item
 			&-title
 				padding-left: 22px
+				margin-bottom: 20px
 				&:before
 					+w(4px)
 			&-text
@@ -78,7 +79,7 @@ main
 			transform: scale(1.02)
 
 .item-title
-	font-size: 24px
+	font-size: 18px
 .corp
 	.section
 		align-items: flex-end
@@ -131,18 +132,13 @@ main
 		margin: 50px 0 0
 	&-item
 		margin: 15px 0
-		
-.product
-	&-page
-		padding-top: 154px
-	
+
 inner .form
 	&-feedback
 		+w(1160px)
 		
 .news
 	&-sort
-		padding-top: 153px
 		.sort
 			&-unit
 				&:after
@@ -185,9 +181,12 @@ inner .form
 				bottom: 20px
 				right: 32px
 				left: inherit
-
+	&-count
+		&-span
+			margin-left: 30px
+			font-size: 24px
+			opacity:  .5
 .article
-	padding-top: 153px
 	padding-bottom: 60px
 	.section
 		padding: 0
@@ -226,7 +225,6 @@ inner .form
 
 .contacts
 	&-section
-		padding-top: 153px
 		padding-bottom: 63px
 	&-row
 		justify-content: space-between
@@ -307,6 +305,17 @@ inner .form
 				&:hover
 					background-color: rgba($button-blue,.3)
 			
+.login
+	&-title
+	&-subtitle
+	&-form
+		.form
+			&-block
+		.block
+			&-title
+			&-input
+.first-block
+	padding-top: 153px
 .foot
 	background-size: auto
 	padding-top: 95px

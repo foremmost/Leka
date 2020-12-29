@@ -25,7 +25,9 @@ class Front extends _front{
 		MainEventBus.add(_.componentName,'showCity',_.showCity.bind(_));
 		MainEventBus.add(_.componentName,'showSertificate',_.showSertificate.bind(_));
 		MainEventBus.add(_.componentName,'vacancyShow',_.vacancyShow.bind(_));
-		
+		MainEventBus.add(_.componentName,'showPassword',_.showPassword.bind(_));
+		MainEventBus.add(_.componentName,'clearInput',_.clearInput.bind(_));
+
 	}
 	createOrderSuccess(orderData){
 		console.log(orderData);
@@ -243,12 +245,44 @@ class Front extends _front{
 		}
 	}
 	
+	inputActive(){
+		const _ = this;
+		let inputs = document.querySelectorAll('.login .block-input');
+		if(inputs.length) {
+			inputs.forEach(function(inpt) {
+				inpt.addEventListener('focus',function(e) {
+					let cont = inpt.parentElement.parentElement;
+					cont.classList.add('active')
+				});
+				inpt.addEventListener('focusout',function(e) {
+					let cont = inpt.parentElement.parentElement;
+					cont.classList.remove('active')
+				})
+			})
+		}
+	}
+
+	showPassword(clickData){
+		let button = clickData.item;
+		let input = button.nextElementSibling.querySelector('.block-input');
+		if (input.getAttribute('type') === 'password') input.setAttribute('type','text');
+		else input.setAttribute('type','password');
+	}
+
+	clearInput(clickData){
+		let button = clickData.item;
+		let input = button.previousElementSibling;
+		input.value = '';
+		input.focus();
+	}
+	
 	init(){
 		const _ = this;
 		_.currentPageCheck();
 		_.mainSliderButtonsCreate();
 		_.mainSliderAutoSwap();
 		_.articlesLengthCheck();
+		_.inputActive();
 	}
 }
 new Front();

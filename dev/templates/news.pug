@@ -4,7 +4,7 @@ append vars
 		page_title= 'Новости'
 block content
 	main.news
-		section.news-sort
+		section.news-sort.first-block
 			.section
 				ul.sort-list
 					li.sort-unit
@@ -50,7 +50,9 @@ block content
 							.desc-views
 								span 1456
 								+img('eye.svg')
-				button.button Загрузить еще
+				.news-count
+					button.button Загрузить еще
+					span.news-count-span +23
 		include parts/consult
 		include parts/map
 		include parts/social-links

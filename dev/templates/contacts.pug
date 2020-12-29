@@ -4,7 +4,7 @@ append vars
 		page_title= 'Контакты'
 block content
 	main.contacts
-		section.contacts-section
+		section.contacts-section.first-block
 			.section
 				.contacts-row
 					.contacts-left
@@ -35,6 +35,7 @@ block content
 								span Нажимая кнопку "
 								strong Отправить
 								span ", Вы даете согласие на обработку персональных данных и соглашаетесь с&nbsp;
-								a(href='#').link Privacy Policy
+								a(href='./privacy.php').link Privacy Policy
 								span .
 							button(disabled).button Отправить
+		include parts/social-links

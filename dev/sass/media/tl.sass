@@ -82,15 +82,11 @@ header
 		padding-top: 16px
 	&-list
 		padding-top: 40px
-		
 .multiple-slider
 	+w(960px)
 	margin-top: 33px
 	margin-bottom: 75px
 	
-.item-title
-	span
-		display: block
 .corp
 	&-info
 		+w(calc(100% - 446px))
@@ -106,7 +102,11 @@ header
 			font-size: 16px
 			svg
 				left: -20px
-				
+	&-item
+		.item
+			&-title
+				span
+					font-size: 24px
 .why
 	&-item
 		flex-basis: 32%
@@ -141,7 +141,6 @@ header
 		
 .product
 	&-page
-		padding-top: 160px
 		.section
 			@extend %df-tl
 		.main
@@ -266,6 +265,15 @@ inner .form
 				font-size: 24px
 			&-position
 				font-size: 18px
+.login
+	&-title
+	&-subtitle
+	&-form
+		.form
+			&-block
+		.block
+			&-title
+			&-input
 .foot
 	&-priv
 		.priv
