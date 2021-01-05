@@ -1,0 +1,196 @@
+extends template/main
+append vars
+	-
+		page_title = 'Личный кабинет'
+block content
+	main
+		section.cabinet.first-block
+			.section
+				input(type='radio' name='cabinet' checked).dn#cabinet
+				input(type='radio' name='cabinet').dn#cart
+				input(type='radio' name='cabinet').dn#history
+				.cabinet-labels
+					label(for='cabinet').title.labels-unit Личный кабинет
+					label(for='cart').title.labels-unit Корзина
+					label(for='history').title.labels-unit История заказов
+				.tabs
+					.tabs-private
+						form.private-form
+							.private-info
+								.photo
+									+img('Angela-Merkel-2012.jpg')
+								.owner
+									span.name Токаев Жомарт Олегович
+									span.company-name ООО "BI GROUP"
+									span.position Менеджер по снабжению
+							.row
+								span.desc Номер телефона:
+								input(type='text' value='+7 994 567 38 94' disabled=true).input
+								button(type='button').change
+									svg(width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg")
+										path(fill-rule="evenodd" clip-rule="evenodd" d="M14.3855 1.81398C14.955 1.24446 15.8784 1.24446 16.4479 1.81398L18.6027 3.9688C19.1722 4.53831 19.1722 5.46168 18.6027 6.03119L16.2753 8.3586L16.2649 8.36876L7.2415 16.982C7.07665 17.1394 6.8772 17.2559 6.65917 17.3223L2.05699 18.7229C1.83617 18.7901 1.59629 18.7302 1.43307 18.5669C1.26986 18.4037 1.20989 18.1638 1.27709 17.943L2.67176 13.3605C2.7448 13.1206 2.87851 12.9035 3.05997 12.7303L12.0632 4.13625L14.3855 1.81398ZM12.4899 5.45705L3.92306 13.6344C3.89714 13.6592 3.87804 13.6902 3.86761 13.7245L2.81414 17.1859L6.29522 16.1264C6.32637 16.1169 6.35486 16.1003 6.37841 16.0778L14.9391 7.90627L12.4899 5.45705ZM15.8334 7.03278L17.7188 5.14731C17.8002 5.06595 17.8002 4.93404 17.7188 4.85268L15.564 2.69786C15.4826 2.6165 15.3507 2.6165 15.2694 2.69786L13.3839 4.58333L15.8334 7.03278Z" fill="#989898")
+										rect(x="7.5" y="18.3333" width="11.6667" height="0.83333" rx="0.416665" fill="#989898")
+							.row
+								span.desc E-mail:
+								input(type='mail' value='Kigimon_Juli@mail.com' disabled=true).input
+								button(type='button').change
+									svg(width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg")
+										path(fill-rule="evenodd" clip-rule="evenodd" d="M14.3855 1.81398C14.955 1.24446 15.8784 1.24446 16.4479 1.81398L18.6027 3.9688C19.1722 4.53831 19.1722 5.46168 18.6027 6.03119L16.2753 8.3586L16.2649 8.36876L7.2415 16.982C7.07665 17.1394 6.8772 17.2559 6.65917 17.3223L2.05699 18.7229C1.83617 18.7901 1.59629 18.7302 1.43307 18.5669C1.26986 18.4037 1.20989 18.1638 1.27709 17.943L2.67176 13.3605C2.7448 13.1206 2.87851 12.9035 3.05997 12.7303L12.0632 4.13625L14.3855 1.81398ZM12.4899 5.45705L3.92306 13.6344C3.89714 13.6592 3.87804 13.6902 3.86761 13.7245L2.81414 17.1859L6.29522 16.1264C6.32637 16.1169 6.35486 16.1003 6.37841 16.0778L14.9391 7.90627L12.4899 5.45705ZM15.8334 7.03278L17.7188 5.14731C17.8002 5.06595 17.8002 4.93404 17.7188 4.85268L15.564 2.69786C15.4826 2.6165 15.3507 2.6165 15.2694 2.69786L13.3839 4.58333L15.8334 7.03278Z" fill="#989898")
+										rect(x="7.5" y="18.3333" width="11.6667" height="0.83333" rx="0.416665" fill="#989898")
+							.row
+								span.desc Рабочий телефон:
+								input(type='text' value='+7 994 200 00 54' disabled=true).input
+								button(type='button').change
+									svg(width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg")
+										path(fill-rule="evenodd" clip-rule="evenodd" d="M14.3855 1.81398C14.955 1.24446 15.8784 1.24446 16.4479 1.81398L18.6027 3.9688C19.1722 4.53831 19.1722 5.46168 18.6027 6.03119L16.2753 8.3586L16.2649 8.36876L7.2415 16.982C7.07665 17.1394 6.8772 17.2559 6.65917 17.3223L2.05699 18.7229C1.83617 18.7901 1.59629 18.7302 1.43307 18.5669C1.26986 18.4037 1.20989 18.1638 1.27709 17.943L2.67176 13.3605C2.7448 13.1206 2.87851 12.9035 3.05997 12.7303L12.0632 4.13625L14.3855 1.81398ZM12.4899 5.45705L3.92306 13.6344C3.89714 13.6592 3.87804 13.6902 3.86761 13.7245L2.81414 17.1859L6.29522 16.1264C6.32637 16.1169 6.35486 16.1003 6.37841 16.0778L14.9391 7.90627L12.4899 5.45705ZM15.8334 7.03278L17.7188 5.14731C17.8002 5.06595 17.8002 4.93404 17.7188 4.85268L15.564 2.69786C15.4826 2.6165 15.3507 2.6165 15.2694 2.69786L13.3839 4.58333L15.8334 7.03278Z" fill="#989898")
+										rect(x="7.5" y="18.3333" width="11.6667" height="0.83333" rx="0.416665" fill="#989898")
+							.row
+								span.desc Пароль:
+								input(type='password' value='Password01' disabled=true).input
+								button(type='button').change
+									svg(width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg")
+										path(fill-rule="evenodd" clip-rule="evenodd" d="M14.3855 1.81398C14.955 1.24446 15.8784 1.24446 16.4479 1.81398L18.6027 3.9688C19.1722 4.53831 19.1722 5.46168 18.6027 6.03119L16.2753 8.3586L16.2649 8.36876L7.2415 16.982C7.07665 17.1394 6.8772 17.2559 6.65917 17.3223L2.05699 18.7229C1.83617 18.7901 1.59629 18.7302 1.43307 18.5669C1.26986 18.4037 1.20989 18.1638 1.27709 17.943L2.67176 13.3605C2.7448 13.1206 2.87851 12.9035 3.05997 12.7303L12.0632 4.13625L14.3855 1.81398ZM12.4899 5.45705L3.92306 13.6344C3.89714 13.6592 3.87804 13.6902 3.86761 13.7245L2.81414 17.1859L6.29522 16.1264C6.32637 16.1169 6.35486 16.1003 6.37841 16.0778L14.9391 7.90627L12.4899 5.45705ZM15.8334 7.03278L17.7188 5.14731C17.8002 5.06595 17.8002 4.93404 17.7188 4.85268L15.564 2.69786C15.4826 2.6165 15.3507 2.6165 15.2694 2.69786L13.3839 4.58333L15.8334 7.03278Z" fill="#989898")
+										rect(x="7.5" y="18.3333" width="11.6667" height="0.83333" rx="0.416665" fill="#989898")
+					.tabs-cart.tabs-item
+						.cart-cont
+							table
+								thead.cart-head
+									tr
+										th
+											div Товар
+										th
+											div Дата заказа
+										th.cart-count
+											div Количество
+										th
+											div Статус
+										th
+											div Менеджер
+								tbody.cart-body
+									tr
+										td.cart-title
+											div
+												.photo
+													+img('product.jpg')
+												.desc
+													.title Пластины шумоглушащие п, по
+													.subtitle pl-2403-23m-43
+										td.cart-date
+											div
+												span 20.12.2020
+												span среда
+										td.cart-count
+											div 2
+										td.cart-status
+											div.active Активен
+										td.cart-manager
+											div sales@leka.kz
+									tr
+										td.cart-title
+											div
+												.photo
+													+img('product.jpg')
+												.desc
+													.title Пластины шумоглушащие п, по
+													.subtitle pl-2403-23m-43
+										td.cart-date
+											div
+												span 20.12.2020
+												span среда
+										td.cart-count
+											div 2
+										td.cart-status
+											div.given Выдан
+										td.cart-manager
+											div sales@leka.kz
+									tr
+										td.cart-title
+											div
+												.photo
+													+img('product.jpg')
+												.desc
+													.title Пластины шумоглушащие п, по
+													.subtitle pl-2403-23m-43
+										td.cart-date
+											div
+												span 20.12.2020
+												span среда
+										td.cart-count
+											div 2
+										td.cart-status
+											div.order Предзаказ
+										td.cart-manager
+											div sales@leka.kz
+					.tabs-history.tabs-item
+						.cart-cont
+							table
+								thead.cart-head
+									tr
+										th
+											div Товар
+										th
+											div Дата заказа
+										th
+											div Количество
+										th
+											div Статус
+										th
+											div Менеджер
+								tbody.cart-body
+									tr
+										td.cart-title
+											div
+												.photo
+													+img('product.jpg')
+												.desc
+													.title Пластины шумоглушащие п, по
+													.subtitle pl-2403-23m-43
+										td.cart-date
+											div
+												span 20.12.2020
+												span среда
+										td.cart-count
+											div 2
+										td.cart-status
+											div.given Выдан
+										td.cart-manager
+											div sales@leka.kz
+									tr
+										td.cart-title
+											div
+												.photo
+													+img('product.jpg')
+												.desc
+													.title Пластины шумоглушащие п, по
+													.subtitle pl-2403-23m-43
+										td.cart-date
+											div
+												span 20.12.2020
+												span среда
+										td.cart-count
+											div 2
+										td.cart-status
+											div.given Выдан
+										td.cart-manager
+											div sales@leka.kz
+									tr
+										td.cart-title
+											div
+												.photo
+													+img('product.jpg')
+												.desc
+													.title Пластины шумоглушащие п, по
+													.subtitle pl-2403-23m-43
+										td.cart-date
+											div
+												span 20.12.2020
+												span среда
+										td.cart-count
+											div 2
+										td.cart-status
+											div.given Выдан
+										td.cart-manager
+											div sales@leka.kz
+		include parts/consult
+		include parts/map
+		include parts/social-links

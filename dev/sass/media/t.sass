@@ -398,6 +398,52 @@ aside
 			margin-top: 30px
 .first-block
 	padding-top: 114px
+.cabinet
+	&-labels
+		flex-direction: row
+		margin-bottom: 35px
+		.labels
+			&-unit
+				margin-right: 23px
+	.tabs
+		&-private
+			.private
+				&-form
+					padding: 25px 75px 25px 25px
+				&-info
+					@extend %dfi-t
+					margin-bottom: 40px
+			.photo
+				margin: 0 25px 0 0
+			.owner
+				flex: 0 0 calc(100% - 150px)
+				align-items: flex-start
+			.name,.company-name,.position
+				margin-bottom: 8px
+			.name
+				font-size: 24px
+			.company-name,.position
+				font-size: 18px
+			.row
+				padding: 12px 20px 12px 40px
+				font-size: 18px
+			.desc
+				margin-right: auto
+				color: rgba($black,.5)
+			.input
+				text-align: right
+				font-family: $f_semi
+			.change
+				padding: 0 0 0 20px
+#cabinet:checked ~ .cabinet-labels label:first-child,
+#cart:checked ~ .cabinet-labels label:nth-child(2),
+#history:checked ~ .cabinet-labels label:last-child
+	&:after
+		+af
+		+wh(100%,1px)
+		background-color: RGB($button-blue)
+		position: absolute
+		bottom: -5px
 .foot
 	background-image: url('img/footer.svg')
 	background-repeat: no-repeat

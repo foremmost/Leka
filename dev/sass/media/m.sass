@@ -1552,9 +1552,125 @@ aside
 	&-labels
 		@extend %df
 		flex-direction: column
+		margin-bottom: 10px
+		align-items: flex-start
 		.labels
 			&-unit
 				font-size: 18px
+				margin-bottom: 10px
+	.tabs
+		@extend %df
+		+w(100%)
+		overflow: hidden
+		&-private,&-item
+			+w(100%)
+			flex: 0 0 100%
+			transition: $transition
+		&-private
+			.photo
+				+wh(125px)
+				margin: 0 auto 10px
+				background-color: RGB($arrow)
+				border-radius: 100%
+				overflow: hidden
+				img
+					object-fit: cover
+					object-position: center
+			.owner
+				@extend %dfa
+				flex-direction: column
+			.name,.company-name,.position
+				margin-bottom: 5px
+			.name
+				+font(18px,$f_bold)
+			.company-name
+				font-family: $f_bold
+			.position
+				color: rgba($black,.5)
+			.row
+				@extend %dfi
+				padding: 5px 20px
+				&:nth-child(even)
+					background-color: rgba($button-blue,.1)
+			.desc
+				margin-right: auto
+				color: rgba($black,.5)
+			.input
+				text-align: right
+				font-family: $f_semi
+			.change
+				padding: 0 0 0 20px
+		.private
+			&-form
+				+w(100%)
+				+bdrs(8px)
+				padding: 10px
+				background-color: RGB($white)
+				border: 1px solid rgba($arrow,.5)
+		&-item
+			table
+				+w(100%)
+				border-collapse: collapse
+			.cart-cont
+				+bdrs(8px)
+				+w(100%)
+				border: 1px solid rgba($arrow,.5)
+				background-color: RGB($white)
+				overflow: auto
+			tbody
+				td
+					border-top: 1px solid rgba($arrow,.5)
+				tr
+					&:nth-child(odd)
+						background-color: rgba($button-blue,.1)
+			td,th
+				&>div
+					@extend %dfa
+					min-height: 56px
+					padding: 10px 20px
+			.cart
+				&-head
+					+font(14px,$f_bold,rgba($black,.5))
+					text-align: left
+				&-title
+					&>div
+						@extend %dfa
+				&-date
+					&>div
+						@extend %dfc
+						flex-direction: column
+						align-items: flex-start
+				&-count
+					&>div
+						justify-content: center
+				&-status
+					font-family: $f_semi
+					.active
+						color: RGB($green)
+					.given
+						color: RGB($button-blue)
+					.order
+						color: RGB($red)
+			.photo
+				+wh(20px)
+				flex: 0 0 20px
+				margin-right: 10px
+				overflow: hidden
+			.title,.subtitle
+				font-size: 14px
+			.subtitle
+				text-transform: uppercase
+#cabinet:checked ~ .cabinet-labels label:first-child,
+#cart:checked ~ .cabinet-labels label:nth-child(2),
+#history:checked ~ .cabinet-labels label:last-child
+	color: RGB($button-blue)
+	position: relative
+#cart:checked ~ .tabs .tabs
+	&-private,&-item
+		transform: translateX(-100%)
+#history:checked ~ .tabs .tabs
+	&-private,&-item
+		transform: translateX(-200%)
 .foot
 	background-color: RGB($foot-bgc)
 	padding: 40px 0 210px 0
@@ -1724,3 +1840,20 @@ aside
 		&:last-child
 			&:after
 				background-color: RGB($button-blue)
+
+
+.plan
+	color: RGB($white)
+	background-color: RGB($black)
+	margin: 0
+	padding: 100px 10px 50px
+	table
+		margin-top: 20px
+		th
+			text-transform: uppercase
+		th,td
+			&:first-child
+				padding-right: 20px
+		div
+			padding: 3px 0
+			text-align: left
