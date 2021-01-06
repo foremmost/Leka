@@ -230,7 +230,7 @@ aside
 		+af
 		+wh(8px)
 		border-radius: 100%
-.main-slider
+.main-slider,.services-banner
 	position: relative
 	height: calc(100vh - 60px)
 	box-shadow: 0 20px 30px 0 rgba($black,.2)
@@ -252,8 +252,6 @@ aside
 		right: 0
 		top: 0
 		bottom: 0
-		opacity: 0
-		visibility: hidden
 		transition: .5s ease
 		&.active
 			visibility: visible
@@ -301,6 +299,10 @@ aside
 				+wh(100%)
 				object-fit: cover
 				object-position: right
+.main-slider
+	.slide
+		opacity: 0
+		visibility: hidden
 .consult
 	&-form
 		border: 4px solid RGB($button-blue)
@@ -1671,6 +1673,183 @@ aside
 #history:checked ~ .tabs .tabs
 	&-private,&-item
 		transform: translateX(-200%)
+.services
+	&-banner
+		.slide-bgc img
+			object-position: left
+	&-desc
+		background: linear-gradient(170deg,rgba($button-blue,.2),rgba($white,0))
+		margin-bottom: 0
+		padding-bottom: 20px
+		&-bgc
+			background-image: url('../img/ww.svg')
+			background-position: left bottom
+			background-size: cover
+			background-repeat: no-repeat
+		.desc
+			padding: 20px 0 50px
+			&-text
+				margin-top: 20px
+				margin-bottom: 50px
+				line-height: 1.5
+				strong
+					font-family: $f_bold
+			&-right
+				display: none
+			&-list
+				padding-bottom: 20px
+			&-item
+				margin-bottom: 10px
+				&:last-child
+					margin-bottom: 0
+		.item
+			&-title
+				padding-left: 7px
+				font-family: $f_bold
+				font-size: 18px
+				position: relative
+				&:before
+					+af
+					+wh(2px,12px)
+					background-color: RGB($button-blue)
+					position: absolute
+					left: 0
+					bottom: 4px
+			&-text
+				margin-top: 8px
+				line-height: 1.4
+	&-desc,&-price
+		.desc
+			&-actions
+				@extend %dfa
+				flex-direction: column
+				span
+					margin-top: 10px
+				.button
+					+w(auto)
+					padding: 0 50px
+					font-size: 18px
+					font-family: $f_semi
+			&-link
+				+font(14px,$f_semi,RGB($button-lightblue))
+				margin-top: 6px
+				position: relative
+				&:after
+					+af
+					+wh(100%,1px)
+					background-color: RGB($button-blue)
+					position: absolute
+					bottom: 0
+	&-price
+		padding-bottom: 70px
+		position: relative
+		.section
+			@extend %df
+			flex-direction: column
+			position: relative
+			z-index: 20
+		.price
+			&-img
+				display: none
+			&-bgc
+				+wh(100%)
+				background: linear-gradient(279deg,rgba($button-blue,.9),rgba($button-blue,.5))
+				position: absolute
+				top: 0
+				&:before,&:after
+					+af
+					+wh(100%,50px)
+					background-color: rgba(240,240,240,1)
+					position: absolute
+					z-index: 10
+				&:before
+					top: 0
+					+bdrs(0 0 100% 100%)
+				&:after
+					bottom: 0
+					+bdrs(100% 100% 0 0)
+			&-col
+				order: 1
+			&-table
+				@extend %df
+				+bdrs(8px)
+				margin-bottom: 20px
+				padding: 20px 15px
+				box-shadow: 7px 11px 40px rgba(0, 0, 0, 0.2)
+				background-color: RGB($white)
+				overflow: auto
+				&:after
+					+af
+					+wh(1px)
+					flex: 0 0 1px
+					margin-left: 15px
+			&-cont
+				flex: 0 0 585px
+				table
+					+w(100%)
+					+bdrs(4px)
+					border: 1px solid rgba($gray,.2)
+					tr
+						&:nth-child(even)
+							background-color: rgba($button-blue,.3)
+					td
+						div
+							text-align: right
+						&:first-child
+							div
+								text-align: left
+					div
+						padding: 10px
+				.title
+					text-transform: initial
+					margin-bottom: 20px
+		.desc
+			&-actions,&-link
+				color: RGB($white)
+			&-link
+				&:after
+					background-color: RGB($white)
+	&-examples
+		.title
+			text-align: center
+		.examples
+			&-unit
+				@extend %dfa
+				margin-top: 10px
+		.unit
+			&-icon
+				@extend %dfc
+				+wh(55px)
+				+bdrs(100%)
+				margin-right: 10px
+				background-color: rgba($button-lightblue,.5)
+			&-title
+				+font(18px,$f_bold)
+	&-ex
+		padding-bottom: 20px
+		.title
+			text-align: center
+		.slide
+			flex: 0 0 100%
+			position: relative
+			&-img
+				img
+					display: block
+			&-dark
+				position: absolute
+				top: 0
+				bottom: 0
+				left: 0
+				right: 0
+				background-color: rgba($black,.4)
+			&-title
+				+font(14px,$f_bold,RGB($white))
+				padding: 10px 20px
+				background-color: rgba($button-blue,.7)
+				display: inline-block
+				position: absolute
+				bottom: 30px
+				left: 30px
 .foot
 	background-color: RGB($foot-bgc)
 	padding: 40px 0 210px 0

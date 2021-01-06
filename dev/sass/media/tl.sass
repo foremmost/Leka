@@ -52,7 +52,7 @@ header
 		&-title
 			font-size: 24px
 
-.main-slider
+.main-slider,.services-banner
 	+w(100%)
 	.slide
 		&-inner
@@ -279,6 +279,42 @@ inner .form
 		.private
 			&-form
 				padding: 25px
+.services
+	&-desc
+		justify-content: space-between
+		.desc
+			padding: 0
+			&-text
+				font-size: 18px
+				line-height: 32px
+		.item
+			&-title
+				font-size: 24px
+				padding-left: 11px
+				&:before
+					+wh(3px,20px)
+			&-text
+				font-size: 18px
+				line-height: 26px
+	&-desc,&-price
+		.desc
+			&-actions
+				font-size: 18px
+			&-link
+				font-size: 18px
+	&-examples
+		padding-top: 80px
+		padding-bottom: 80px
+		.examples
+			&-list
+				padding: 40px
+				justify-content: space-around
+		.unit-icon
+			margin-right: 40px
+	&-ex
+		padding-bottom: 50px
+		.slide
+			flex-basis: calc(33% - 33.3px)
 .foot
 	&-priv
 		.priv

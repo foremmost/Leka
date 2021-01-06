@@ -33,7 +33,7 @@ main
 			&.active
 				color: RGB($white)
 
-.main-slider
+.main-slider,.services-banner
 	.slide
 		&-title
 			span
@@ -316,6 +316,91 @@ inner .form
 			&-input
 .first-block
 	padding-top: 153px
+.services
+	&-desc
+		padding-bottom: 80px
+		&-bgc
+			background-size: 60%
+		.desc
+			&-left
+				flex: 0 0 570px
+				padding: 0
+			&-text
+				margin-bottom: 110px
+			&-right
+				flex-basis: auto
+			&-item
+				margin: 40px 0
+				&:nth-child(2)
+					margin: 40px auto
+	&-desc,&-price
+		.desc-link
+			&:after
+				transition: $transition
+			&:hover
+				&:after
+					background-color: transparent
+	&-price
+		padding-bottom: 0
+		.section
+			flex-direction: row
+			justify-content: space-between
+			align-items: flex-start
+		.title
+			font-size: 24px
+		.price
+			&-col
+				@extend %dfc-d
+				padding-top: 80px
+				flex-direction: column
+				order: 0
+			&-img
+				+wh(100%,605px)
+				display: block
+				margin-bottom: 20px
+				position: relative
+				img
+					+wh(674px,605px)
+					max-width: initial
+					position: absolute
+					left: -50px
+			&-table
+				margin-bottom: 0
+				flex: 0 0 615px
+				position: relative
+				z-index: 20
+			&-cont
+				table
+					div
+						padding: 15px 10px
+			&-bgc
+				height: 90%
+		.dots
+			@extend %dfi-d
+			+w(186px)
+			flex-wrap: wrap
+			position: absolute
+			&-unit
+				+wh(6px)
+				+bdrs(100%)
+				margin: 0 39px 39px 0
+				background-color: RGB($button-darkblue)
+				&:nth-child(5n)
+					margin-right: 0
+			&-left
+				top: 255px
+				right: 640px
+			&-right
+				top: 50px
+				right: 70px
+	&-ex
+		.slide
+			flex-basis: auto
+			&-dark
+				transition: $transition
+			&:hover
+				.slide-dark
+					background-color: transparent
 .foot
 	background-size: auto
 	padding-top: 95px

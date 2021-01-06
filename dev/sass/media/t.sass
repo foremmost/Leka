@@ -12,7 +12,10 @@
 %dfc-t
 	@extend %dfa-t
 	justify-content: center
-	
+
+%dfwc-t
+	@extend %df-t
+	justify-content: center
 main
 	min-height: calc(100vh - 388px)
 aside
@@ -56,7 +59,7 @@ aside
 					&-sublist
 						max-height: 188px
 		
-.main-slider
+.main-slider,.services-banner
 	min-height: 450px
 	max-height: 600px
 	.slide
@@ -444,6 +447,83 @@ aside
 		background-color: RGB($button-blue)
 		position: absolute
 		bottom: -5px
+.services
+	&-desc
+		padding-bottom: 50px
+		&-bgc
+			background-position: right top
+		.desc
+			@extend %dfa-t
+			padding: 50px 0 30px
+			&-left
+				padding-right: 20px
+			&-right
+				display: block
+				flex: 0 0 40%
+			&-list
+				@extend %dfwc-t
+				flex-wrap: wrap
+				padding-bottom: 0
+			&-item
+				flex: 0 0 30%
+				margin: 20px 0
+				&:nth-child(2)
+					margin: 20px auto
+				&:nth-child(4)
+					margin-right: 6%
+	&-desc,&-price
+		.desc
+			&-actions
+				flex-direction: row
+				span
+					margin: 0 10px
+					opacity: .7
+			&-link
+				margin: 0
+	&-price
+		margin-bottom: 0
+		background-color: RGB($block-bgc)
+		.section
+			align-items: center
+		.price
+			&-table
+				+w(615px)
+				&:after
+					content: none
+			&-bgc
+				&:after
+					background-color: RGB($block-bgc)
+	&-examples
+		padding-top: 50px
+		padding-bottom: 50px
+		margin-bottom: 0
+		background-color: RGB($block-bgc)
+		.examples
+			&-list
+				@extend %dfi-t
+				+bdrs(8px)
+				padding: 40px 15px
+				margin-top: 40px
+				box-shadow: 7px 11px 40px rgba(0, 0, 0, 0.2)
+				background-color: RGB($white)
+			&-unit
+				margin-top: 0
+				align-items: flex-start
+			&-line
+				+wh(2px,125px)
+				background-color: rgba($gray,.1)
+		.unit
+			&-title
+				font-size: 24px
+			&-text
+				+w(150px)
+				margin-top: 5px
+				font-size: 18px
+	&-ex
+		background-color: RGB($block-bgc)
+		.slide
+			flex-basis: calc(50% - 25px)
+			margin-right: 50px
 .foot
 	background-image: url('img/footer.svg')
 	background-repeat: no-repeat
