@@ -53,13 +53,8 @@ block content
 			.section
 				h2.title Розничные предложения
 			.multiple-slider
-				include sliders/multiple-slide
-				include sliders/multiple-slide
-				include sliders/multiple-slide
-				include sliders/multiple-slide
-				include sliders/multiple-slide
-				include sliders/multiple-slide
-				include sliders/multiple-slide
+				-for(let i = 0; i < 7; i++)
+					include sliders/multiple-slide
 			.section
 				include parts/pagination
 		section.corp.main-block
@@ -72,17 +67,17 @@ block content
 						strong &nbsp;«ЛЕКА».
 					ul.corp-list
 						li.corp-item
-							h5.plus-title.item-title.title
+							h5.plus-title.item-title
 								+img('Users.svg')
 								span Личный кабинет
 							p.plus-desc Удобный личный кабинет для хранения истории заказов, рассчета сметы и отслеживания производства.
 						li.corp-item
-							h5.plus-title.item-title.title
+							h5.plus-title.item-title
 								+img('ChatText.svg')
 								span Поддержка
 							p.plus-desc Предлагаем плановое и аварийное обслуживание. Наш инженер аккуратно демонтирует оборудование и лично отвезет его в сервисный центр. По окончании ремонта мы заново установим и запустим систему вентиляции.
 						li.corp-item
-							h5.plus-title.item-title.title
+							h5.plus-title.item-title
 								+img('PlusMinus.svg')
 								span Калькулятор
 							p.plus-desc Многофункциональность онлайн сервиса является несомненным достоинством сайта. Онлайн калькулятор позволяет производить расчеты не выходя из офиса.
@@ -170,34 +165,42 @@ block content
 				h2.title Почему нас рекомендуют
 				ul.why-list
 					li.why-item
-						h5.item-title.title
+						h5.item-title
 							+img('why-icon-1.svg')
-							span Заказы любой сложности и объёма
+							span
+								span Заказы любой сложности
+								span и объёма
 						p.item-desc Опыт и профессионализм вкупе с современным оборудованием позволяют нам воплощать в жизнь проекты любой задумки и сложности.
 					li.why-item
-						h5.item-title.title
+						h5.item-title
 							+img('why-icon-2.svg')
-							span Профессиональное проектирование
+							span
+								span Профессиональное
+								span проектирование
 						p.item-desc Если Вам необходим проект, мы поможем составить его. Также, наша компания проводит аудит существующих проектов.
 					li.why-item
-						h5.item-title.title
+						h5.item-title
 							+img('why-icon-3.svg')
-							span Подробные и бесплатные консультации
+							span
+								span Подробные и бесплатные
+								span консультации
 						p.item-desc Специалисты нашей компании имеют большой опыт в реализации самых разных проектов. Поможем найти самое оптимальное решение.
 					li.why-item
-						h5.item-title.title
+						h5.item-title
 							+img('why-icon-4.svg')
-							span Гарантия соблюдения сроков
+							span
+								span Гарантия соблюдения
+								span сроков
 						p.item-desc Наши менеджеры используют специальную CRM-систему, которая не даёт нам пропустить ни один этап работ без отчета.
 					li.why-item
-						h5.item-title.title
+						h5.item-title
 							+img('why-icon-5.svg')
 							span
 								span Без скрытых
 								span доплат
 						p.item-desc Фиксируем стоимость услуг в коммерческий предложении и договоре.
 					li.why-item
-						h5.item-title.title
+						h5.item-title
 							+img('why-icon-6.svg')
 							span
 								span Контроль качества
@@ -207,124 +210,33 @@ block content
 			.section
 				h2.title Новости и акции
 			.multiple-slider
-				.slide
-					+img('news-slide-1.jpg').slide-img
-					.slide-info
-						.slide-theme Новости
-						.slide-title Запуск нового цеха обработки
-						.slide-row
-							.slide-date 20.12.20
-							a(href='#').slide-link Подробнее
-				.slide
-					+img('news-slide-2.jpg').slide-img
-					.slide-info
-						.slide-theme Акции
-						.slide-title Вентиляция со скидкой 40%!
-						.slide-row
-							.slide-date 20.12.20
-							a(href='#').slide-link Подробнее
-				.slide
-					+img('news-slide-1.jpg').slide-img
-					.slide-info
-						.slide-theme Новости
-						.slide-title Запуск нового цеха обработки
-						.slide-row
-							.slide-date 20.12.20
-							a(href='#').slide-link Подробнее
-				.slide
-					+img('news-slide-2.jpg').slide-img
-					.slide-info
-						.slide-theme Акции
-						.slide-title Вентиляция со скидкой 40%!
-						.slide-row
-							.slide-date 20.12.20
-							a(href='#').slide-link Подробнее
-				.slide
-					+img('news-slide-1.jpg').slide-img
-					.slide-info
-						.slide-theme Новости
-						.slide-title Запуск нового цеха обработки
-						.slide-row
-							.slide-date 20.12.20
-							a(href='#').slide-link Подробнее
-				.slide
-					+img('news-slide-2.jpg').slide-img
-					.slide-info
-						.slide-theme Акции
-						.slide-title Вентиляция со скидкой 40%!
-						.slide-row
-							.slide-date 20.12.20
-							a(href='#').slide-link Подробнее
+				-for(let i = 0; i < 3; i++)
+					.slide
+						+img('news-slide-1.jpg').slide-img
+						.slide-info
+							.slide-theme Новости
+							.slide-title Запуск нового цеха обработки
+							.slide-row
+								.slide-date 20.12.20
+								a(href='#').slide-link Подробнее
+					.slide
+						+img('news-slide-2.jpg').slide-img
+						.slide-info
+							.slide-theme Акции
+							.slide-title Вентиляция со скидкой 40%!
+							.slide-row
+								.slide-date 20.12.20
+								a(href='#').slide-link Подробнее
 			.section
 				include parts/pagination
 		section.projects.main-block
 			.section
 				h2.title Проекты
-				ul.projects-list
-					li.projects-item
-						.item-info
-							h5.item-title
-								span Теннисный корт
-								span.item-date Март 2020
-							a(href='#').item-link Подробнее >
-						.item-bgc
-							+img('projects-bgc-1.jpg')
-					li.projects-item
-						.item-info
-							h5.item-title
-								span Теннисный корт
-								span.item-date Март 2020
-							a(href='#').item-link Подробнее >
-						.item-bgc
-							+img('projects-bgc-1.jpg')
-					li.projects-item
-						.item-info
-							h5.item-title
-								span Теннисный корт
-								span.item-date Март 2020
-							a(href='#').item-link Подробнее >
-						.item-bgc
-							+img('projects-bgc-1.jpg')
-					li.projects-item
-						.item-info
-							h5.item-title
-								span Теннисный корт
-								span.item-date Март 2020
-							a(href='#').item-link Подробнее >
-						.item-bgc
-							+img('projects-bgc-1.jpg')
-					li.projects-item
-						.item-info
-							h5.item-title
-								span Теннисный корт
-								span.item-date Март 2020
-							a(href='#').item-link Подробнее >
-						.item-bgc
-							+img('projects-bgc-1.jpg')
-					li.projects-item
-						.item-info
-							h5.item-title
-								span Теннисный корт
-								span.item-date Март 2020
-							a(href='#').item-link Подробнее >
-						.item-bgc
-							+img('projects-bgc-1.jpg')
-					li.projects-item
-						.item-info
-							h5.item-title
-								span Теннисный корт
-								span.item-date Март 2020
-							a(href='#').item-link Подробнее >
-						.item-bgc
-							+img('projects-bgc-1.jpg')
-					li.projects-item
-						.item-info
-							h5.item-title
-								span Теннисный корт
-								span.item-date Март 2020
-							a(href='#').item-link Подробнее >
-						.item-bgc
-							+img('projects-bgc-1.jpg')
+				.projects-cont
+					ul.projects-list
+						-for (let i = 0; i < 8; i++)
+							include parts/project
+					a(href='./projects.php').button Все проекты
 		section.partners.main-block
 			.section
 				h2.title Наши партнеры
@@ -338,12 +250,8 @@ block content
 							p.slide-desc Крупнейший инвестиционно-строительный холдинг Казахстана.
 					.slider-control
 						button.control-button.active
-						button.control-button
-						button.control-button
-						button.control-button
-						button.control-button
-						button.control-button
-						button.control-button
+						-for(let i = 0; i < 6; i++)
+							button.control-button
 		include parts/consult.pug
 		include parts/map.pug
 		include parts/social-links

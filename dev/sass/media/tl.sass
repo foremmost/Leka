@@ -55,12 +55,17 @@ header
 .main-slider,.services-banner
 	+w(100%)
 	.slide
+		&-item
+			span
+				text-transform: uppercase
 		&-inner
 			padding: 100px 0 0
 		&-title
 			font-size: 64px
 		&-row
 			@extend %dfi-tl
+		&-button
+			margin: 0
 		&-lists
 			order: 2
 			flex-basis: calc(100% - 280px)
@@ -72,10 +77,7 @@ header
 		padding: 25px 0 25px 34px
 	&-block
 		flex: 0 0 365px
-		
-.main-block
-	padding: 40px 0
-	
+
 .about
 	font-size: 18px
 	&-row
@@ -116,10 +118,11 @@ header
 				margin-top: 20px
 
 .projects
-	&-list
-		+w(600px)
-		margin: 0 auto
-		
+	&-cont
+		+w(846px)
+	&-item
+		flex-basis: 262px
+		height: 262px
 .partners
 	.slider
 		+w(920px)
@@ -166,6 +169,7 @@ header
 				color: RGB($black)
 	&-desc
 		padding-top: 21px
+		font-size: 18px
 		.desc
 			&-title
 				font-size: 24px
@@ -182,7 +186,9 @@ header
 		.table
 			&-head,&-desc
 				min-width: 129px
-
+	&-slider
+		padding-top: 40px
+		padding-bottom: 70px
 .right
 	&-cut
 		.right
@@ -323,3 +329,13 @@ inner .form
 				flex-basis: auto
 			&-link
 				margin: 0 auto 0 55px
+.calc
+	padding-top: 55px
+	padding-bottom: 65px
+	&-col
+		max-width: calc(100% - 310px)
+		&:last-child
+			margin-right: 0
+	&-row
+		span:first-child
+			flex: 0 0 130px

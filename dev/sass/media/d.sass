@@ -13,9 +13,14 @@ body
 	padding-bottom: 0
 main
 	min-height: calc(100vh - 588px)
+section
+	margin-bottom: 80px
 .section
 	+w($desktop)
-	
+.button
+	&-transparent
+		&:hover
+			background-color: rgba($button-blue,.9)
 .head
 	&-menu
 		margin-right: 126px
@@ -41,7 +46,9 @@ main
 		&-item
 			margin-right: 22px
 			padding: 0 3px
-		
+			span
+				text-transform: uppercase
+
 .consult
 	&-title
 		flex-basis: 489px
@@ -102,6 +109,15 @@ main
 			&-desc
 				font-size: 18px
 				line-height: 24px
+	&-img
+		.plus
+			&-title
+				&,path
+					transition: $transition
+				&:hover
+					color: RGB($button-blue)
+					path
+						stroke: RGB($button-blue)
 
 .services
 	.slide
@@ -112,9 +128,12 @@ main
 .why
 	&-item
 		flex-basis: 352px
-		margin-top: 60px
 		letter-spacing: 0
+		&:nth-child(n+4)
+			margin-top: 60px
 		.item
+			&-title
+				font-size: 24px
 			&-desc
 				margin-top: 25px
 				font-size: 18px
@@ -125,13 +144,55 @@ main
 		flex-basis: 327px
 		box-shadow: 6px 6px 25px 0 rgba($black,.1)
 .projects
-	&-list
+	&-page
+		padding-bottom: 80px
+	&-cont
 		+w(1135px)
+	&-list
 		justify-content: space-between
-		margin: 50px 0 0
+		padding: 35px 0 15px
 	&-item
 		margin: 15px 0
+		&:last-child
+			margin: 15px 0
 
+
+.catalog
+	&-page
+		.list
+			justify-content: flex-start
+		.item
+			flex-basis: calc((100% - 42px) / 3)
+			margin-right: 21px
+			&:nth-child(3n)
+				margin-right: 0
+		.desc
+			&-link
+				transition: $transition
+				&:hover
+					background-color: RGB($button-blue)
+					color: RGB($white)
+		.item
+			&-photo
+				background-color: RGB($white)
+				img
+					transition: $transition
+				&:hover
+					img
+						opacity: .9
+.product
+	&-slider
+		.slider-arrow,.dot
+			transition: $transition
+		.slider-arrow
+			&:hover
+				transform: scale(1.15)
+		.dot
+			&:hover
+				transform: scale(1.05)
+	&-desc
+		.desc-col,.desc-switch-row
+			padding: 0 45px
 inner .form
 	&-feedback
 		+w(1160px)
@@ -201,7 +262,7 @@ inner .form
 		&:after
 			margin-top: 20px
 	.row
-		*
+		div,a
 			font-size: 14px
 	&-type
 		transition: $transition

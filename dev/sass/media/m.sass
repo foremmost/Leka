@@ -504,6 +504,7 @@ aside
 		.plus-title
 			@extend %dfa
 			height: 42px
+			font-family: $f_bold
 			img
 				left: -60px
 	&-img
@@ -585,10 +586,13 @@ aside
 		.item
 			&-title
 				@extend %dfa
+				+font(18px,$f_bold,RGB($button-blue))
 				padding-left: 56px
-				color: RGB($button-blue)
 				img
 					left: 0
+				&>span
+					span
+						display: block
 			&-desc
 				font-family: $o_reg
 				margin-top: 15px
@@ -704,16 +708,20 @@ aside
 		&-span
 			margin-left: 10px
 .projects
+	&-page
+		background-color: RGB($white)
+		padding-bottom: 20px
 	&-list
 		@extend %dfa
 		flex-wrap: wrap
 		justify-content: center
-		padding: 10px 0 0
+		padding: 10px 0
 	&-item
-		+wh(262px)
+		flex: 0 0 calc(50% - 10px)
+		height: 140px
 		overflow: hidden
 		position: relative
-		margin: 10px
+		margin: 5px
 		box-shadow: 7px 11px 20px rgba(0, 0, 0, 0.15)
 		&:hover
 			.item
@@ -730,13 +738,12 @@ aside
 				flex-direction: column
 				position: absolute
 				bottom: 0
-				text-transform: uppercase
 				transition: $transition
 				&,a
 						color: RGB($white)
 			&-title
 				span:first-child
-					+font(24px,$f_bold)
+					+font(14px,$f_bold)
 			&-date,&-link
 				transition:  $transition
 				opacity: 0
@@ -823,9 +830,49 @@ aside
 		+w(calc(100% - 50px))
 		padding: 10px 0
 		font-size: 18px
+.catalog
+	&-page
+		.item
+			+bdrs(0 0 8px 8px)
+			width: 100%
+			max-width: 363px
+			margin-bottom: 21px
+			border: 1px solid rgba(56, 56, 56, 0.2)
+			box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.1)
+			background-color: RGB($white)
+			&-desc
+				padding: 24px 27px
+			&-photo
+				height: 193px
+				overflow: hidden
+				img
+					+wh(100%)
+					display: block
+					object-fit: cover
+					object-position: center
+		.desc
+			&-title
+				font-family: $f_bold
+				font-size: 24px
+			&-count
+				margin-top: 8px
+				color: RGB($button-blue)
+				text-transform: uppercase
+			&-text
+				margin-top: 8px
+				line-height: 164%
+			&-link
+				+bdrs(18px)
+				display: inline-block
+				margin-top: 30px
+				padding: 8px 15px
+				border: 1px solid RGB($button-blue)
+				text-transform: uppercase
+				font-family: $f_bold
+				color: RGB($button-blue)
 .product
 	&-card
-		border-radius: 24px
+		border-radius: 24px 24px 0 0
 		padding: 44px 0 0
 		background-color: RGB($block-bgc)
 		box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.1)
@@ -866,7 +913,6 @@ aside
 		margin-top: 15px
 		flex-wrap: wrap
 	&-desc
-		margin-top: 15px
 		padding: 15px 0 24px
 		box-shadow: 7px 11px 40px rgba(0, 0, 0, 0.2)
 		background-color: RGB($white)
@@ -883,8 +929,14 @@ aside
 				&-unit
 					padding-top: 15px
 			&-switch
+				display: inline-block
+				margin-bottom: 10px
+				font-family: $f_bold
 				text-align: left
 				&-row
+					@extend %df
+					flex-direction: column
+					align-items: flex-start
 					padding: 0 24px
 				&:after
 					+af
@@ -892,8 +944,6 @@ aside
 					margin-top: 5px
 					background-color: RGB($form-block)
 					transition: $transition
-				&:last-child
-					margin-left: 15px
 			&-title
 				font-size: 18px
 				padding-left: 0
@@ -924,7 +974,7 @@ aside
 				padding: 15px
 	&-slider
 		+dfc
-		padding-top: 20px
+		padding: 20px 10px 20px
 		flex-direction: column
 		position: relative
 		.slider
@@ -932,20 +982,26 @@ aside
 				position: absolute
 				display: none
 			&-dots
-				@extend %dfi
-				+w(300px)
-				order: 1
+				@extend %dfc
+				+w(100%)
 				.dot
-					+w(77px)
+					+wh(77px)
+					margin: 0 7px
+					img
+						max-height: 100%
+
 			&-body
 				@extend %dfa
 				+w(100%)
+				max-width: 320px
 				margin-bottom: 20px
 				overflow: hidden
-				.slide
-					flex: 0 0 100%
-					transition: $transition
-					text-align: center
+		.slide
+			flex: 0 0 100%
+			height: 385px
+			transition: $transition
+			img
+				max-height: 100%
 .count
 	&-select
 		position: relative
@@ -2016,23 +2072,63 @@ aside
 		&:nth-child(2)
 			height: auto
 	&-switch-row .desc-switch
+		&:nth-child(2)
+			&:after
+				background-color: RGB($button-blue)
+#prod-col-3:checked ~ .desc
+	&-col-cont .desc-col
+		transform: translateX(-200%)
+		&:nth-child(3)
+			height: auto
+	&-switch-row .desc-switch
 		&:last-child
 			&:after
 				background-color: RGB($button-blue)
 
 
-.plan
-	color: RGB($white)
-	background-color: RGB($black)
-	margin: 0
-	padding: 100px 10px 50px
-	table
+.calc
+	@extend %dfwi
+	flex-wrap: wrap
+	padding-top: 15px
+	padding-bottom: 20px
+	&-col
+		+w(100%)
+		max-width: 330px
+		margin: 0 auto
+		&:first-child
+			max-width: 275px
+	&-img
+		margin-bottom: 10px
+		img
+			display: block
+	&-form
+	.button
 		margin-top: 20px
-		th
-			text-transform: uppercase
-		th,td
+	&-row
+		@extend %dfi
+		+bdrs(4px)
+		height: 64px
+		padding: 0 10px
+		margin-top: 20px
+		flex-wrap: wrap
+		border: 1px solid rgba($black,.1)
+		background-color: #F2F7FF
+		span
 			&:first-child
-				padding-right: 20px
+				flex: 0 0 80px
+		strong
+			font-family: $f_bold
+		input
+			+bdrs(4px)
+			+wh(33%,46px)
+			flex: 0 0 33%
+			max-width: 120px
+			padding: 0 10px
+			background-color: RGB($white)
+			box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2)
+			text-align: center
 		div
-			padding: 3px 0
-			text-align: left
+			@extend %dfa
+			height: 20px
+			.insert
+				margin: 0 10px

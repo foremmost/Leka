@@ -18,9 +18,13 @@
 	justify-content: center
 main
 	min-height: calc(100vh - 388px)
+section
+	margin-bottom: 50px
 aside
 	+w(246px)
-	
+
+.main-block
+	padding: 50px 0
 .left-menu
 	padding: 100px 10px 80px
 	border-right: 1px solid RGB($form-bgc)
@@ -187,6 +191,14 @@ aside
 .search
 	&-row
 		bottom: 0
+.catalog
+	&-page
+		.list
+			@extend %dfi-t
+			flex-wrap: wrap
+		.item
+			flex: 0 0 calc(50% - 10px)
+			max-width: initial
 .product
 	&-page
 		.cart
@@ -205,18 +217,24 @@ aside
 		.title
 			margin-bottom: 0
 	&-slider
-		+w(500px)
-		margin: 0 auto 20px
+		padding-bottom: 20px
 		.slider
+			&-body
+				margin-bottom: 40px
 			&-arrow
 				display: block
 				padding: 10px
-				bottom: 20px
 				&-prev
-					left: -30px
+					left: 60px
 				&-next
-					right: -30px
-			
+					right: 60px
+	&-desc
+		.desc
+			&-switch
+				margin-bottom: 0
+				margin-right: 15px
+				&-row
+					flex-direction: row
 .form
 	&-feedback
 		+w(493px)
@@ -253,7 +271,26 @@ aside
 			&-views
 				right: inherit
 				left: 10px
-	
+
+.projects
+	&-page
+		padding-bottom: 50px
+	&-cont
+		+w(660px)
+		margin: 0 auto
+	&-item
+		flex-basis: 200px
+		height: 200px
+		margin: 10px
+		&:last-child
+			margin-right: auto
+		.item
+			&-title
+				span
+					&:first-child
+						font-size: 18px
+			&-info
+				text-transform: uppercase
 .article
 	.section
 		padding-right: 80px
@@ -594,3 +631,10 @@ aside
 		.right
 			&-half
 				flex-basis: auto
+.calc
+	&-row
+		padding: 0 25px
+	&-col
+		margin: 0
+		&:last-child
+			margin-right: 50px

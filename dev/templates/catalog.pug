@@ -1,0 +1,20 @@
+extends template/main
+append vars
+	-
+		page_title = 'Каталог'
+block content
+	main.catalog-page
+		section.first-block
+			.section
+				ul.list
+					-for (let i = 0; i < 5; i++)
+						li.item
+							a(href='./product-card.php').item-photo
+								+img('catalog-img.jpg')
+							.item-desc
+								h3.desc-title Вентиляция
+								.desc-count 19 товаров
+								p.desc-text За четверть века мы абсолютно хорошо поняли свое предназначение — проектирование и производство.
+								a(href='./product-card.php').desc-link Подробнее
+		include parts/consult
+		include parts/map

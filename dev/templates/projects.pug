@@ -1,0 +1,15 @@
+extends template/main
+append vars
+	-
+		page_title = 'Проекты'
+block content
+	main
+		section.projects.projects-page.first-block
+			.section
+				h2.title Проекты
+				.projects-cont
+					ul.projects-list
+						-for(let i = 0; i < 12; i++)
+							include parts/project
+		include parts/consult
+		include parts/map
