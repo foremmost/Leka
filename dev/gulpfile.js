@@ -43,7 +43,8 @@ const
             'sass/*.sass',
             'sass/media/*.sass',
             'sass/grid/*.sass',
-            'sass/ui/*.sass'
+            'sass/ui/*.sass',
+            'sass/slider/*.sass'
         ],
         dest: projectPath
     },

@@ -64,7 +64,7 @@ header
 	border-radius: 4px
 	@extend %dfa
 	flex-wrap: wrap
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6)
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3)
 	transition: $transition
 	&.active
 		height: 238px
@@ -805,6 +805,7 @@ aside
 	margin-bottom: 0
 	iframe
 		+wh(100%,calc(100vh - 113px))
+		display: block
 .search
 	&-row
 		@extend %dfi
@@ -844,6 +845,7 @@ aside
 				padding: 24px 27px
 			&-photo
 				height: 193px
+				display: block
 				overflow: hidden
 				img
 					+wh(100%)
@@ -860,6 +862,7 @@ aside
 				text-transform: uppercase
 			&-text
 				margin-top: 8px
+				font-family: $o_reg
 				line-height: 164%
 			&-link
 				+bdrs(18px)

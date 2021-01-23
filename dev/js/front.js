@@ -1,6 +1,7 @@
 import { MainEventBus } from "/workspace/front/libs/MainEventBus.lib.js";
 import { Modaler } from "/workspace/front/libs/Modaler.lib.js";
 import { _front } from "/workspace/front/_front.js";
+import { Slider } from "/slider.js"
 class Front extends _front{
 	constructor(){
 		super();
@@ -261,21 +262,34 @@ class Front extends _front{
 			})
 		}
 	}
-
 	showPassword(clickData){
 		let button = clickData.item;
 		let input = button.nextElementSibling.querySelector('.block-input');
 		if (input.getAttribute('type') === 'password') input.setAttribute('type','text');
 		else input.setAttribute('type','password');
 	}
-
 	clearInput(clickData){
 		let button = clickData.item;
 		let input = button.previousElementSibling;
 		input.value = '';
 		input.focus();
 	}
-	
+
+	slidersInit(){
+		let slider = new Slider();
+		slider.sliderInit({
+			container: document.querySelector('.multiple-slider'),
+			slides: {
+				type:'HTML',
+				list:document.querySelector('.multiple-slider').children,
+			},
+			responsive:{
+				1200:{
+					count: 4.5
+				}
+			}
+		});
+	}
 	init(){
 		const _ = this;
 		_.currentPageCheck();
@@ -283,6 +297,7 @@ class Front extends _front{
 		_.mainSliderAutoSwap();
 		_.articlesLengthCheck();
 		_.inputActive();
+		if (document.querySelector('.multiple-slider'))_.slidersInit();
 	}
 }
 new Front();

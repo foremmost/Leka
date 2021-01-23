@@ -84,6 +84,16 @@ section
 		transition: $transition
 		&:hover
 			transform: scale(1.02)
+	a.slide-link
+		&:after
+			+af
+			+wh(100%,1px)
+			background-color: transparent
+			transition: $transition
+		&:hover
+			&:after
+				background-color: RGB($button-blue)
+
 
 .item-title
 	font-size: 18px
@@ -180,6 +190,8 @@ section
 				&:hover
 					img
 						opacity: .9
+		.desc-link
+			padding: 8px 25px
 .product
 	&-slider
 		.slider-arrow,.dot
