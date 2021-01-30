@@ -1,0 +1,57 @@
+user
+	&-action,&-role
+		display: none
+	&-hello
+		position: fixed
+		transform: translateX(-600%)
+		top: 25px
+		z-index: 1001
+		button
+			color: $orange
+	&-name
+		+font(18px,$f_bold)
+		display: block
++mq($tablet#{$unit})
++mq($tablet-large#{$unit})
+	user
+		&-hello
+			position: static
+			transform: translateX(0)
+		&-action,&-role
+			display: block
+		&-action
+			display: flex
+			flex-direction: column
+			align-items: center
+		&-photo
+			+wh(100px)
+			position: absolute
+			transform: scale(0)
+		&-name
+			font-size: 30px
+		&-role
+			margin-left: 30px
+			span
+				+font(20px,$f_heavy,$orange)
+			strong
+				margin-left: 10px
+				font-size: 22px
+	.user
+		&-more
+			&-play
+				+bdrs(50px)
+				+wh(50px)
+				padding-left: 3px
+				display: flex
+				align-items: center
+				justify-content: center
+				box-shadow: 0 1px 3px rgba(0,0,0,.36)
+			&-btn
+				+wh(120px,35px)
+				+bdrs(120px)
+				color: #fff
+				margin-top: 14px
+				font-size: 14px
+				background-color: $violet
++mq($desktop#{$unit})
++mq($desktop-large#{$unit})

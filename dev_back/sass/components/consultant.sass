@@ -1,0 +1,110 @@
+.answer-page
+	padding-top:  20px
+	grid-template-areas:  none
+	grid-template-columns:  25% 75%
+.cons-back,.cons-finish,.consultant-chat-confirm
+	min-width: 150px
+
+.consultant
+	&-chat
+		&-cont
+			height:  450px
+			overflow:  auto
+			margin-bottom:  20px
+			padding: 10px 0
+			font-size: 12px
+			position: relative
+		&-message
+			max-width: 60%
+			display: inline-block
+			&-row
+				width: 100%
+				display: flex
+				padding: 5px 40px
+			&-unread
+				background-color: rgba(#000,.1)
+		&-you
+			margin-left: auto
+		&-another
+			.consultant-chat-text
+				background-color: $orange
+				color: #fff
+				font-weight: 500
+		&-name
+			font-weight: 700
+			margin-left: 10px
+			margin-right: auto
+		&-text
+			margin: 3px 0
+			padding: 5px 20px
+			color: $black
+			font-weight: 700
+			line-height: 20px
+			background-color: #fff
+			border-radius: 5px
+			white-space: pre-wrap
+			word-wrap: break-word
+		&-info,&-name
+			display: block
+		&-info
+			text-align: right
+		&-date
+			margin-right: 10px
+		&-dateRow
+			width: 200px
+			margin: 10px auto
+			border-radius: 20px
+			text-align: center
+			background-color: rgba(#000,.2)
+			padding: 5px 0
+			font-size: 14px
+			color: #fff
+		&-input
+			width: 100%
+			min-height: 70px
+			max-height: 150px
+			display: block
+			overflow: auto
+			margin-left: auto
+			margin-bottom: 15px
+			padding: 10px 40px
+		&-cont,&-input
+			border-top:  1px solid #3f51b5
+			border-bottom:  1px solid #3f51b5
+			background-color: rgba(#000,.1)
+		&-confirm
+			margin-left: auto
+	&-info
+		&-cont
+			padding:  0 20px
+		&-actions button, &-item
+			margin-bottom: 10px
+	&-table
+		div
+			height: 20px!important
+			display: block!important
+			text-overflow: ellipsis
+		&-date
+			div
+				width: 100px
+		&-time
+			div
+				width: 70px
+		&-name,&-email
+			div
+				width: 150px
+		&-text
+			div
+				align-items: flex-start
+		&-actions
+			div
+				height: 37px!important
+				width: 100%
+				min-width: 150px
+				display: flex!important
+				justify-content: space-between
+		&-btn
+			width: 45%
+			background-color: rgba(136, 163, 255, 0.91)
+			padding: 12px 0
+			text-align: center

@@ -1,0 +1,190 @@
+.form
+	$link : &
+	&-out
+		&:before
+			background-color: transparent !important
+	&-in
+		&.out
+			#{$link}-c
+				transform:  scale(0)
+				transition: 1s ease
+		&.login
+			#{$link}-right
+				transform: translateY(100vh)
+			#{$link}-left
+				height: 100vh
+			#{$link}-logo
+				font-size: 50px
+	&-c
+		transform-origin: right top
+		display: grid
+		height: 100vh
+		grid-template-rows: 10% 85%
+		position: relative
+		.lang-dropdown
+			position: absolute
+			top: 75px
+			right: 15px
+		&.pos
+			+wh(100%)
+			position: fixed
+			top: 0
+			left: 0
+	&-left,&-right,&-logo
+		transition: 1s ease
+	&-left,&-right
+		display: flex
+		justify-content: flex-end
+		align-items: center
+	&-left
+		background-color: $orange
+		padding-right: 10px
+		height: 100%
+	&-right
+		flex-direction: column
+		justify-content: center
+	&-cont
+		+w(80%)
+	&-logo
+		+font(32px,$f_heavy)
+		text-align: right
+		color: #fff
+	&-title
+		+font(32px,$f_heavy)
+		opacity: .9
+		text-transform: uppercase
+	&-btn
+		+wh(40px,50px)
+		display: flex
+		align-items: center
+		justify-content: center
+		background-color: $orange
+		&-img
+			+w(20px)
+	&-inpt
+		$link: &
+		+wh(100%,50px)
+		top: 0
+		left: 0
+		position: absolute
+		padding-left: 20px
+		&-row
+			overflow: hidden
+			max-width: 300px
+			margin: 40px auto 0
+			border: 2px solid $orange
+			display: flex
+			align-items: flex-start
+			justify-content: space-between
+			&.err
+				border-color: $red
+				#{$link}-title
+					top: 33%
+					color: $red
+					font-size: 14px
+				.form-btn
+					background-color: $red
+		&:focus,&.hide
+			&+#{$link}-title
+				opacity: 1
+				top: -60%
+		&-c
+			+wh(100%,50px)
+			position: relative
+		&-title
+			+font(24px,$f_reg,$black)
+			z-index: -1
+			transition: .15s linear
+			opacity: .6
+			position: absolute
+			top: 22%
+			left: 20px
++mq($mobile-large#{$unit})
++mq($tablet#{$unit})
+	.form
+		$link : &
+		&-in
+			&.login
+				#{$link}-logo
+					font-size: 110px
+		&-c
+			.lang-dropdown
+				top: 105px
++mq($tablet-large#{$unit})
+	.form
+		$link : &
+		&-in
+			&.login
+				&:before
+					+w(100%)
+				#{$link}-right
+					transform: translateX(100vw)
+				#{$link}-left
+					+w(100vw)
+				#{$link}-logo
+					font-size: 150px
+			position: relative
+			&:after, &:before
+				+wh(50%,100%)
+				+af
+				transition: 1s ease
+				z-index: -1
+				position: absolute
+				top: 0
+			&:before
+				left: 0
+				background-color: $orange
+			&:after
+				right: 0
+		&-c
+			box-shadow: 0 0 80px rgba(#000,.5)
+			grid-template-rows: 100%
+			grid-template-columns: 1fr 1fr
+			.lang-dropdown
+				top: 15px
+				right: 15px
+		&-left
+			+w(100%)
+			justify-content: center
+		&-logo
+			font-size: 70px
+
++mq($desktop#{$unit})
+	.form
+		$link : &
+		&-in,&-c
+			transition: 1s ease
+			overflow: hidden
+		&-in
+			padding: 50px 20px
+			&.login
+				#{$link}-left
+					transition: 1s ease
+				#{$link}-c
+					overflow: hidden
+					height: 100vh
+				padding: 0
+		&-left
+			transition: .75s ease
+		&-c
+			height: calc(100vh - 100px)
+		&-logo
+			font-size: 90px
+		&-title
+			font-size: 60px
+		&-inpt
+			&-row
+				margin-top: 50px
+		&-btn
+			$link: &
+			transition: .35s ease
+			&:hover
+				#{$link}-img
+					animation-direction: alternate
+					animation-duration: 1s
+					animation-name: btnMove
+					animation-iteration-count: infinite
++mq($desktop-large#{$unit})
+
+
+

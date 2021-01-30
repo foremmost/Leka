@@ -241,17 +241,27 @@ block content
 			.section
 				h2.title Наши партнеры
 				.slider
-					.slide
+					.slide.partners-slide
 						.slide-logo
 							+img('BI_Group.png')
 						.slide-info
 							h5.slide-title
 								span BI Group
 							p.slide-desc Крупнейший инвестиционно-строительный холдинг Казахстана.
-					.slider-control
-						button.control-button.active
-						-for(let i = 0; i < 6; i++)
-							button.control-button
+					.slide.partners-slide
+						.slide-logo
+							+img('BI_Group.png')
+						.slide-info
+							h5.slide-title
+								span BI Group
+							p.slide-desc Крупнейший инвестиционно-строительный холдинг Казахстана.
+					.slide.partners-slide
+						.slide-logo
+							+img('BI_Group.png')
+						.slide-info
+							h5.slide-title
+								span BI Group
+							p.slide-desc Крупнейший инвестиционно-строительный холдинг Казахстана.
 		include parts/consult.pug
 		include parts/map.pug
 		include parts/social-links

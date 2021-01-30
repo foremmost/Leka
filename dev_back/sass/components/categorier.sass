@@ -1,0 +1,147 @@
+.categorier
+	&-properties
+		&-list
+			li
+				display: flex
+				align-items: center
+			.page-btn
+				margin-left: auto
+	&-new-prop
+		display: flex
+		&.page-inpt
+			margin-bottom: 1.5em
+		button
+			+wh(40px)
+			flex: 0 0 40px
+			margin-left: 1em
+			img
+				max-width: 20px
+	&-thumbnail
+		+wh(95%,96%)
+		+wh(100%,96%)
+		+bdrs(4px)
+		padding: 10px
+		margin: 10px 0 0 auto
+		border: 1px solid #3f51b5
+		display: flex
+		align-items: center
+		justify-content: center
+		position: relative
+		&-img
+			max-height: 240px
+		.categorier-btn-char
+			right: 10px
+	&-property
+		&-item
+			cursor: pointer
+			display: flex
+			align-items: center
+			max-width: 500px
+			opacity: 0
+			padding: 25px 10px
+			border: 1px dashed transparent
+			&-actions
+				display: flex
+				align-items: center
+				margin-left: auto
+			&:nth-child(odd)
+				background-color: rgba($black,.24)
+			&.dropSuccess
+				background-color: rgba($green,.25)
+			&.dropWaiting
+				transform: translateX(25px) !important
+				background-color: rgba($violet,.35)
+				border: 1px dashed $violet
+			button
+				+wh(25px)
+				flex: 0 0 25px
+				margin: 0 5px
+			&:before
+				+af
+				+wh(20px,2px)
+				margin-right: .5em
+				background-color: $red
+	&-form
+		.page-text,textarea
+		+w(100%)
+		.w49
+			+w(100%)
+		&-right
+			+w(100%)
+		&-left
+			+w(100%)
+			display: flex
+			flex-wrap: wrap
+			justify-content: space-between
+			align-items: center
+		&-row
+			display: flex
+			flex-wrap: wrap
+	&-chars
+		position: relative
+		border-top: 1px solid $violet
+		margin-top: 1em
+		padding-top: 1em
+		&-table
+			+w(100%)
+			textarea
+				+wh(200px,70px)
+			input,select,textarea
+				background-color: #fff
+				color: $black !important
+	&-btn
+		&-char
+			position: absolute
+			top: 1em
+			right: 10px
+	&-list
+		+w(300px)
+		padding-right: 20px
+		&-sub
+			margin-top: 5px
+			padding: 5px
+			background-color: rgba($violet,.15)
+		li
+			position: relative
+			cursor: pointer
+			&.active
+				color: $orange
+			button
+				border: 0
+			&:after
+				transition: .35s ease
+			&.hasChild
+				button
+					+af
+					+wh(20px)
+					+bg(20px 20px,url('../img/play.svg') no-repeat)
+					transform: rotate(90deg)
+					position: absolute
+					top: 0
+					right: 0
+			&.open
+				&:after,&>button
+					transform: rotate(59deg)
+					background-image: url('../img/select.svg')
++mq($tablet#{$unit})
++mq($tablet-large#{$unit})
+		.categorier
+			&-form
+				.w49
+					+w(49%)
+				.w100
+					+w(100%)
+				&-row
+					flex-wrap: nowrap
+					align-items: flex-start
+				&-right
+					+w(31%)
+					padding: 0 10px
+				&-left
+					+w(69%)
+			.page-text,textarea
+				+w(100%)
+			&-thumbnail
+				+wh(400px)
++mq($desktop#{$unit})
++mq($desktop-large#{$unit})

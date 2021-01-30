@@ -1,0 +1,65 @@
+.goods
+	&-thumb
+		&-del
+			+wh(20px)
+			position: absolute
+			top: -10px
+			right: -10px
+			z-index: 10
+		&-main
+			position: relative
+		&-list
+			display: flex
+			align-items: center
+			justify-content: space-around
+			flex-wrap: wrap
+			&-item
+				+wh(100px)
+				+dfc
+				position: relative
+				margin-bottom: 1em
+				cursor: pointer
+				padding: 10px
+				border: 1px solid $violet
+				img
+					max-height: 90%
+		&-body
+			+dfc
+			margin: 1em 0
+			border: 1px solid $violet
+			height: 150px
+			img
+				max-height: 100px
+	&-side
+		+bdrs(3px)
+		span
+			font-weight: 700
+		padding-right: 10px
+		.page-form-left
+			padding-left: 10px
+
++mq($tablet#{$unit})
++mq($tablet-large#{$unit})
+	.goods
+		&-form
+			grid-template-columns:  74% 26%
+		&-row
+			display: flex
+			align-items: stretch
+		&-left
+			+w(30%)
+			border-right: 1px solid $violet
+		&-right
+			+w(70%)
+			display: grid
+			grid-template-columns: 50% 50% //410px 200px
+			margin-left: 1em
+			align-items: flex-start
+			&-side
+				.page-text
+					textarea
+					+w(initial)
+
+
++mq($desktop#{$unit})
++mq($desktop-large#{$unit})

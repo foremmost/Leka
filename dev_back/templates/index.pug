@@ -1,0 +1,12 @@
+extends template/main
+append vars
+  -
+    page_title= ''
+
+block content
+  :php
+    if(isset($_SESSION['group_id'])) {
+      include_once 'system.php';
+    }else{
+      include_once 'author.php';
+    }

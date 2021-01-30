@@ -1,0 +1,305 @@
+.consultant
+	+w(38px)
+	+bdrs(100%)
+	+font(14px,'Helvetica',#B0B0B0)
+	max-width: 336px
+	margin-bottom: 12px
+	overflow: hidden
+	bottom: 10px
+	right: 10px
+	z-index: 100000
+	transition: .35s ease
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.4)
+	::-webkit-scrollbar
+		width: 10px
+	::-webkit-scrollbar-thumb
+		background-color: rgba(#ddd, 0.9)
+	&-head
+		+wh(100%,38px)
+		+dfi
+		position: relative
+		z-index: 1
+	&-icon
+		+wh(44px)
+		+dfc
+		+bdrs(100%)
+		background-color: #1CCE59
+		cursor: initial
+		transition: .35s ease
+		svg
+			path
+				fill: #fff
+	&-info
+		+w(183px)
+		&-title
+			font: 600 16px Helvetica
+			color: #fff
+		&-subtitle
+			font-size: 12px
+	&-status
+		+wh(10px,100%)
+		background-color: #ff5555
+	&-close
+		+wh(30px)
+		+bdrs(100%)
+		align-items: center
+		justify-content: center
+		border: 2px solid #fff
+		opacity: .5
+		display: none
+		transition: .35s ease
+		&:before,&:after
+			+af
+			+wh(10px,2px)
+			background-color: #fff
+			transition: .35s ease
+		&:before
+			transform: rotate(-45deg)
+			margin-right: -2.4px
+		&:after
+			transform: rotate(45deg)
+			margin-left: -2.4px
+		&:hover
+			opacity: 1
+	&-info,&-status
+		display: none
+	&-body
+		height: 0
+		display: flex
+		flex-direction: column
+		justify-content: flex-end
+		overflow: hidden
+		background-color: #fff
+		position: relative
+		transition: .35s ease
+	&-desc
+		+wh(100%)
+		align-items: center
+		justify-content: center
+		max-height: 363px
+		flex-direction: column
+		background-color: #fff
+		position: absolute
+		top: 0
+		font-size: 12px
+		display: none
+		&-title
+			font-family: $o_bold
+		&.active
+			display: flex
+	&-chat
+		max-height: 363px
+		padding: 0 10px
+		display: flex
+		flex-direction: column
+		overflow: auto
+		&:before
+			+af
+			+wh(1px)
+			margin-bottom: 15px
+		.message
+			max-width: 90%
+			display: inline-flex
+			flex-direction: column
+			margin-bottom: 15px
+			&:last-child
+				margin-bottom: 20px
+			&.client
+				margin-left: auto
+				align-items: flex-end
+			&.manager
+				margin-right: auto
+				align-items: flex-start
+				.message-text
+					background-color: rgba(#2196F3,.9)
+					color: #fff
+			&-info
+				padding-right: 10px
+				font-size: 12px
+				text-align: right
+				margin-bottom: 3px
+			&-name
+				text-transform: uppercase
+			&-date,&-time
+				margin-left: 5px
+			&-text
+				+bdrs(10px)
+				display: inline-block
+				padding: 12px 15px
+				background-color: rgba(#f0f0f0,.5)
+				color: #000
+				line-height: 1.4
+	&-form
+		padding: 13px 17px
+		display: flex
+		align-items: center
+		justify-content: space-between
+		position: relative
+		z-index: 10
+		box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.28)
+		&-placeholder
+			+w(200px)
+			position: absolute
+			display: none
+			&.active
+				display: block
+		&-input
+			+w(calc(100% - 37px))
+			padding-right: 7px
+			max-height: 80px
+			overflow: auto
+			color: #000
+			position: relative
+			z-index: 10
+		&-placeholder,&-input
+			min-height: 17px
+		&-button
+			+wh(30px)
+			+dfc
+			+bdrs(100%)
+			background-color: #1CCE59
+			transition: .35s ease
+			svg
+				+w(60%)
+			&:hover
+				transform: scale(1.1)
+	&-reg
+		+dfc
+		+wh(100%,0)
+		opacity: 0
+		overflow: hidden
+		flex-direction: column
+		position: absolute
+		top: 0
+		z-index: 100
+		background-color: #fff
+		transition: .35s ease
+		&.active
+			opacity: 1
+			height: 100%
+		&-name,&-mail
+			+w(220px)
+			padding: 0 0 7px 7px
+			margin-bottom: 20px
+			border-bottom: 1px solid rgba(#000,.3)
+			&::placeholder
+				color: rgba(#000,.4)
+		&-mail
+			margin-bottom: 30px
+		&-btn
+			+wh(250px,40px)
+			+bdrs(20px)
+			background-color: #1CCE59
+			color: #fff
+	&.active
+		+w(100%)
+		+bdrs(8px 8px 0 0)
+		margin-bottom: 0
+		position: fixed
+		bottom: 0
+		right: 0
+		.consultant
+			&-head
+				height: 70px
+				padding-left: 17px
+				background-color: #343638
+			&-icon
+				+wh(38px)
+			&-close
+				display: flex
+			&-info,&-status
+				display: block
+			&-body
+				height: 410px
+			&-close
+				&:before,&:after
+					+w(15px)
+				&:before
+					margin-right: -7.5px
+				&:after
+					margin-left: -7.5px
+core
+	&-loader
+		+wh(100%)
+		display: flex
+		align-items: center
+		justify-content: center
+		position: absolute
+		z-index: 9999
+		top: 0
+		left: 0
+		&-roller
+			+wh(80px)
+			display: inline-block
+			position: relative
+		&-roller div
+			animation: loader-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite
+			transform-origin: 40px 40px
+		&-roller div:after
+			+af
+			+wh(7px)
+			position: absolute
+			border-radius: 50%
+			background: #1CCE59
+			margin: -4px 0 0 -4px
+		&-roller div:nth-child(1)
+			animation-delay: -0.036s
+		&-roller div:nth-child(1):after
+			top: 63px
+			left: 63px
+		&-roller div:nth-child(2)
+			animation-delay: -0.072s
+		&-roller div:nth-child(2):after
+			top: 68px
+			left: 56px
+		&-roller div:nth-child(3)
+			animation-delay: -0.108s
+		&-roller div:nth-child(3):after
+			top: 71px
+			left: 48px
+		&-roller div:nth-child(4)
+			animation-delay: -0.144s
+		&-roller div:nth-child(4):after
+			top: 72px
+			left: 40px
+		&-roller div:nth-child(5)
+			animation-delay: -0.18s
+		&-roller div:nth-child(5):after
+			top: 71px
+			left: 32px
+		&-roller div:nth-child(6)
+			animation-delay: -0.216s
+		&-roller div:nth-child(6):after
+			top: 68px
+			left: 24px
+		&-roller div:nth-child(7)
+			animation-delay: -0.252s
+		&-roller div:nth-child(7):after
+			top: 63px
+			left: 17px
+		&-roller div:nth-child(8)
+			animation-delay: -0.288s
+		&-roller div:nth-child(8):after
+			top: 56px
+			left: 12px
+
++mq(740px)
+	.consultant
+		+w(100%)
+		+bdrs(8px 8px 0 0)
+		margin-bottom: 0
+		position: fixed
+		bottom: 0
+		right: 5%
+		&-head
+			height: 70px
+			padding-left: 17px
+			background-color: #343638
+		&-icon
+			+wh(38px)
+		&-close
+			display: flex
+		&-info,&-status
+			display: block
+		&.active
+			right: 5%

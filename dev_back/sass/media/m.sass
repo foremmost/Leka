@@ -1,0 +1,873 @@
+$unit: 'px'
+@import "dark"
+body
+	background-color: #F7F9FF
+@keyframes loader-roller
+	0%
+		transform: rotate(0deg)
+	100%
+		transform: rotate(360deg)
+core
+	&-loader
+		+wh(100%)
+		display: flex
+		align-items: center
+		justify-content: center
+		position: absolute
+		z-index: 9999
+		top: 0
+		left: 0
+		&-roller
+			+wh(80px)
+			display: inline-block
+			position: relative
+		&-roller div
+			animation: loader-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite
+			transform-origin: 40px 40px
+		&-roller div:after
+			+af
+			+wh(7px)
+			position: absolute
+			border-radius: 50%
+			background: $violet
+			margin: -4px 0 0 -4px
+		&-roller div:nth-child(1)
+			animation-delay: -0.036s
+		&-roller div:nth-child(1):after
+			top: 63px
+			left: 63px
+		&-roller div:nth-child(2)
+			animation-delay: -0.072s
+		&-roller div:nth-child(2):after
+			top: 68px
+			left: 56px
+		&-roller div:nth-child(3)
+			animation-delay: -0.108s
+		&-roller div:nth-child(3):after
+			top: 71px
+			left: 48px
+		&-roller div:nth-child(4)
+			animation-delay: -0.144s
+		&-roller div:nth-child(4):after
+			top: 72px
+			left: 40px
+		&-roller div:nth-child(5)
+			animation-delay: -0.18s
+		&-roller div:nth-child(5):after
+			top: 71px
+			left: 32px
+		&-roller div:nth-child(6)
+			animation-delay: -0.216s
+		&-roller div:nth-child(6):after
+			top: 68px
+			left: 24px
+		&-roller div:nth-child(7)
+			animation-delay: -0.252s
+		&-roller div:nth-child(7):after
+			top: 63px
+			left: 17px
+		&-roller div:nth-child(8)
+			animation-delay: -0.288s
+		&-roller div:nth-child(8):after
+			top: 56px
+			left: 12px
+
+	&-menu,&-head,&-content
+		position: relative
+	&-head
+		padding: 17px
+		display: flex
+		align-items: center
+		position: relative
+	&-tabs
+		display: flex
+		position: absolute
+		top: 30px
+		left: 15px
+		&-item
+			display: block
+			font-size: 12px
+			box-shadow: 1px -2px 3px rgba(22, 22, 22, 0.25)
+			padding: 5px
+			background-color: $orange
+			color: #fff
+			border-radius: 10px 10px 0 0
+			margin-right: 5px
+			&.active
+				background-color: $blue
+	&-content
+		+bdrs(8px)
+		box-shadow: -4px -4px 10px rgba(255, 255, 255, 0.25), 4px 4px 6px rgba(220, 220, 220, 0.7)
+		border-radius: 10px
+		position: relative
+		padding: 15px 10px
+		min-height: calc(100vh - 185px)
+		margin: 20px 0
+		background-color: #fff
+		&-tabs
+			position: absolute
+			z-index: 999
+			top: -39px
+			right: 0px
+			display: flex
+			align-items: center
+			&-item
+				+bdrs(25% 25% 0 0)
+				&:last-child
+					margin-right: 0
+				background-color: $orange
+				color: #fff
+				margin-right: 10px
+				position: relative
+				transition: .35s ease
+				cursor: pointer
+				text-align: center
+				display: block
+				padding: 10px 20px
+				overflow: hidden
+				border: 1px solid transparent
+				border-bottom: 0
+				&.active
+					font-weight: 700
+					border-color: $orange
+					color: $black
+					background-color: #fff
+.core
+	&-in
+		padding: 10px
+cspan
+	display: inline-block
+.btn
+	//+wh(170px,40px)
+	+bdrs(3px)
+	padding: 8px 12px
+	display: block
+	color: #fff
+	font-size: 12px
+	background-color: $violet
+	transition: .35s ease
+	img
+		+w(20px)
+	&-large
+		+wh(300px,50px)
+		font-size: 18px
+	&.active
+		background-color: $black
+	&:hover
+		background-color: rgba($orange,.85)
+		color: #fff
+%inpt
+	+w(100%)
+	+bdrs(3px)
+	min-width: 190px
+	min-height: 30px
+	padding-left: 12px
+	height: 40px
+	box-shadow: inset 6px 6px 12px #ebedf2, inset -6px -6px 12px #ffffff
+	color: $violet
+.inpt
+	@extend %inpt
+	padding-left: 12px
+	padding-top: 10px
+	text-align: center
+
+textarea.inpt
+	+wh(650px,70px)
+	padding-bottom: 10px
+	background-color: #fff
+	text-align: left
+.ml
+	margin-left: auto
+[name='pass'],
+[name='cpass']
+	-webkit-text-security: disc
+	&.show
+		-webkit-text-security: none
+page
+	&-content
+		+wh(100%,500px)
+		transform: translateY(-1px)
+		border: 1px solid $orange
+		padding: 20px
+		z-index: 10
+		grid-area: table
+.page
+	$link: &
+	&-head,&-body
+		height: 100%
+	&-head
+		position: relative
+		padding:	0 5px
+		display: flex
+		flex-wrap: wrap
+		flex-direction: column
+		background: #fff
+		border-radius: 10px
+		z-index: 100
+		&.scrolled
+			box-shadow: 0px 3px 3px rgba(0,0,0,.36)
+	&-body
+		display: grid
+		grid-area: body
+		height: 100%
+		grid-template-areas:	"table table" "pagination pagination"
+		grid-template-rows: min-content
+		overflow-x: scroll
+		&-head
+			display: flex
+			align-items: center
+			justify-content: space-between
+			.page-inpt
+				margin-top: 0
+		&-in
+			margin-top: 20px
+			&-title
+				font-size: 32px
+	&-form
+		display: grid
+		grid-area: table
+		grid-template-columns: 98%
+		&-row
+			display: flex
+			justify-content: space-between
+			padding: 10px
+			margin-bottom: 5px
+			strong
+				+w(50%)
+				word-break: break-all
+			&:nth-child(odd)
+				background-color: $black
+				color: #fff
+
+		&-right
+			padding: 10px 0px 20px
+		&-inpt
+			+wh(100%,40px)
+			margin-bottom: 10px
+			display: flex
+			justify-content: space-between
+		&-body
+			margin-top: 20px
+	&-title
+		+font(20px,$f_heavy)
+		grid-area: title
+		&:after
+			+af
+			+wh(70px,3px)
+			margin-top: -5px
+			background-color: $red
+	&-subtitle
+		+font(20px,$f_bold)
+		&:after
+			+af
+			+wh(35px,2px)
+			margin-top: 5px
+			background-color: $red
+	&-action
+		grid-area: action
+		display: flex
+		flex-direction: column
+		margin-top: 1em
+		.btn
+			margin-bottom: 1em
+			&:last-child
+				margin-right: 0
+	&-filter
+		+w(100%)
+		border-top: 1px solid $black
+		border-bottom: 1px solid $black
+		margin-top: 20px
+		padding: 0px 0 10px
+		grid-area: filter
+		display: flex
+		flex-wrap: wrap
+		align-items: center
+		justify-content: space-between
+	&-search
+		+w(100%)
+		button
+			margin-left: 5px
+		.page-inpt
+			+w(100%)
+			margin-top: 10px
+			display: flex
+			justify-content: space-between
+	&-btn
+		+bdrs(3px)
+		+wh(40px)
+		background: $violet
+		display: inline-flex
+		align-items: center
+		justify-content: center
+		&:hover
+			background-color: $orange
+	&-check
+		input[type='checkbox']
+			display: none
+			&:checked
+				& ~ label span
+					&:after
+						background-color: $violet
+					&:before
+						left: 55%
+						background-color: $orange
+		label
+			+w(100%)
+			+bdrs(5px)
+			padding: 10px
+			position: relative
+			cursor: pointer
+			display: inline-block
+		strong
+			font-size: 18px
+		span
+			+wh(50px,20px)
+			position: absolute
+			right: 15px
+			&:after,&:before
+				+af
+				transition: .35s ease
+				position: absolute
+				top: 0
+			&:after
+				+wh(100%,15px)
+				+bdrs(50px)
+				right: 0
+				background-color: rgba(#ddd,.5)
+			&:before
+				+bdrs(25px)
+				+wh(25px)
+				z-index: 100
+				left: 0
+				top: -5px
+				background-color: $violet
+	&-inpt,&-text
+		margin-top: 10px
+		input
+			padding-right: 5px
+		&.edit
+			input,textarea,select
+				font-weight: 700
+				border-color: $orange !important
+				color: $black !important
+		span
+			+w(110px)
+			flex: 0 0 110px
+			font-size: 16px
+		span
+			+w(205px)
+			flex: 0 0 205px
+	&-inpt
+		+w(100%)
+		align-items: center
+		&.small
+			+w(65px)
+			span
+				margin-right: 80px
+			input
+				+w(65px)
+				min-width: 65px
+		&.large
+			+w(100%)
+			flex: 0 0 100%
+			max-width: 450px
+			input
+				+w(100%)
+		input,select
+			@extend %inpt
+			&:focus
+				border-color: $orange
+		select
+			+bg(12px 10px,url('../img/select.svg'), no-repeat,95% center)
+			transition: .35s ease
+			-moz-appearance: none
+			-webkit-appearance: none
+			&:hover
+				background-color: rgba($violet,.35)
+	&-text
+		align-items: flex-start
+		textarea
+			@extend %inpt
+			padding: 10px
+			min-height: 80px
+			&:focus
+				border-color: $orange
+	&-table
+		position: relative
+		margin: 20px 0
+		grid-area: table
+		border-collapse: collapse
+		&-actions
+			justify-content: space-around
+			.page-btn
+				margin-right: 5px
+				&:last-child
+					margin-right: 0
+		tr
+			&.success
+				background-color: rgba($green,.5)
+		thead
+			background-color: $black
+			color: #fff
+			th
+				text-align: left
+				height: 50px
+		tbody
+			tr
+				&:nth-child(even)
+					background-color: #ddd
+		td
+			border-top: 0px solid #fff
+			text-align: left
+			img
+				max-height: 50px
+			&>div
+				display: flex
+				align-items: center
+				height: 70px
+				overflow: hidden
+			&:last-child
+				width: 150px
+		td,th
+			padding: 10px
+			&:first-child
+				padding-left: 20px
+			&.digit,.digit
+				justify-content: center
+				text-align: center
+
+	&-do
+		display: flex
+		margin-top: 40px
+	&-list
+		border-top: 1px solid $violet
+		border-bottom: 1px solid $violet
+		margin:  1em 0
+		padding:  1em 0
+		position: relative
+		&-sub
+			margin-top: 0
+		li
+			margin-bottom: 5px
+			&:hover>button
+					border-color: transparent
+			&:before
+				+af("—")
+				color: $violet
+				display: inline-block
+			button
+				transition: .35s ease
+				border-bottom: 1px solid $violet
+	&-pagination
+		grid-area: pagination
+		display: flex
+		justify-content: center
+		align-items: center
+		height: 45px
+		margin: auto auto 20px
+		strong
+			margin: 0 15px
+		button
+			+wh(30px)
+		input
+			+bdrs(3px)
+			+wh(50px,40px)
+			text-align: center
+			border: 1px solid $violet
+.lang
+	&-dropdown
+		+bg(12px 10px,url('../img/select.svg'), no-repeat,95% center)
+		height: 40px
+		padding-right: 20px
+		-moz-appearance: none
+		-webkit-appearance: none
+		margin-left: auto
+		position: fixed
+		top: 50px
+		right: 10px
+		z-index: 1003
+		transform: translateX(600%)
+
+log
+	+wh(300px,100px)
+	+bdrs(0 50px 0 0)
+	border: 2px solid $black
+	position: fixed
+	z-index: 1000000
+	top: 5px
+	right: 5px
+	padding: 20px
+	display: flex
+	flex-direction: column
+	align-items: flex-start
+	justify-content: center
+	background-color: #fff
+	color: $black
+	&:after
+		+wh(27px,34px)
+		+af
+		position: absolute
+		right: 9px
+		top: 32px
+	&.warning
+		border-color: $yellow
+		&:after
+			+bg(100%,url('../img/warning.png'))
+	&.success
+		border-color: $green
+		&:after
+			+bg(100%,url('../img/success.png'))
+	&.error
+		border-color: $red
+		&:after
+			+bg(100%,url('../img/error.png'))
+	&-cont
+		overflow: scroll
+		position: fixed
+		z-index: 9999
+		top: 5px
+		right: 5px
+	&-head,&-body
+		max-width: 235px
+		display: block
+		overflow: hidden
+	&-head
+		+font(18px,$f_bold)
+	&-body
+		max-height: 40px
+		overflow: hidden
+		margin-top: 7px
+		font-size: 12px
+.log
+	log-body
+		margin-top: 0
+	&-table
+		&-date
+			+w(100px)
+		&-title
+			width: 340px
+		&-description
+			width: 400px
+		&-type
+			+w(150px)
+	&-button
+		position: absolute
+		top: -6px
+		left: -8px
+	&-span
+		display: block
+		max-height: 55px
+		overflow: hidden
+.page-table tbody tr.log-status
+	&-error,&-success
+		color: #fff
+	&-error
+		background-color: $red
+	&-success
+		background-color: $green
+	&-warning
+		background-color: $yellow
+	&-error,&-warning,&-success
+		.page-btn
+			background-color: transparent
+			border: 1px solid #fff
+		.page-btn:hover
+			background-color: $orange
+			border: none
+		td
+			text-align: left
+			padding-left: 10px
+
+.rights
+	&-head
+		grid-column: span 2
+	&-in
+		display: grid
+		grid-area: table
+	&-pages
+		+w(100%)
+		display: grid
+		grid-template-columns: 1fr 1fr
+		grid-gap: 0px 1%
+		margin-top: 20px
+		border-top: 1px solid $violet
+		border-bottom: 1px solid $violet
+		padding: 20px
+		position: relative
+		&:after
+			+af
+			+wh(1px,90%)
+			background-color: $violet
+			position: absolute
+			top: 0
+			bottom: 0
+			left: 0
+			right: 0
+			margin: auto
+		li
+			padding-bottom: 10px
+			&:nth-child(odd)
+				padding-right: 0%
+			&:hover
+				label
+					background-color: rgba($violet,.5)
+			input[type='checkbox']
+				display: none
+				&:checked
+					& ~ label span
+						&:after
+							background-color: $violet
+						&:before
+							left: 55%
+							background-color: $orange
+			label
+				+w(100%)
+				+bdrs(5px)
+				padding: 10px
+				position: relative
+				cursor: pointer
+				display: inline-block
+			strong
+				font-size: 18px
+			span
+				+wh(50px,20px)
+				position: absolute
+				right: 15px
+				&:after,&:before
+					+af
+					transition: .35s ease
+					position: absolute
+					top: 0
+				&:after
+					+wh(100%,15px)
+					+bdrs(50px)
+					right: 0
+					background-color: rgba(#ddd,.5)
+				&:before
+					+bdrs(25px)
+					+wh(25px)
+					z-index: 100
+					left: 0
+					top: -5px
+					background-color: $violet
+.docs
+	padding: 20px
+	&-module
+		margin-top: 20px
+		&-body
+			display: flex
+		&-right
+			p
+				padding: .5em 0
+			hr
+				border: none
+				margin-top: .5em
+				height: 1px
+				background-color: $orange
+		&-left
+			padding: 20px 0
+			margin-right: 5%
+			h4
+				+font(20px,$f_heavy)
+				text-transform: uppercase
+			ul
+				margin: .25em 0 1em
+		&-event
+			margin-top: 1em
+			h3
+				+font(22px,$f_bold,#fff)
+				padding: 5px 10px
+				display: inline-block
+				background-color: $violet
+			&-title
+				+font(20px,$f_bold)
+			&-desc
+				h4
+					+font(18px,$f_bold)
+					margin: 1em 0 .25em
+				ul
+					strong,i
+						+font(16px,$f_bold)
+						color: $orange
+					span
+						color: $black
+					i
+						color: $blue
+				code
+					display: block
+					padding: 10px
+					background-color: $blue
+					color: #fff
+					white-space: pre
+
+		h2
+			+font(40px,$f_heavy,#fff)
+			display: inline-block
+			background-color: $violet
+			padding: 10px
+			margin-bottom: 10px
+		ul
+			list-style: disc
+			color: $orange
+			padding-left: 40px
+			li
+				border: 2px solid $black
+				padding: 10px
+				margin-bottom: .5em
+#fileUpload
+	display: none
+.filer
+	&-panels
+		display: flex
+		justify-content: space-between
+		grid-area: table
+	&-loader
+		+wh(100%)
+		background-position: center
+		background-size: 100%
+		background-color: rgba(#fff,.5)
+		background-image: url(https://miro.medium.com/max/800/1*CsJ05WEGfunYMLGfsT2sXA.gif)
+		display: flex
+		align-items: center
+		justify-content: center
+		position: absolute
+		top: 0
+		left: 0
+	&-panel
+		+w(100%)
+		&-actions
+			grid-area: action
+			display: flex
+			align-items: center
+			justify-content: space-between
+			margin-top: 1em
+		&-path
+			+wh(90%,35px)
+			display: flex
+			align-items: center
+			font-size: 14px
+			padding-left: 10px
+			border-bottom: 1px solid $black
+			&-bread
+				+bdrs(3px)
+				position: relative
+				padding: 3px 8px
+				background-color: $violet
+				color: #fff
+				margin-right: 15px
+				&.home
+					+wh(20px)
+					background: url('../img/home.svg') no-repeat
+					background-size: cover
+				&:after
+					+af('/')
+					position: absolute
+					top: 5px
+					right: 5px
+					transform: translateX(15px)
+					color: #000
+		&-body,&-head
+			margin-top: 10px
+		&-body
+			min-height: 300px
+			border: 1px solid transparent
+			display: flex
+			flex-wrap: wrap
+		&-item
+			+wh(100px,120px)
+			position: relative
+			overflow: hidden
+			margin: 0 10px 10px 0
+			padding: 10px
+			display: flex
+			flex-direction: column
+			align-items: center
+			justify-content: center
+			cursor: pointer
+			border: 1px solid transparent
+			$link: &
+			&:hover,&.active
+				//border: 1px solid $blue
+				#{$link}-actions
+					opacity: 1
+					transform: translateY(0)
+			span
+				+w(100%)
+				font-size: 12px
+				text-align: center
+				display: BLOCK
+				overflow: hidden
+				white-space: nowrap
+				text-overflow: ellipsis
+			&-actions
+				position: absolute
+				transition: .35s ease
+				top: 0
+				left: 0
+				transform: translateY(-100%)
+				opacity: 0
+			&-action
+				+wh(20px)
+				+bdrs(5px)
+				margin-right: 5px
+				background-color: $violet
+				background-repeat: no-repeat
+				background-position: center
+				color: #fff
+				&:last-child
+					margin-right: 0
+				&:hover
+					background-color: $orange
+				&.delete
+					background-image: url('../img/delete.svg')
+			&-img
+				+dfc
+				height: 80px
+				flex-direction: column
+				img
+					+w(50px)
+					max-height: 100%
+			&-progress
+				position: absolute
+				+wh(80%,10px)
+				+bdrs(5px)
+				overflow: hidden
+				box-shadow: 0 0 5px rgba(0,0,0,.5) inset
+				background-color: rgba(#ddd,.5)
+				b
+					+wh(0%,100%)
+					transition: .10s linear
+					position: absolute
+					background-color: forestgreen
+
+	&-action
+		+wh(30px)
+		display: inline-block
+		transition: .35s ease
+		margin: 0 5px
+		&:hover
+			transform: scale(1.1)
+		&:active
+			transform: translateY(0px) scale(1)
+		&.upload
+			+bg(100%,url('../img/filer/upload.svg'))
+		&.update
+			+bg(100%,url('../img/filer/update.svg'))
+		&.newfolder
+			+bg(100%,url('../img/filer/newfolder.svg'))
+
+.context
+	&-shadow
+		+wh(100%)
+		position: fixed
+		z-index: 999998
+		top: 0
+		left: 0
+.dn
+	display: none
+.bg-red
+	background-color: $red
+.bg-green
+	background-color: $green
+.bg-blue
+	background-color: $blue

@@ -1,0 +1,551 @@
+extends template/main
+append vars
+    -
+        page_title = 'Документация'
+
+block content
+    .docs
+        h1.page-title Документация G-Engine v0.1
+        .docs-module
+            h2.docs-title Общее описание системы
+            hr
+            .docs-module-body
+                .docs-module-left
+                    h4
+                     a(href='#') Структура папок
+                    h4
+                     a(href='#') Основные компоненты
+                    h4
+                     a(href='#') Общее описание
+                .docs-module-right
+                    .docs-module-event
+                        .docs-module-event-desc
+                            h3.docs-module-event-title Общее описание
+                            hr
+                            p
+                                | Система базируется на паттерне проектирования MVC<br> и PubSub вместо Observer
+                                | Есть главный загрузочный файл boot.js - он подлючается к index.php
+                                |
+                    .docs-module-event
+                        .docs-module-event-desc
+                            h3.docs-module-event-title Структура папок
+                            hr
+                            p
+                                | Ядро системы находится в папке /workspace/
+                            hr
+                            h4
+                                | Папка workspace <br>
+                            p
+                                | /css - Стили системы<br>
+                                | /img - Иконки системы<br>
+                                | /front - Компоненты и библиотеки системы
+                            hr
+                            h4
+                                | Папка front <br>
+                            p
+                                | /components - JS Компоненты системы<br>
+                                | /core - PHP ядро системы<br>
+                                | /libs - Библиотеки JS<br>
+                                | /boot.js - Инициализация системы
+                    .docs-module-event
+                        .docs-module-event-desc
+                            h3.docs-module-event-title Основные компопенты
+                            hr
+                            h4
+                                |  /workspace/front/main
+                            hr
+                            p
+                                | /Module.js - Сборочный файл для подключения вида контроллера и данных в компонент<br>
+                                | /Ctrl.js - Контроллер компонента<br>
+                                | /View.js - Вид компонента<br>
+                                | /Model.js - Данные компонента<br>
+                            hr
+
+        .docs-module
+            h2.docs-title Модуль родитель
+            hr
+            .docs-module-body
+                .docs-module-left
+                    h4
+                        a(href='#') Модуль
+                    h4
+                        a(href='#') Вид
+                    h4
+                        a(href='#') Контроллер
+                    h4
+                        a(href='#') Модель
+                .docs-module-right
+                    .docs-module-event
+                        h3.docs-module-event-title Модуль
+                        .docs-module-event-desc
+                            h4 Свойства
+                            h4 Методы
+                            ul
+                                - let methods = [{'name':'remove','desc':" - Удаление данных после отключения модуля"},{name:'init',desc:' - Инициализация модуля'}]
+                                each method in methods
+                                    li
+                                        strong!= method['name']
+                                        span!=method['desc']
+                    .docs-module-event
+                        h3.docs-module-event-title Вид
+                        .docs-module-event-desc
+                            h4 События триггера:
+                            ul
+                            h4 Свойства
+                            ul
+                                li
+                                    strong this.actions
+                                    span
+                                        | - Объект со поля которого это название действие, а значение массив действий н-р
+                                        code
+                                            | this.actions['click'] = ['prevPage','goPage','nextPage'];
+                            h4 Методы
+                            ul
+                                -
+                                    methods = [{
+                                        'name': 'triggerWithEvent(eventData,currentAction)',
+                                        'desc': ` - Обработка события, которое не имеет возможности всплытия<br>
+                                        <i>eventData</i> - Объект с 2умя полями item и event<br>
+                                        <i>item</i> - Элемент на котором было совершено действие<br>
+                                        <i>event</i> - Информация о событии
+                                    `
+                                    }, {name: 'init', desc: ' - Инициализация модуля'},
+                                       {name:'clearBody(cont) *',desc:' - Очистка контейнера page-body на странице'},
+                                        {name:'clearCont(cont)',desc:` - Очистка любого контейнера<br>
+                                          <i>cont</i> - Контейнер который надо очистить
+                                        `},
+                                        {name:'getDataAttr(elem,dataName)',desc:` - <br>
+                                            <i>elem</i>  - HTML элемент с которого надо считать атрибут<br>
+                                            <i>dataName</i> - Название атрибута, которое надо считать
+                                        `},
+
+                                        {name:'makeId',desc:' - Создание уникального идентификатора'},
+                                        {name:'createEl(elemName,className,params)',desc:' - '},
+                                        {name:'createTpl(tpl,tplName="")',desc:` - Создание шаблона по определённому объекту<br>
+                                          <i>tpl</i> - Шаблон пример: <br>
+                                          <code>
+                                               <b>let tpl = {</b>
+                                                  <b data-tab="1">el: document.createDocumentFragment(),</b>
+                                                  <b>childes:[</b>
+                                                    <b>{</b>
+                                                      <b>el: _.createEl('DIV','test',{"data-id":1})</b>
+                                                    <b>}</b>
+                                                  <b>]</b>
+                                               <b>}</b>
+                                          </code>
+                                        <i>tplName</i> - уникальное имя шаблона
+                                        `},
+
+                                        {name:'setDataAttr(elem,dataName,dataValue="")',desc:` -
+                                            Присвоение атрибута HTML элементу<br>
+                                            <i>elem</i>  - HTML  элемент, которому надо присвоить новый data атрибут<br>
+                                            <i>dataName</i> - Название data атрибута<br>
+                                            <i>dataValue</i> - Значение data атрибута, по умолчанию пустая строка
+                                        `},
+                                        {name:'updateEl(elem,className,params)',desc:` -
+                                            Обновление уже существующего HTML элемента<br>
+                                            <i>elem</i>  - HTML  элемент, у которого надо поменять контент и атрибуты<br>
+                                            <i>className</i> - Новое значение свойства class<br>
+                                            <i>params</i> - Различные атрибуты, которые надо добавить элементу
+                                        `},
+                                        {name:'loadPagination(paginationData)',desc:` -
+                                            Заполнение пагинации на странице<br>
+                                            <i>paginationData</i> - Объект с 2-умя полями<br>
+                                            cnt  - какую страницу надо отобразить<br>
+                                            tableClass  - для какой таблицы отобразить пагинацию<br>
+                                            perPage - количество элементов на странице
+                                        `},
+                                        {name:'tableRowsTpl(itemsData)',desc:` -
+                                            Заполнение контента таблицы<br>
+                                            <i>itemsData</i> - Объект с 2-умя и более полями<br>
+                                            page  - какую страницу надо отобразить<br>
+                                            [items]  - строки которые надо отрисовать<br>
+                                            tableClass  - для какой таблицы отрисовать строки<br>
+                                            type  - Тип отрисовки строк
+                                              main='Общий вид',search = 'Строки поиска',filter = 'Отфильтрованные строки'<br>
+                                        `},
+                                        {name:'tableTpl(pageData = {})',desc:` -
+                                            Шаблон таблицы
+                                        `},
+                                        {name:'tableRowTpl',desc: ` -
+                                            Шаблон строки таблицы
+                                        `},
+                                        {name:'formTpl',desc:' - Шаблон формы'},
+                                        {name:'paginationTpl(paginationData,pages)',desc:` -
+                                            Шаблон пагинации<br>
+                                            <i>paginationData</i> - Объект с 1-им полем<br>
+                                            pages = число страниц, по отработанному запросу
+                                        `},
+
+                                    ]
+                                each method in methods
+                                    li
+                                        strong!= method['name']
+                                        span!=method['desc']
+                    .docs-module-event
+                        h3.docs-module-event-title Контроллер
+                        .docs-module-event-desc
+                            h4 События триггера:
+                            ul
+                            h4 Свойства
+                            ul
+                                li
+                                    strong this.actions
+                                    span
+                                        | - Объект со поля которого это название действие, а значение массив действий н-р
+                                        code
+                                            | this.actions['click'] = ['prevPage','goPage','nextPage'];
+                                li
+                                    strong this.container
+                                    span.
+                                        - Ссылка на главный HTML контейнер системы (&lt;core>&lt;/core>)
+                                li
+                                    strong this.view
+                                    span
+                                        | - Ссылка на вид текущего компонента
+                                li
+                                    strong this.model
+                                    span
+                                        | - Ссылка на модель текущего компонента
+
+                            h4 Методы
+                            ul
+                                -
+                                    methods = [{
+                                        'name': 'triggerWithEvent(eventData,currentAction)',
+                                        'desc': ` - Обработка события, которое не имеет возможности всплытия<br>
+                                                                <i>eventData</i> - Объект с 2умя полями item и event<br>
+                                                                <i>item</i> - Элемент на котором было совершено действие<br>
+                                                                <i>event</i> - Информация о событии
+                                                            `
+                                    }, {name: 'clickHandler', desc: ` - Обработчик кликов<br>
+                                         <i>e</i> - Объект события
+                                    `}, {
+                                        name: 'focusOutHandler', desc: ` - Обработчик потери фокуса<br>
+                                             <i>e</i> - Объект события
+                                        `
+                                    }, {
+                                        name: 'changeHandler', desc: ` - Обработчик смены значение в элементах формы<br>
+                                        <i>e</i> - Объект события`
+                                    }, {
+                                        name: 'inputHandler', desc: ` - Обработчик ввода данных<br>
+                                        <i>e</i> - Объект события
+                                                                        `
+                                    }, {
+                                        name: 'keyUpHandler', desc: ` - Обработчик отпускания клавишы после нажатия<br>
+                                        <i>e</i> - Объект события
+                                                                        `
+                                    }, {
+                                        name: 'submitHandler', desc: ` - Обработчик отправки формы<br>
+                                        <i>e</i> - Объект события
+                                                                        `
+                                    }, {
+                                        name: 'scrollHandler', desc: ` - Обработчик прокрутки элемента<br>
+                                        <i>e</i> - Объект события
+                                                                        `
+                                    }, {
+                                        name: 'overHandler', desc: ` - Обработчик наведения на элемент<br>
+                                                                             <i>e</i> - Объект события
+                                                                        `
+                                    }, {
+                                        name: 'outHandler', desc: ` - Обработчик ухода мышы с элемента<br>
+                                        <i>e</i> - Объект события
+                                                                        `
+                                    }, {
+                                        name: 'handle', desc: ` - Собирает все обработчики в одну функцию  `
+                                    }
+
+                                    ]
+                                each method in methods
+                                    li
+                                        strong!= method['name']
+                                        span!=method['desc']
+                    .docs-module-event
+                        h3.docs-module-event-title Модель
+                        .docs-module-event-desc
+                            h4 События триггера:
+                            ul
+                            h4 Свойства
+                            ul
+                                li
+                                    strong this.xhr
+                                    span
+                                        | - Объект для работы с AJAX запросами
+                                li
+                                    strong this.dirPath
+                                    span
+                                        | - Путь до папки компонентов
+
+                            h4 Методы
+                            ul
+                                -
+                                    methods = [{
+                                        'name': 'handler(data,method = "GET")',
+                                        'desc': ` - Общий обработчик всех обращений к бд<br>
+                                        <i>data</i> - Объект с 3умя обязательными полями componentName и method<br>
+                                        componentName - Указывает имя модуля к которому обращаться в базе<br>
+                                        method - Имя файл обработки текущего действия
+                                        <i>method</i> - Тип запроса к серверу GET,POST,JSON<br>
+                                                                                    `
+                                    }, {
+                                        name: 'fileUpload(path,fileName,file)', desc: ` -Загрузка файла на сервер<br>
+                                             <i>path</i> - Путь куда загружать
+                                             <i>fileName</i> - Имя файла, которое будет на сервере
+                                             <i>file</i> - Файл, который надо загрузить
+                                        `
+                                    }
+
+                                    ]
+                                each method in methods
+                                    li
+                                        strong!= method['name']
+                                        span!=method['desc']
+        .docs-module
+            h2.docs-title Модуль User
+            hr
+            .docs-module-body
+                .docs-module-left
+                    h4
+                        a(href='#') Модуль
+                    h4
+                        a(href='#') Вид
+                    h4
+                        a(href='#') Контроллер
+                    h4
+                        a(href='#') Модель
+
+                .docs-module-right
+                    .docs-module-event
+                        h3.docs-module-event-title Модуль
+                        .docs-module-event-desc
+                            h4 Свойства
+                    .docs-module-event
+                        h3.docs-module-event-title Вид
+                        .docs-module-event-desc
+                            h4 События подписки:
+                            ul
+                                li
+                                    strong User: showMoreInfo
+                                    span
+                                li
+                                    strong User: loadTableBody
+                                    span
+                                li
+                                    strong User: loadName
+                                    span
+                                li
+                                    strong User: showForm
+                                    span
+                                li
+                                    strong User: backToTable
+                                    span
+                            h4 События триггера:
+                                ul
+                                    li
+                                        strong User: getName
+                                        span
+                                    li
+                                        strong Languager: loadTranslate
+                                        span
+                                    li
+                                        strong User: getRows
+                            h4 Свойства
+                            ul
+                                li
+                                    strong modulePage
+                                    span - Родная страница модуля
+                                li
+                                    strong moreShowed
+                                    span - Показан / скрыт профиль пользователя
+                                li
+                                    strong componentName
+                                    span - Название компонента
+                            h4 Методы
+                            ul
+                                li
+                                    strong showMoreInfo -
+                                    span Показывает профиль пользователя
+                                li
+                                    strong loadName -
+                                    span Загружает имя пользователя из БД
+        .docs-module
+            h2.docs-title Модуль Logs
+            hr
+            .docs-module-body
+                .docs-module-left
+                    h4
+                        a(href='#log-module') Модуль
+                    h4
+                        a(href='#log-view') Вид
+                    h4
+                        a(href='#log-ctrl') Контроллер
+                    h4
+                        a(href='#log-model') Модель
+                .docs-module-right
+                    .docs-module-event
+                        h3.docs-module-event-title#log-module Модуль
+                        .docs-module-event-desc
+                            h4 События подписки:
+                            ul
+                                li
+                                    strong Model: getSetting
+                                    span
+                            h4 Свойства:
+                            ul
+                                li
+                                    strong componentName
+                                    span - Название модуля
+                    .docs-module-event
+                        h3.docs-module-event-title#log-view Вид
+                        .docs-module-event-desc
+                            h4 События подписки:
+                            ul
+                                li
+                                    strong View: showPopup
+                                    span
+                                li
+                                    strong View: pauseToLog
+                                    span
+                                li
+                                    strong View: continueToLog
+                                    span
+                                li
+                                    strong View: closeLog
+                                    span
+                                li
+                                    strong View: closeLogByBtn
+                                    span
+                                li
+                                    strong View: loadTableBody
+                                    span
+                                li
+                                    strong View: loadTablePagination
+                                    span
+                            h4 События триггера:
+                            ul
+                                li
+                                    strong View: closeLog
+                                li
+                                    strong View: continueToLog
+                            h4 Свойства:
+                            ul
+                                li
+                                    strong modulePage
+                                    span  - Родная страница модуля
+                                li
+                                    strong componentName
+                                    span  - Название модуля
+                                li
+                                    strong top
+                                    span
+                                li
+                                    strong offsetTop
+                                    span
+                                li
+                                    strong times
+                                    span
+                                li
+                                    strong negativeOffset
+                                    span
+                                li
+                                    strong timeToAnim
+                                    span  - Время анимации
+                            h4 Методы:
+                            ul
+                                li
+                                    strong doOffset
+                                    span  - Сдвигает поп-ап окна вниз
+                                li
+                                    strong closePopup
+                                    span  - Закрывает и удаляет поп-ап окно
+                                li
+                                    strong pauseToLog
+                                    span  - Останавливает удаление поп-ап окон при наведении на окно
+                                li
+                                    strong continueToLog
+                                    span  - Запускает удаление поп-ап окон по времени при уберании курсора с окна
+                                li
+                                    strong hasPrevPopup
+                                    span  - Проверяет есть ли предыдущий поп-ап
+                                li
+                                    strong getPrevPopup
+                                    span  - Возвращает предыдущий поп-ап
+                                li
+                                    strong closeByButton
+                                    span  - Запускает удаление поп-ап окна по кнопке
+                                li
+                                    strong beginToClose
+                                    span  - Запускает удаление поп-ап окна
+                                li
+                                    strong showPopup
+                                    span  - Управляет методами вида
+                    .docs-module-event
+                        h3.docs-module-event-title#log-ctrl Контроллер
+                        .docs-module-event-desc
+                            h4 События подписки:
+                            ul
+                                li
+                                    strong Ctrl: showLog
+                                    span
+                                li
+                                    strong Ctrl: getRows
+                                    span
+                                li
+                                    strong Ctrl: deleteLog
+                                    span
+                                li
+                                    strong Ctrl: getPagesCnt
+                                    span
+                            h4 События триггера:
+                            ul
+                                li
+                                    strong View: showPopup
+                                    span - Добавляет доп данные к логу( звук, статус, временную метку
+                                li
+                                    strong Model: saveLog
+                                    span - Сохраняет лог в базу
+                            h4 Свойства:
+                            ul
+                                li
+                                    strong componentName
+                                    span  - Название модуля
+                            h4 Методы:
+                            ul
+                                li
+                                    strong showLog
+                                    span  - Добавляет доп данные к логу( звук, статус, временную метку)
+                                li
+                                    strong getPagesCnt
+                                    span
+                    .docs-module-event
+                        h3.docs-module-event-title#log-model Модель
+                        .docs-module-event-desc
+                            h4 События подписки:
+                            ul
+                                li
+                                    strong Model: saveLog
+                                    span
+                                li
+                                    strong Settings: sendSetting
+                                    span
+                            h4 События триггера:
+                            ul
+                                li
+                                    strong Model: setSetting
+                                    span
+                            h4 Свойства:
+                            ul
+                                li
+                                    strong componentName
+                                    span  - Название модуля
+                            h4 Методы:
+                            ul
+                                li
+                                    strong acceptSettings
+                                    span  - Принимает настройки, если они есть или заливает на сервер, если их нет
+                                li
+                                    strong saveLog
+                                    span  - Сохраняет логи на сервере
+                                li
+                                    strong getTableItems
+                                    span  - Запрашивает сохраненные в local Storage логи

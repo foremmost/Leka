@@ -1,0 +1,18 @@
+:php
+	session_start();
+
+include  vars
+include ../../../../../core/mixins/mixins
+include ../data/data
+doctype html
+html(lang='ru')
+	include  style
+	body
+		core
+			include header
+			block main
+				block aside
+				block content
+
+			include footer
+		+inc('js','front/boot.js')(type='module')

@@ -1,0 +1,26 @@
+$unit: 'px'
+.section
+	+w($tablet#{$unit})
+.page
+	&-action
+		div[class$="-action"],button[class$="-action"],button
+			margin-right: 1em
+	&-form
+		&-left,&-right
+			position: relative
+			&:after
+				+af
+				+wh(1px,100%)
+				max-height: 650px
+				background-color: $violet
+				top: 0
+				right: 0
+				position: absolute
+	&-do
+		.btn
+			margin-right: 15px
+	&-action
+		flex-direction: row
+		margin-left: auto
+	&-list
+		border: 0

@@ -1,0 +1,64 @@
+$unit: 'px'
+.section
+  +w($tablet-large#{$unit})
+.lang
+	&-dropdown
+		position: static
+		transform: translateX(0)
+core
+	&-content
+		overflow: auto
+.core
+	&-in
+		display: grid
+		padding: 34px 28px
+		grid-template-columns: 7.5% 92.5%
+	&-head
+		margin-left: 40px
+	&-content
+		margin: 44px 0 0 40px
+		display: grid
+		grid-template-areas:  "tabs tabs" "head head" "body body"
+		grid-template-rows: 0 14% 86%
+		align-items: flex-start
+		&.wf
+			grid-template-rows: 0 14% 86%
+.page
+	$link: &
+	&-title
+		font-size: 62px
+	&-form
+		grid-template-columns: 20% 80%
+		&-right
+			padding-left: 5px
+		&-left
+			padding-left: 10px
+			padding-right: 10px
+	&-inpt,&-text
+		margin-top: 20px
+		span
+			font-weight: 700
+	&-inpt
+		span,input
+			display: block
+		input
+			+wh(300px,40px)
+	&-text
+		display: block
+		textarea
+			display: block
+		textarea
+			+wh(400px,100px)
+			max-width: 90%
+			resize: none
+	&-head
+		display: grid
+		grid-area: head
+		grid-template-areas: "title filter filter action"
+	&-filter
+		align-items: flex-end
+		.page-search
+			+w(40%)
+	&-search
+		.page-inpt
+			flex-wrap: nowrap

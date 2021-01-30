@@ -1,0 +1,51 @@
+body
+	&.dark
+		background-color: #28292E
+		color: #fff
+		.form-inpt-title,.form-inpt,.page-pagination input,.lang-dropdown,.docs-module-event-desc ul span
+			color: #fff
+		.page-table tbody tr:nth-child(even),.page-table tbody tr textarea,.lang-dropdown option
+			color: $black
+		core-content,core-head,core-menu,.user-more-play,menu-item,.inpt, .page-inpt input, .page-inpt select, .page-text textarea
+			border: 1px solid  #3f51b5
+			color: #fff
+			&::placeholder
+				color: #aaa
+		.page-filter
+			border-top: 1px solid $violet
+			border-bottom: 1px solid $violet
+		core-head,core-menu
+			+bdrs(5px)
+			box-shadow: 0 3px 5px rgba($black,.6)
+			padding: 10px
+		core-content,.page-head
+			background-color: $black
+		.core-in
+			padding: 10px
+		.page-table thead
+			background-color: #F7F9FF
+			color: $black
+		button
+			color: #fff
+		.page-inpt
+			option
+				color: $black
+			input,select
+				color: #fff
+				&::placeholder
+					color: #aaa
+
+		user-role span
+			color: rgba($red,.75)
+		.btn,.user-more-btn,.page-btn,.rights-pages li input[type='checkbox']:checked ~ label span:before
+			background-color: #3f51b5
+		.btn
+			&:hover
+				background-color: rgba($orange,.85)
+				color: #fff
+		.rights-pages li input[type='checkbox']:checked ~ label span:after
+			background-color: rgba($red,.75)
+		.page-btn
+			transition: .35s ease
+		.page-btn:hover
+			background-color: $orange

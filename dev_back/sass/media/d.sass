@@ -1,0 +1,48 @@
+$unit: 'px'
+.section
+	+w($desktop#{$unit})
+@keyframes btnMove
+	0%
+		transform: translateX(0)
+	100%
+		transform: translateX(10px) scale(.95)
+.core
+	&-in
+		padding: 20px 10px
+html
+	overflow: hidden
+core
+	&-content
+	 padding: 5px
+	 max-height: calc(100vh - 155px)
+	 margin-top: 0
+	&-tabs
+		left: initial
+		top: initial
+		right: 0
+		bottom: 0px
+		&-item
+			cursor: pointer
+			padding: 10px
+			font-size: 14px
+.page
+	&-body,&-head
+		height: initial
+	&-body
+		overflow-x: hidden
+		margin-top: 10px
+		padding: 0 5px
+		&-filter
+			margin-top: 0
+			.page-inpt
+				margin-top: 0
+	&-form
+		&-right
+			padding-top: 0
+.modal
+	&-form
+		+w(500px)
+		padding-right: 10px
+		.page-inpt.edit,.page-text.edit
+			input,textarea,select
+				color: $red !important

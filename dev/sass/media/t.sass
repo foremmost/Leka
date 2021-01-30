@@ -64,9 +64,9 @@ aside
 						max-height: 188px
 		
 .main-slider,.services-banner
-	min-height: 450px
-	max-height: 600px
 	.slide
+		min-height: 450px
+		max-height: 600px
 		&-title
 			font-size: 48px
 			margin-bottom: 30px
@@ -177,7 +177,7 @@ aside
 
 .partners
 	.slide
-		@extend %dfi-t
+		@extend %dfa-t
 		padding: 50px 0
 		&-logo,&-info
 		&-info
@@ -627,6 +627,8 @@ aside
 			margin-bottom: 5px
 			&:last-child
 				margin-bottom: 0
+	&-bottom
+		background-color: rgba($button-lightblue,.8)
 	&-cut
 		.right
 			&-half

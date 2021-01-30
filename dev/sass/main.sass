@@ -2,7 +2,8 @@
 @import "../../../../core/mixins/mixins"
 @import "vars"
 $font_body: var(--fontsize-body)
-+font_inc('Open-Sans','Open-Sans.ttf')
++font_inc('Open-Sans','OpenSans-Regular.ttf')
++font_inc('OpenSans-Bold','OpenSans-Bold.ttf')
 +font_inc('RobotoMono-Regular','RobotoMono-Regular.ttf')
 +font_inc('ProximaNova-Regular','ProximaNova-Regular.woff2')
 +font_inc('ProximaNova-Bold','ProximaNova-Bold.woff2')
@@ -26,7 +27,8 @@ button,input[type='button'],label
 	cursor: pointer
 
 $unit: 'px'
-
+@import "components/consultant"
+@import "components/slider"
 @import "media/m"
 +mq(460px)
 	@import "media/ml"
@@ -38,10 +40,10 @@ $unit: 'px'
 	@import "media/d"
 //+mq($desktop-large#{$unit})
 	@import "media/dl"
-	
+
 html
 	///*--==[ Прозрачность]==--*/
-	
+
 	///*--==[ Цвета ]==--*/
 	--mobile-width: calc(100% - 20px)
 	--mobile-large-width: 460px
@@ -56,23 +58,23 @@ html
 	--light-gray: 242,247,255
 	--gray: 56,56,56
 	--foot-bgc: 34,34,34
-	
+
 	--form-subtitle: 110,113,145
 	--form-placeholder: 218,218,218
 	--form-block: 240,240,240
 	--form-bgc: 209,209,209
-	
+
 	--button-blue: 20,128,255
 	--button-darkblue: 17,112,222
 	--button-lightblue: 43,129,231
 	--price-blue: 34,92,117
-	
+
 	--slide-bgc: 236,237,239
-	
+
 	--arrow: 189,189,189
 	--arrow-hover: 11,11,11
 	--border-gray: 24,24,26
-	
+
 	--block-bgc: 251,253,255
 	--form-feedback: 217,234,255
 	// --==[ Размеры ]==--
@@ -82,7 +84,8 @@ html
 	--fbold: 'ProximaNova-Bold'
 	--fsemi: 'ProximaNova-Semibold'
 	--oreg: 'Open-Sans'
+	--obold: 'OpenSans-Bold'
 	--rreg: 'RobotoMono-Regular'
-	
-	
+
+
 	--transition: .35s ease

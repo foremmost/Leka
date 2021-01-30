@@ -1,0 +1,61 @@
+@import "../../../../core/mixins/reset"
+@import "../../../../core/mixins/mixins"
+@import "vars"
+$font_body: 16px
++font_inc($f_reg,'Geometria-Regular.woff2')
++font_inc($f_light,'Geometria-Light.woff2')
++font_inc($f_bold,'Geometria-Bold.woff2')
++font_inc($f_heavy,'Geometria-Heavy.woff2')
+core
+	+wh(100%)
+	&,&-head,&-body,&-foot,&-menu,&-content
+		display: block
+
+html,body
+	min-height: 100vh
+	overflow-x: hidden
+body
+	+wh(100%)
+	+font($font_body,$f_reg,$black)
+	overflow-x: hidden
+
+input,button
+	font-family: inherit
+	font-size: inherit
+
+input,select,textarea
+	font-family: inherit
+	background-color: transparent
+	border: none
+select,option
+	cursor: pointer
+::-webkit-scrollbar
+	width: 5px
+	height: 5px
+::-webkit-scrollbar-track-piece
+	border-radius: 3px
+	background-color: #ddd
+ 
+::-webkit-scrollbar-thumb
+	height: 50px
+	background-color: $orange
+	border-radius: 3px
+$unit: 'px'
+
+//+mq($mobile#{$unit})
+@import "media/m"
++mq($tablet#{$unit})
+	@import "media/t"
++mq($tablet-large#{$unit})
+	@import "media/tl"
++mq($desktop#{$unit})
+	@import "media/d"
++mq($desktop-large#{$unit})
+	@import "media/dl"
+@import "components/menu"
+@import "components/user"
+@import "components/auther"
+@import "components/goods"
+@import "components/customers"
+@import "components/consultant"
+@import "components/categorier"
